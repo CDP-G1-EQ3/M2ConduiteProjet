@@ -48,16 +48,17 @@
     - Un intitulé
     - Une description
     - Un responsable
+    - Un sprint (facultatif)
     - Une valeur (facultatif)
     - Une priorité (facultatif)
 
 - CC-06 : En tant que membre d'un projet, je souhaite pouvoir créer des sprints afin d'y organiser des tâches.
 
-    *Description :* La page de projet doit proposer un onglet Sprints, avec une vue d'ensemble de la complétion de chacun selon les tâches qu'il contient. Les sprints n'ont pas d'intitulé, seulement un numéro incrémental automatique. En cliquant sur un sprint, on est redirigé vers une page de gestion des tâches concernant ce sprint. Voir CC-08.
+    *Description :* La page de projet doit proposer un onglet Sprints, avec une vue d'ensemble de la complétion de chacun selon les issues qu'il contient. Les sprints n'ont pas d'intitulé, seulement un numéro incrémental automatique. En cliquant sur un sprint, on est redirigé vers une page de gestion des tâches concernant ces issues Depuis la page d'un sprint, on doit pouvoir ajouter des issues qui ne sont pas déjà assignées à un sprint. Voir CC-08.
 
 - CC-07 : En tant que membre d'un projet, je souhaite pouvoir créer des tâches faisant référence à des issues et pouvant être dépendantes d'autres tâches afin de concevoir des sprint pour mon projet.
 
-    *Description :* Depuis la page d'un sprint, il doit être possible de cliquer sur une tâche pour afficher toutes ses informations et les actions disponibles. Il y a deux moyens de créer un tâche : Directement depuis une issue, ou bien depuis la page du Sprint. Si on crée la tâche depuis une issue, elle est alors automatiquement rattachée à cette issue, de même pour un Sprint. Il faudra alors assigner la tâche au Sprint ou à l'Issue non renseignée. Les informations nécessaires pour une tâche sont :
+    *Description :* La page d'un sprint liste toutes les tâches associées aux issues du sprint. Il doit être possible de cliquer sur une tâche pour afficher toutes ses informations et les actions disponibles. On peut également cliquer sur une issue du sprint, ce qui affichera le même menu que si l'on était depuis la page des issues. On peut créer une tâche depuis ce menu. Les informations nécessaires pour une tâche sont :
     - Un identifiant unique aux tâches du projet, incrémental (automatique)
     - Un intitulé
     - Une description
@@ -67,7 +68,7 @@
 
 - CC-08 : En tant que membre d'un projet, je souhaite pouvoir organiser les tâches selon leur état de complétion afin de toujours avoir une vue d'ensemble de l'avancée du projet.
 
-    *Description :* Depuis la page d'un sprint, les tâches doivent pouvoir être organisées dans des tableaux définissant l'état d'une tâche. Par défaut, les tableaux présents sont : A faire, En cours, Terminé. Il doit être possible de créer un template de tableaux dans les préférences du projet, qui sera utilisé pour tout nouveau sprint créé.
+    *Description :* Depuis la page d'un sprint, les tâches doivent pouvoir être organisées dans des tableaux définissant leur état. Par défaut, les tableaux présents sont : A faire, En cours, Terminé. Il doit être possible de créer un template de tableaux dans les préférences du projet, qui sera utilisé pour tout nouveau sprint créé.
 
 - CC-09 : En tant que membre d'un projet, je souhaite pouvoir édicter des tests écrits qui pourront être rattachés à des tâches afin de permettre aux développeurs de vérifier que leur travail correspond à ce qui est demandé.
 
