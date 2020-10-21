@@ -84,6 +84,6 @@
 
 - CC-12 : En tant que membre d'un projet, je souhaite pouvoir créer des étiquettes afin de mieux trier les tâches.
 
-    *Description :* Les étiquettes peuvent être attribuées à des tâches, chaque tâche peut avoir zéro, une ou plusieurs étiquettes. Une étiquette contient les informations suivantes :
+    *Description :* Les étiquettes peuvent être attribuées à des tâches (depuis le menu d'étition de la tâche en question), chaque tâche peut avoir zéro, une ou plusieurs étiquettes. Une étiquette contient les informations suivantes :
     - Un titre
     - Une couleur
