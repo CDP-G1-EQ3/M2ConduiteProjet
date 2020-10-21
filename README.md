@@ -11,6 +11,14 @@
     - `/data/img` - Contient les fichiers d'image
 - Base de données MariaDB
 
+## Environnement de travail
+
+- Un dépôt principal `Release`, possédé par l'organisation
+- Un fork par développeur
+    - Une branche par feature
+    - Pull Request acceptée vers release = Feature complète
+    - Plusieurs développeurs sur une feature : Même nom de branche, merge/PR pour synchroniser.
+
 ## Backlog
 
 -
