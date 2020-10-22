@@ -155,3 +155,7 @@
 - CC-18 : En tant qu'utilisateur, je souhaite pouvoir accéder au site web sous forme d'application afin d'avoir plus de liberté quant à mon workflow.
 
     *Description :* Le site web peut être enveloppé dans une application dont le but est simplement de se rendre sur ce site. Cela permettra au développeur non seulement de bénéficier d'une authentification permanente, mais également de dédier un programme au site de collaboration plutôt qu'un simple onglet de navigateur.
+
+- CC-19 : En tant qu'utilisateur, je souhaite pouvoir choisir entre plusieurs thèmes de couleur pour le site afin de prendre de conserver un environnement de travail plus homogène selon mes préférences.
+
+    *Description :* Le site web doit proposer différents thèmes de couleur (notamment clair et sombre), paramétrables depuis les préférences utilisateur de manière persistante à travers les appareils d'accès.
