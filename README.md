@@ -40,7 +40,18 @@
     - Description de projet
     - Membres et leurs permissions *(facultatif, possibilité d'en rajouter ensuite)*
 
-- CC-04 : En tant que créateur d'un projet, je souhaite pouvoir gérer les membres du projet afin de leur attribuer un ou des rôles, en ajouter ou en expulser.
+
+- CC-04 : En tant que membre d'un projet, je souhaite pouvoir consulter la page d'un projet afin d'accéder à ses informations et travailler dessus.
+
+    *Description :* La page d'un projet doit contenir les informations importantes comme le nom du projet, le créateur du projet, sa description, les redirections vers les différentes pages permettant de le gérer. Il doit y avoir plusieurs onglets (à l'horizontale) et la possibilité de rajouter des onglets dans le futur. L'onglet par défaut du projet doit être paramétrable.
+
+
+- CC-05 : En tant qu'administrateur d'un projet, je souhaite avoir accès à des paramètres spéciaux de gestion du projet.
+
+    *Description :* Depuis la page du projet, on doit pouvoir accéder à une page de paramètres. Les différentes catégories de paramètres sont présentées sous forme d'onglets (à la verticale). Les onglets présents seront détaillés dans d'autres issues.
+
+
+- CC-06 : En tant qu'administrateur d'un projet, je souhaite pouvoir gérer les membres du projet depuis un onglet des paramètres afin de leur attribuer un ou des rôles, en ajouter ou en expulser.
 
     *Description :* Le créateur du projet ainsi que ceux en ayant la permission peuvent accéder à la gestion des membres. Des rôles peuvent être créés, supprimés, affectés/désaffectés à des membres, et des permissions leurs sont attribuées. Pour chaque permission, il y a trois modes étant Autorisé/Defaut/Interdit. Si un membre dispose d'au moins un rôle autorisant une action, il peut l'effectuer. Si un membre ne dispose que de Defaut, il peut également l'effectuer. Si un membre dispose d'au moins une Interdiction et zéro ou plus Defaut, il ne peut pas l'effectuer. Les permissions sont :
     - Gestion des membres
@@ -60,7 +71,7 @@
 
     La permission par défaut pour un membre sans rôle est l'interdition de gérer les membres et les permissions, avec le reste en Defaut. Un administrateur dispose de toutes les permissions en Autorisé.
 
-- CC-05 : En tant que membre d'un projet, je souhaite pouvoir créer des issues afin de concevoir un backlog pour mon projet.
+- CC-07 : En tant que membre d'un projet, je souhaite pouvoir créer des issues afin de concevoir un backlog pour mon projet.
 
     *Description :* La page de projet doit proposer un onglet Backlog, d'où les membres pourront gérer les issues. Il doit être possible de cliquer sur une issue pour afficher toutes ses informations et les actions disponibles. Une issue contient les informations suivantes :
     - Un identifiant unique aux issues du projet, incrémental (automatique)
@@ -70,12 +81,14 @@
     - Un sprint (facultatif)
     - Une valeur (facultatif)
     - Une priorité (facultatif)
+  
+    Une issue est par défaut Ouverte, mais elle pourra être fermée par la suite. Depuis l'onglet Backlog, on voit les issues ouvertes groupées en premier par ordre de création ascendante, puis de même pour le groupe des issues fermées.
 
-- CC-06 : En tant que membre d'un projet, je souhaite pouvoir créer des sprints afin d'y organiser des tâches.
+- CC-08 : En tant que membre d'un projet, je souhaite pouvoir créer des sprints afin d'y organiser des tâches.
 
-    *Description :* La page de projet doit proposer un onglet Sprints, avec une vue d'ensemble de la complétion de chacun selon les issues qu'il contient. Les sprints n'ont pas d'intitulé, seulement un numéro incrémental automatique. En cliquant sur un sprint, on est redirigé vers une page de gestion des tâches concernant ces issues Depuis la page d'un sprint, on doit pouvoir ajouter des issues qui ne sont pas déjà assignées à un sprint. Voir CC-08.
+    *Description :* La page de projet doit proposer un onglet Sprints, avec une vue d'ensemble de la complétion de chacun selon les issues qu'il contient. Les sprints n'ont pas d'intitulé, seulement un numéro incrémental automatique. En cliquant sur un sprint, on est redirigé vers une page de gestion des tâches concernant ces issues Depuis la page d'un sprint, on doit pouvoir ajouter des issues qui ne sont pas déjà assignées à un sprint. Les sprints disposent également d'une date limite, le nombre de jours restants est donc affiché pour le sprint en cours, mis en évidence en premier. Les sprints achevés ne sont pas affichés, mais peuvent l'être grâce à une checkbox (toujours dans un ordre chronologique, faisant donc descendre ceux déjà affichés). Les sprints à venir sont indiqués à la suite de celui en cours.
 
-- CC-07 : En tant que membre d'un projet, je souhaite pouvoir créer des tâches faisant référence à des issues et pouvant être dépendantes d'autres tâches afin de concevoir des sprint pour mon projet.
+- CC-09 : En tant que membre d'un projet, je souhaite pouvoir créer des tâches faisant référence à des issues et pouvant être dépendantes d'autres tâches afin de concevoir des sprint pour mon projet.
 
     *Description :* La page d'un sprint liste toutes les tâches associées aux issues du sprint. Il doit être possible de cliquer sur une tâche pour afficher toutes ses informations et les actions disponibles. On peut également cliquer sur une issue du sprint, ce qui affichera le même menu que si l'on était depuis la page des issues. On peut créer une tâche depuis ce menu. Les informations nécessaires pour une tâche sont :
     - Un identifiant unique aux tâches du projet, incrémental (automatique)
@@ -85,24 +98,36 @@
     - Une étiquette (facultatif)
     - Des dépendances avec d'autres tâches (facultatif)
 
-- CC-08 : En tant que membre d'un projet, je souhaite pouvoir organiser les tâches selon leur état de complétion afin de toujours avoir une vue d'ensemble de l'avancée du projet.
+- CC-10 : En tant que membre d'un projet, je souhaite pouvoir organiser les tâches selon leur état de complétion afin de toujours avoir une vue d'ensemble de l'avancée du projet.
 
     *Description :* Depuis la page d'un sprint, les tâches doivent pouvoir être organisées dans des tableaux définissant leur état. Par défaut, les tableaux présents sont : A faire, En cours, Terminé. Il doit être possible de créer un template de tableaux dans les préférences du projet, qui sera utilisé pour tout nouveau sprint créé.
 
-- CC-09 : En tant que membre d'un projet, je souhaite pouvoir édicter des tests écrits qui pourront être rattachés à des tâches afin de permettre aux développeurs de vérifier que leur travail correspond à ce qui est demandé.
+- CC-11 : En tant que membre d'un projet, je souhaite pouvoir configurer des tests automatiques afin de m'assurer que les ajouts proposés fonctionnent ainsi que le reste du projet.
 
-    *Description :* 
+    *Description :* La page de projet doit proposer un onglet Tests, dans lequel il est possible de rajouter une entrée de test et de consulter les tests existants. Un test est un script (bash ou batch) qui permettra de lancer des instructions depuis un environnement, dont le but est de terminer avec le code 0 pour valider que la version du code actuellement testée répond aux critères du test. L'execution de tous ces tests en série permettront de vérifier l'état du code avant d'en accepter l'intégration dans une branche de release.
 
-- CC-10 : En tant que membre d'un projet, je souhaite pouvoir annoter des releases correspondant à un tag ou un hash de commit afin d'effectuer des livraisons.
+- CC-12 : En tant que membre d'un projet, je souhaite pouvoir annoter des releases correspondant à un tag ou un hash de commit afin d'effectuer des livraisons.
 
-    *Description :* 
+    *Description :* La page de projet doit proposer un onglet Releases, dans lequel la release la plus récente est disponible en premier, puis les précédentes sont listées à la suite. Les membres en ayant la permission peuvent également créer une nouvelle release en fournissant les informations suivantes :
+    - Version
+    - Commit hash
+    - Etat (pre-release,stable)
+    - Description / Changelog
+    - La date est déduite de l'heure de création de la release
+    - Fichiers (archives de code source, executables, ...)
 
-- CC-11 : En tant que membre d'un projet, je souhaite pouvoir créer des pages de documentation afin de rédiger certains documents.
+- CC-13 : En tant que membre d'un projet, je souhaite pouvoir créer des documents sous plusieurs formats afin de produire de la documentation et des ressources nécessaires au projet.
 
-    *Description :* 
+    *Description :* La page de projet doit proposer un onglet Documents, dans lequel un espace de stockage en ligne permet l'hébergement ainsi que la consultation de documents variés, ainsi que leur édition. Il doit être possible de créer une arborescence de dossiers et de télécharger tout, ou bien un dossier, sous forme d'archive.
 
-- CC-12 : En tant que membre d'un projet, je souhaite pouvoir créer des étiquettes afin de mieux trier les tâches.
+- CC-14 : En tant que membre d'un projet, je souhaite pouvoir créer des étiquettes afin de mieux trier les tâches.
 
     *Description :* Les étiquettes peuvent être attribuées à des tâches (depuis le menu d'étition de la tâche en question), chaque tâche peut avoir zéro, une ou plusieurs étiquettes. Une étiquette contient les informations suivantes :
     - Un titre
     - Une couleur
+
+- CC-15 : En tant que membre d'un projet, je souhaite pouvoir rechercher des issues dans le backlog selon ses attributes afin de pouvoir trouver l'issue que je cherche même si il en existe un très grand nombre (des centaines).
+
+    *Description :* L'onglet du Backlog doit proposer pour la recherche :
+    - Une barre de texte permttant de chercher dans l'intitulié et l'identifiant des issues
+    - Un dropdown permettant de chercher parmi les issues Ouvertes/Fermées/Les Deux
