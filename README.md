@@ -16,7 +16,7 @@
 - Un dépôt principal `Release`, possédé par l'organisation
 - Un fork par développeur
     - Une branche par feature
-    - Pull Request acceptée vers release = Feature complète
+    - Pull Request acceptée vers release = Feature à jour et fonctionnelle
     - Plusieurs développeurs sur une feature : Même nom de branche, merge/PR pour synchroniser.
 
 ## Backlog
