@@ -97,6 +97,7 @@
     - Zéro, un ou plusieurs développeurs assignés
     - Une étiquette (facultatif)
     - Des dépendances avec d'autres tâches (facultatif)
+    - Une durée arbitraire (facultatif)
 
 - CC-10 : En tant que membre d'un projet, je souhaite pouvoir organiser les tâches selon leur état de complétion afin de toujours avoir une vue d'ensemble de l'avancée du projet.
 
@@ -131,3 +132,22 @@
     *Description :* L'onglet du Backlog doit proposer pour la recherche :
     - Une barre de texte permttant de chercher dans l'intitulié et l'identifiant des issues
     - Un dropdown permettant de chercher parmi les issues Ouvertes/Fermées/Les Deux
+
+- CC-16 : En tant que membre d'un projet, je souhaite pouvoir consulter les tâches d'un sprint actif ou à venir qui n'ont pas été attribuées afin d'en prendre la charge et donner de l'avance au projet.
+
+    *Description :* Afin d'éviter de ne pas avoir de travail à tout moment, il faut pouvoir efficacement s'attribuer des tâches et donc pouvoir les rechercher. Dans la page de projet, il faut rajouter un bouton redirigeant vers une page qui se spécialise dans la recherche de tâche selon les critères suivants :
+    - Disponibilité (Pas de développeur assigné ou absent)
+    - Dépendances (Pas de tâche non accomplie dont dépend les tâches à trouver)
+    - Durée de la tâche (Trouver les tâches réalisables rapidement)
+    - Temporalité du sprint (En cours, Suivant, Date limite)
+
+- CC-17 : En tant que membre d'un ou plusieurs projets, je souhaite pouvoir consulter les tâches que je dois réaliser ensuite afin de me concentrer sur le travail le plus urgent.
+
+    *Description :* Depuis l'espace personnel, il faut pouvoir avoir accès à un listing des tâches assignées à soi même. Les tâches pouvant être réalisées immédiatement doivent apparaître en haut. Pour permettre une utilisation avancée, ces options doivent être disponibles :
+    - N'afficher que les tâches qui n'ont plus de dépendance
+    - N'afficher que les tâches d'un sprint en cours
+    - N'afficher que les tâches d'un projet en particulier
+    - N'afficher que les tâches où je suis le seul assigné
+    - Trier les tâches selon leur durée par rapport au temps restant du sprint associé
+  
+    Ces options doivent évidemment pouvoir être combinées.
