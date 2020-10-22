@@ -151,3 +151,7 @@
     - Trier les tâches selon leur durée par rapport au temps restant du sprint associé
   
     Ces options doivent évidemment pouvoir être combinées.
+
+- CC-18 : En tant qu'utilisateur, je souhaite pouvoir accéder au site web sous forme d'application afin d'avoir plus de liberté quant à mon workflow.
+
+    *Description :* Le site web peut être enveloppé dans une application dont le but est simplement de se rendre sur ce site. Cela permettra au développeur non seulement de bénéficier d'une authentification permanente, mais également de dédier un programme au site de collaboration plutôt qu'un simple onglet de navigateur.
