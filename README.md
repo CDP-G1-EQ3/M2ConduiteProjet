@@ -59,6 +59,9 @@
     - Création d'issue
     - Edition d'issue
     - Suppression d'issue
+    - Création de sprint
+    - Edition de sprint
+    - Suppression de sprint
     - Création de tâche
     - Edition de tâche
     - Suppression de tâche
