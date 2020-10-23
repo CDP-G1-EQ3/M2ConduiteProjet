@@ -159,3 +159,15 @@
 - CC-19 : En tant qu'utilisateur, je souhaite pouvoir choisir entre plusieurs thèmes de couleur pour le site afin de prendre de conserver un environnement de travail plus homogène selon mes préférences.
 
     *Description :* Le site web doit proposer différents thèmes de couleur (notamment clair et sombre), paramétrables depuis les préférences utilisateur de manière persistante à travers les appareils d'accès.
+
+- CC-20 : En tant qu'utilisateur, je souhaite pouvoir ajouter d'autres utilisateurs à mes contacts afin de facilement retrouver les personnes avec qui je suis susceptible de travailler.
+
+    *Description :* Depuis la page d'utilisateur, un bouton Ajouter un contact doit être présent permettant de recherche un utilisateur sur le site, et l'ajouter à sa liste de contacts. Ce n'est pas un système de "demande d'ami" mais plutôt un répertoire.
+
+- CC-21 : En tant qu'utilisateur, je souhaite pouvoir gérer mes contacts en les catégorisant afin de rendre plus clair mon répertoire.
+
+    *Description :* Depuis la page d'utilisateur, un bouton Répertoire doit être présent, redirigeant vers une page listant les contacts de manière groupée. Chaque contact peut être supprimé ou bien ajouté à un ou plusieurs groupes. Les groupes peuvent être créés à l'aide d'un bouton présent sur la page du répertoire. Un groupe peut seulement être nommé. On peut supprimer un groupe, mais cela ne supprime pas les contacts présents à l'intérieur.
+
+- CC-22 : En tant que membre d'un projet, je souhaite pouvoir utiliser ma liste de contacts lorsque j'ajoute des membres ou même un groupe de contacts à ce projet afin de plus facilement constituer mon équipe sur de nouveaux projets.
+
+    *Description :* Depuis la page de gestion des membres d'un projet, lorsque l'on ajoute un membre, on doit pouvoir cliquer sur un icone ouvrant le répertoire depuis lequel on peut sélectionner un ou plusieurs membres, ou un groupe. Le comportement de sélection doit être le même que dans un explorateur de fichiers. (Ctrl = Sélectionner un a un, Shift = Sélectionner une suite). On doit également pouvoir cliquer sur le nom d'un groupe pour remplacer la sélection actuelle par les contacts associés.
