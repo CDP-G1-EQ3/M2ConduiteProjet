@@ -44,4 +44,6 @@
 | 19 | En tant qu'utilisateur, je souhaite pouvoir ajouter d'autres utilisateurs à mes contacts afin de facilement retrouver les personnes avec qui je suis susceptible de travailler. | 3 | 3
 | 20 | En tant qu'utilisateur, je souhaite pouvoir gérer mes contacts en les catégorisant afin de rendre plus clair mon répertoire. | 3 | 3
 | 21 | En tant que membre d'un projet, je souhaite pouvoir utiliser ma liste de contacts lorsque j'ajoute des membres ou même un groupe de contacts à ce projet afin de plus facilement constituer mon équipe sur de nouveaux projets. | 5 | 4
+| 22 | En tant que membre d'un projet, je souhaite pouvoir consulter des statistiques sur le projet afin d'en voir l'avancée, la fréquence des retards/avances ... | 5 | 3
+| 23 | En tant que membre d'un projet, je souhaite pouvoir consulter le diagramme de Pert d'un sprint ou du projet entier à ce jour afin de visualiser le chemin critique à tout moment | 5 | 3
 ||||
