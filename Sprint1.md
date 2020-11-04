@@ -29,3 +29,6 @@
 | T10 | 03 | Créer l'endpoint projet, qui doit permettre non seulement de consulter un projet mais aussi d'en créer un nouveau. | 3 | T09
 | T11 | 03 | Créer le template de création d'un projet. Les champs à remplir sont les mêmes que ceux présentés dans le schéma d'un projet. | 3 | T09 
 | T12 | 04 | Créer le template d'un projet. La page doit contenir les informations importantes comme le nom du projet, le créateur du projet, sa description, les redirections vers les différentes pages permettant de le gérer. Il doit y avoir plusieurs onglets (à l'horizontale) et la possibilité de rajouter des onglets dans le futur. L'onglet par défaut du projet doit être paramétrable. | 5 | T01
+| T13 | 07 | Créer le schéma d'une US. Les champs sont un identifiant unique composé par le projet, un intitulé, une difficulté et une clé étrangère sur un sprint. | 1 | T02
+| T14 | 07 | Rajouter le constructeur de l'onglet Backlog à l'endpoint projet. | 2 | T01
+| T15 | 07 | Créer le template de l'onglet backlog. Le backlog liste les US du projet et affiche les informations disponibles dans la base de données. | 2 | T01
