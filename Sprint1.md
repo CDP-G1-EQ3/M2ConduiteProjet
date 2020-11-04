@@ -34,7 +34,7 @@
 | T15 | 07 | Créer le template de l'onglet backlog. Le backlog liste les US du projet et affiche les informations disponibles dans la base de données. | 2 | T01
 | T16 | 08 | Créer le schéma d'un Sprint. Le champ est uniquement un identifiant unique  incrémental composé par le projet. Ce numéro correspond au numéro du sprint pour ce projet. | 1 | T02
 | T17 | 08 | Créer le schéma d'un tableau de sprint. Les champs sont un identifiant unique composé par un sprint et d'un titre. | 1 | T02
-| T18 | 08 | Créer le schéma d'une task. Les champs sont un identifiant unique composé par le projet, un intitulé, une durée et une clé étrangère sur un tableau de sprint. | 1 | T02
+| T18 | 08 | Créer le schéma d'une task. Les champs sont un identifiant unique composé par le projet, un intitulé, une durée, une clé étrangère facultative sur une US et une clé étrangère sur un tableau de sprint. | 1 | T02
 | T19 | 08 | Créer une association entre task nommée dependency, qui permettra de gérer les dépendances entre task. | 1 | T02
 | T20 | 08 | Rajouter le constructeur de l'onglet Sprint à l'endpoint projet. | 2 | T01
 | T21 | 08 | Créer le template de l'onglet sprint. Cet onglet liste les sprints et leur taux de complétion. En cliquant sur un sprint, on accède à une vue complète des tableaux comportant les tâches du sprint. Par défaut, les tableaux sont "A faire", "En cours" et "Terminé". Il est possible de renommer ces tableaux, d'en rajouter et d'en supprimer. Il n'est pas possible de supprimer un tableau si il est le dernier présent ou qu'il contient encore des tâches. | 5 | T01
