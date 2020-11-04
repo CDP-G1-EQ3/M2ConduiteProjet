@@ -3,23 +3,25 @@
 
 ### User Stories
 
-| ID | US | Difficulté | Planification
-|:--:|----|:----------:|:------------:
-| 01 | En tant que visiteur, je souhaite pouvoir enregistrer un compte utilisateur avec e-mail, identifiant, pseudonyme et un mot de passe fort afin de m'authentifier sur le site. | 2 | 1
-| 02 | En tant qu'utilisateur, je souhaite pouvoir consulter les projet auxquels je participe et effectuer des recherches avancées afin de pouvoir facilement les retrouver. | 3 | 1
-| 03 | En tant qu'utilisateur, je souhaite pouvoir créer un projet ayant un nom et une description afin d'ensuite en effectuer la planification et la gestion. | 2 | 1
-| 04 | En tant que membre d'un projet, je souhaite pouvoir consulter la page d'un projet afin d'accéder aux différents onglets proposés et travailler dessus. | 2 | 1
-| 07 | En tant que membre d'un projet, je souhaite pouvoir créer des US afin d'alimenter un backlog pour mon projet. | 2 | 1
-| 08 | En tant que membre d'un projet, je souhaite pouvoir planifier des sprints depuis l'onglet sprints afin d'y organiser des tâches qui seront par défaut en "A faire", mais pourront être déplacées dans d'autres états (visuellement) comme "En cours" ou "Fait" par défaut. | 3 | 1
-| 09 | En tant que membre d'un projet, je souhaite pouvoir créer des tâches faisant référence à des US et pouvant être dépendantes d'autres tâches afin de concevoir des sprint pour mon projet. | 2 | 1
+| ID | US | Difficulté
+|:--:|----|:----------:
+| 01 | En tant que visiteur, je souhaite pouvoir enregistrer un compte utilisateur avec e-mail, identifiant, pseudonyme et un mot de passe fort afin de m'authentifier sur le site. | 2
+| 02 | En tant qu'utilisateur, je souhaite pouvoir consulter les projet auxquels je participe et effectuer des recherches avancées afin de pouvoir facilement les retrouver. | 3
+| 03 | En tant qu'utilisateur, je souhaite pouvoir créer un projet ayant un nom et une description afin d'ensuite en effectuer la planification et la gestion. | 2
+| 04 | En tant que membre d'un projet, je souhaite pouvoir consulter la page d'un projet afin d'accéder aux différents onglets proposés et travailler dessus. | 2
+| 07 | En tant que membre d'un projet, je souhaite pouvoir créer des US afin d'alimenter un backlog pour mon projet. | 2
+| 08 | En tant que membre d'un projet, je souhaite pouvoir planifier des sprints depuis l'onglet sprints afin d'y organiser des tâches qui seront par défaut en "A faire", mais pourront être déplacées dans d'autres états (visuellement) comme "En cours" ou "Fait" par défaut. | 3
+| 09 | En tant que membre d'un projet, je souhaite pouvoir créer des tâches faisant référence à des US et pouvant être dépendantes d'autres tâches afin de concevoir des sprint pour mon projet. | 2
 
 ### Tasks
 
-| ID | US | Task | Dépendance
-|:--:|:--:|------|:---------:
-| 01 | 01 | Mettre en place le projet NodeJS / EJS |
-| 02 | 01 | Mettre en place une base de données MariaDB |
-| 03 | 01 | Créer le schéma d'un utilisateur. Les champs sont un identifiant unique sous forme de nombre incrémental, un identifiant unique sous forme de texte, un pseudonyme, une adresse e-mail, puis un mot de passe (crypté). | 02
-| 04 | 01 | Créer l'endpoint login et register. Suite à la connexion ou l'enregistrement de l'utilisateur, le rediriger vers sa page de profile. | 01
-| 05 | 01 | Créer le template login. La page doit être composée d'un formulaire permettant d'entrer son e-mail ou son identifiant ainsi que son mot de passe. Un lien doit être disponible pour aller sur la page d'inscription. | 01
-| 06 | 01 | Créer le template register. La page doit être composée d'un formulaire permettant d'entrer un e-mail, un identifiant de connexion, un pseudonyme et un mot de passe fort avec validation. | 01
+| ID | US | Task | Durée | Dépendance
+|:--:|:--:|------|:-----:|:---------:
+| T01 | 01 | Mettre en place le projet NodeJS / EJS | 2 | 
+| T02 | 01 | Mettre en place une base de données MariaDB | 3 | 
+| T03 | 01 | Créer le schéma d'un utilisateur. Les champs sont un identifiant unique sous forme de nombre incrémental, un identifiant unique sous forme de texte, un pseudonyme, une adresse e-mail, puis un mot de passe (crypté). | 1 | T02
+| T04 | 01 | Créer l'endpoint login/register. Si aucun parametre n'est fourni, présenter la page de connexion/enregistrement respectivement. Suite à la connexion ou l'enregistrement de l'utilisateur, le rediriger vers sa page de profile. Les paramètres attendus sont ceux correspondant au schéma utilisateur. | 3 | T01
+| T05 | 01 | Créer le template login. La page doit être composée d'un formulaire permettant d'entrer son e-mail ou son identifiant ainsi que son mot de passe. Un lien doit être disponible pour aller sur la page d'inscription. | 2 | T01
+| T06 | 01 | Créer le template register. La page doit être composée d'un formulaire permettant d'entrer un e-mail, un identifiant de connexion, un pseudonyme et un mot de passe fort avec validation. | 3 | T01
+| T07 | 02 | Créer l'endpoint profile. Si aucun identifiant n'est fourni, présenter le profile de l'utilisateur actuellement connecté. Si l'utilisateur n'est pas connecté et qu'aucun identifiant n'est fourni, ou que l"identifiant est introuvable, rediriger vers une page 404. | 3 | T01
+| T08 | 02 | Créer le template d'une page de profile. La page doit contenir la liste des projets de l'utilisateur. Chaque entrée doit contenir le titre (cliquable, redirige vers la page du projet en question) ainsi que sa description courte, et à qui appartient le projet. Il faudra également être en mesure de rechercher un projet en prenant en compte titre, description, propriétaire. Les projets sont affichés du plus récent au plus ancien en terme de dernière modification. | 5 | T01
