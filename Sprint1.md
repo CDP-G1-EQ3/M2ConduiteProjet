@@ -12,3 +12,24 @@
 | 07 | En tant que membre d'un projet, je souhaite pouvoir créer des US afin d'alimenter un backlog pour mon projet. | 2
 | 08 | En tant que membre d'un projet, je souhaite pouvoir planifier des sprints depuis l'onglet sprints afin d'y organiser des tâches qui seront par défaut en "A faire", mais pourront être déplacées dans d'autres états (visuellement) comme "En cours" ou "Fait" par défaut. | 3
 | 09 | En tant que membre d'un projet, je souhaite pouvoir créer des tâches faisant référence à des US et pouvant être dépendantes d'autres tâches afin de concevoir des sprint pour mon projet. | 2
+
+### Diagramme de Pert
+
+![Diagramme de pert](pert1.png "Diagramme de Pert")
+
+### Répartition des tâches
+
+Répartition idéalle des tâches sans limite développeurs (11 heures)
+
+![Répartition sans limite](rep_all_1.png "Répartition sans limite")
+
+Possible répartition avec 3 développeurs (21 heures)
+
+![Répartition à 3](rep_3_1.png "Répartition à 3")
+
+Répartition en prenant en compte les profils de développeur. Quelque concessions nécessaires pour que le projet ne traîne pas. Total de 23 heures.
+- Bleu : Back-end
+- Violet : Base de données
+- Vert : Front-end
+
+![Répartition à 3 opti](rep_3opti_1.png "Répartition à 3 opti")
