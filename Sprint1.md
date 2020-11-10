@@ -15,21 +15,21 @@
 
 ### Diagramme de Pert
 
-![Diagramme de pert](pert1.png "Diagramme de Pert")
+![Diagramme de pert](imgs/pert1.png "Diagramme de Pert")
 
 ### Répartition des tâches
 
 Répartition idéalle des tâches sans limite développeurs (11 heures)
 
-![Répartition sans limite](rep_all_1.png "Répartition sans limite")
+![Répartition sans limite](imgs/rep_all_1.png "Répartition sans limite")
 
 Possible répartition avec 3 développeurs (21 heures)
 
-![Répartition à 3](rep_3_1.png "Répartition à 3")
+![Répartition à 3](imgs/rep_3_1.png "Répartition à 3")
 
 Répartition en prenant en compte les profils de développeur. Quelque concessions nécessaires pour que le projet ne traîne pas. Total de 23 heures.
 - Bleu : Back-end
 - Violet : Base de données
 - Vert : Front-end
 
-![Répartition à 3 opti](rep_3opti_1.png "Répartition à 3 opti")
+![Répartition à 3 opti](imgs/rep_3opti_1.png "Répartition à 3 opti")
