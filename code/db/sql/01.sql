@@ -12,3 +12,6 @@ CREATE TABLE cdp_user (
 
     CONSTRAINT PK_ID PRIMARY KEY (id)
 );
+
+INSERT INTO `cdp_user`(`identifier`, `username`, `mail`, `sha`) 
+        VALUES ("adri", "Adri", "adrien.boitelle@gmail.com", "");
