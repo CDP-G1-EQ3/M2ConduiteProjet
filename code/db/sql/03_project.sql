@@ -5,6 +5,3 @@ CREATE TABLE cdp_project (
 
     CONSTRAINT PK_ID PRIMARY KEY (id)
 );
-
-INSERT INTO `cdp_project`(`name_`, `description_`) 
-        VALUES ("Project 01", "Premier projet");
