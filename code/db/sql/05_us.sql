@@ -12,7 +12,3 @@ CREATE TABLE cdp_us (
     REFERENCES cdp_project(id) 
     ON DELETE CASCADE
 );
-
-
-INSERT INTO `cdp_us`(`project`, `label`, `difficulty`) 
-        VALUES (1,"En tant que x, je souhaite y afin de z",5);

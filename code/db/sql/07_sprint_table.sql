@@ -13,8 +13,3 @@ CREATE TABLE cdp_sprint_table (
     REFERENCES cdp_sprint(project,id) 
     ON DELETE CASCADE
 );
-
-INSERT INTO `cdp_sprint_table`(`project`, `sprint`, `title`) 
-        VALUES (1, 1, "A faire"),
-              (1, 1, "En cours"),
-              (1, 1, "Fait");

@@ -14,7 +14,3 @@ CREATE TABLE cdp_task_dep (
     REFERENCES cdp_task(id) 
     ON DELETE CASCADE
 );
-
-INSERT INTO `cdp_task_dep`(`project`, `task`, `dep`) 
-        VALUES (1, 3, 2),
-                (1, 2, 1);
