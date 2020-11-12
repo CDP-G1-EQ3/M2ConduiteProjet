@@ -1,0 +1,12 @@
+{
+    "config": {
+        "env" : "test"
+    },
+    "db": {
+        "type": "mariadb",
+        "host": "db",
+        "dbname": "cdp",
+        "user": "cdp", 
+        "pass": "cdp"
+    }
+}
