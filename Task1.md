@@ -3,7 +3,7 @@
 | ID | US | Task | Durée | Dépendance | DoD | Etat | Assigné
 |:--:|:--:|------|:-----:|:----------:|-----|:----:|:-------:
 | T01 | 01 | Mettre en place le projet NodeJS / EJS | 2 | | La base du projet pour le back et le front doit être prêt et exécutable | Todo | Elhadj
-| T02 | 01 | Mettre en place une base de données MariaDB | 3 | | Une base de données doit être prête à l'emploi | Todo | Adri
+| T02 | 01 | Mettre en place une base de données MariaDB | 3 | | Une base de données doit être prête à l'emploi | Done | Adri
 | T03 | 01 | Définition des routes de l'application | 4 | T01 | Les différentes pages et points de contact avec le back sont spécifiés et permettent aux développeurs front et back d'implémenter indépendament le contrôleur et le template pour une page donnée | Todo | Arnaud
 | T04 | 01 | Créer le schéma d'un utilisateur. Les champs sont un identifiant unique sous forme de nombre incrémental, un identifiant unique sous forme de texte, un pseudonyme, une adresse e-mail, puis un mot de passe (crypté). | 1 | T02 | La table user doit pouvoir être créée depuis un fichier .sql | Todo | Adri
 | T05 | 01 | Créer la route login/register. Si aucun parametre n'est fourni, présenter la page de connexion/enregistrement respectivement. Suite à la connexion ou l'enregistrement de l'utilisateur, le rediriger vers sa page de profil. Les paramètres attendus sont ceux correspondant au schéma utilisateur. | 3 | T04 | Quand le serveur web est démarré, on doit pouvoir contacter cette route pour s'authentifier ou créer un nouvel utilisateur, et ensuite afficher le contenu du template associé. | Todo | Elhadj
