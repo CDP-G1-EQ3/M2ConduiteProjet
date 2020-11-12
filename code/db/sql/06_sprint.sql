@@ -3,7 +3,7 @@ CREATE TABLE cdp_sprint (
   id int UNSIGNED AUTO_INCREMENT,
 
   INDEX I_PROJECT (project),
-  INDEX I_ID (ID),
+  INDEX I_ID (id),
   CONSTRAINT PK_ID PRIMARY KEY (project, id)
 );
 

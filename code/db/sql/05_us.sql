@@ -6,7 +6,7 @@ CREATE TABLE cdp_us (
   sprint int UNSIGNED,
 
   INDEX I_PROJECT (project),
-  INDEX I_ID (ID),
+  INDEX I_ID (id),
   CONSTRAINT PK_ID PRIMARY KEY (project, id),
   FOREIGN KEY (project) 
     REFERENCES cdp_project(id) 
