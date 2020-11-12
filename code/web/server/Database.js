@@ -53,7 +53,7 @@ class Database {
     /**
      * Attempts to send a query to the database and returns the result.
      * @param {string} sql An sql query
-     * @param {dict} opt (optionnal) A dictionnary used to replace keys in the query by the secured values
+     * @param {array} opt (optionnal) An array of values to secure and replace each '?' in the query in order
      */
     async query(sql, opt = null){
         if(!this.online) {
@@ -96,7 +96,7 @@ class Database {
     /**
      * Attemps to perform a query to the database and returns the obtained result.
      * @param {string} sql An sql query
-     * @param {dict} opt (optionnal) A dictionnary used to replace keys in the query by the secured values
+     * @param {array} opt (optionnal) An array of values to secure and replace each '?' in the query in order
      * @param {int} i (optionnal) Specifies to return the ith line
      */
     async fast(sql, opt = null, i = null){
