@@ -2,6 +2,10 @@
 
 class Database {
 
+    /**
+     * Configures the database according to the config.
+     * Then attemps to start a connection.
+     */
     constructor(){
         const config = require('config');
 
@@ -21,6 +25,10 @@ class Database {
         this.reconnect();
     }
     
+    /**
+     * Attempts to connect to the database.
+     * Returns the result, can timeout.
+     */
     async reconnect() {
 
         await this.db.getConnection()
@@ -42,6 +50,11 @@ class Database {
         
     }
 
+    /**
+     * Attempts to send a query to the database and returns the result.
+     * @param {string} sql An sql query
+     * @param {dict} opt (optionnal) A dictionnary used to replace keys in the query by the secured values
+     */
     async query(sql, opt = null){
         if(!this.online) {
             console.log("DB not online");
@@ -66,6 +79,10 @@ class Database {
         }
     }
 
+    /**
+     * Get the currently stored result of the last query
+     * @param {int} i (optionnal) Specifies to return the ith line
+     */
     getResult(i = null){
         if(i == null){
             return this.result;
@@ -76,6 +93,12 @@ class Database {
         return false;
     }
 
+    /**
+     * Attemps to perform a query to the database and returns the obtained result.
+     * @param {string} sql An sql query
+     * @param {dict} opt (optionnal) A dictionnary used to replace keys in the query by the secured values
+     * @param {int} i (optionnal) Specifies to return the ith line
+     */
     async fast(sql, opt = null, i = null){
         this.result = null;
         await this.query(sql, opt);
