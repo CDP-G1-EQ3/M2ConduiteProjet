@@ -8,5 +8,8 @@
         "dbname": "cdp",
         "user": "cdp", 
         "pass": "cdp"
+    },
+    "server": {
+        "port": 3000
     }
 }
