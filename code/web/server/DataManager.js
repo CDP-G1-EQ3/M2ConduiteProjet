@@ -245,7 +245,7 @@ class DataManager {
      * Create a US in a project
      * @param {int} project The ID of the project for this US
      * @param {string} label The text used to describe the US
-     * @param {string} difficulty The difficulty for this US
+     * @param {int} difficulty The difficulty for this US
      * @param {int} sprint (optionnal) The ID of a sprint to attach this US to
      */
     createUS(project, label, difficulty, sprint = null) {
@@ -256,15 +256,51 @@ class DataManager {
     }
 
     /**
+     * Creates a project and assigns the owner role to the specified user
+     * @param {int} user The user ID
+     * @param {string} title The title of the project
+     * @param {string} description The description of the project
+     */
+    createNewProject(user, title, description) {
+        return new Promise((resolve) => {
+            this.createProject(title, description).then(r => {
+                let project = r.insertId;
+                this.createUserProject(project, user, 'owner');
+    
+                resolve(r);
+            });
+        });
+    }
+
+    /**
+     * Adds a predefined sprint to a project with base sprint tables
+     * @param {int} project 
+     */
+    createBaseSprint(project) {
+        return new Promise((resolve) => {
+            this.createSprint(project).then(r => {
+                let sprint = r.insertId;
+    
+                this.createSprintTable(project, sprint, "Todo");
+                this.createSprintTable(project, sprint, "Doing");
+                this.createSprintTable(project, sprint, "Done");
+    
+                resolve(r);
+            });
+        });
+
+    }
+
+    /**
      * Perform some tests on the database
      */
     testAll() {
         this.createUser("dbuser","DB_User","test@mail.com","1").then(r => {
             let user = r.insertId;
-            this.createProject("DBProject","This is a project created from the backend").then(r => {
+            this.createNewProject(user,"DBProject","This is a project created from the backend").then(r => { 
                 let project = r.insertId;
-                this.createUserProject(project, user, 'owner');
-            })
+                this.createBaseSprint(project);
+            });
         });
     }
 }
