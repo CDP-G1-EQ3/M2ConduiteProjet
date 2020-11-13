@@ -71,8 +71,18 @@ class DataManager {
         return DataManager.database.fast("SELECT * FROM cdp_user");
     }
     
-    createUser() {
+    /**
+     * Adds a new user to the database
+     * @param {string} identifier The unique text identifier for this user
+     * @param {string} username The public username of the user
+     * @param {string} mail The email adresse of the user
+     * @param {string} sha The encrypted password of the user
+     */
+    createUser(identifier, username, mail, sha) {
+        let sql = "INSERT INTO cdp_user (`identifier`, `username`, `mail`, `sha`) VALUES (?,?,?,?)";
+        let opt = [identifier, username, mail, sha];
 
+        return DataManager.database.fast(sql, opt);
     }
 
     /**
@@ -106,6 +116,106 @@ class DataManager {
     getProjects() {        
         return DataManager.database.fast("SELECT * FROM cdp_project");
     }
+
+    /**
+     * Adds a new project to the database
+     * @param {string} name The name of the project
+     * @param {string} description The description of the project
+     */
+    createProject(name, description) {
+        let sql = "INSERT INTO cdp_project (`name_`,`description_`) VALUES (?,?)";
+        let opt = [name, description];
+
+        return DataManager.database.fast(sql, opt); 
+    }
+
+    /**
+     * Gets all the sprints of a project
+     * @param {int} project The project ID to gather the sprints from
+     */
+    getProjectSprints(project) {
+        let sql = "SELECT * FROM cdp_sprint WHERE project = ?";
+        let opt = [project];
+
+        return DataManager.database.fast(sql, opt); 
+    }
+    
+    /**
+     * Adds a new sprint to the database
+     * @param {int} project The project ID in which to create the sprint
+     */
+    createSprint(project) {
+        let sql = "INSERT INTO cdp_sprint (`project`) VALUES (?)";
+        let opt = [project];
+
+        return DataManager.database.fast(sql, opt); 
+    }
+
+    /**
+     * Gets all the sprint tables of a sprint
+     * @param {int} project The project of the sprint
+     * @param {int} sprint The sprint holding the tables to fetch
+     */
+    getSprintTables(project,sprint) {
+        let sql = "SELECT * FROM cdp_sprint_table WHERE project = ? AND sprint = ?";
+        let opt = [project,sprint];
+
+        return DataManager.database.fast(sql, opt);
+    }
+
+    /**
+     * Adds a new sprint table to the database
+     * @param {int} project The project of the sprint
+     * @param {int} sprint The sprint holding the new table
+     * @param {string} title The title of the table
+     */
+    createSprintTable(project, sprint, title) {
+        let sql = "INSERT INTO cdp_sprint_table (`project`,`sprint`,`title`) VALUES (?,?,?)";
+        let opt = [project,sprint,title];
+
+        return DataManager.database.fast(sql, opt); 
+    }
+
+    /**
+     * Get all the tasks for one sprint
+     * @param {int} project The ID of the project
+     * @param {int} sprint The ID of the sprint
+     */
+    getSprintTasks(project, sprint) {
+        let sql = "SELECT * FROM cdp_task as t, cdp_sprint_table as s WHERE t.project = s.project AND s.project = ? AND s.sprint = ?";
+        let opt = [project, sprint]; 
+
+        return DataManager.database.fast(sql, opt); 
+    }
+
+    /**
+     * Get all the tasks for one sprint table
+     * @param {int} project The ID of the project
+     * @param {int} sprint The ID of the sprint
+     */
+    getSprintTableTasks(project, sprint_table) {
+        let sql = "SELECT * FROM cdp_task WHERE AND project = ? AND sprint_table = ?";
+        let opt = [project, sprint_table]; 
+
+        return DataManager.database.fast(sql, opt); 
+    }
+
+    /**
+     * Create a new task inside a sprint table
+     * @param {int} project The project of this task
+     * @param {string} title The title of this task
+     * @param {string} duration The duration of this task
+     * @param {int} sprint_table The ID of the sprint table holding this task
+     * @param {int} us (optionnal) The ID of the US for this task
+     */
+    createTask(project, title, duration, sprint_table, us=null) {
+        let sql = "INSERT INTO cdp_task (`project`,`title`,`duration`,`sprint_table`,`us`) VALUES (?,?,?,?,?)";
+        let opt = [project, title, duration, sprint_table,us];
+
+        return DataManager.database.fast(sql, opt);
+    }
+
+
 }
 
 module.exports = DataManager;
