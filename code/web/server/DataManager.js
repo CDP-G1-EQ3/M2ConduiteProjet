@@ -256,14 +256,30 @@ class DataManager {
     }
 
     /**
+     * Creates a project and assigns the owner role to the specified user
+     * @param {int} user The user ID
+     * @param {string} title The title of the project
+     * @param {string} description The description of the project
+     */
+    createNewProject(user, title, description) {
+        return new Promise((resolve) => {
+            this.createProject(title, description).then(r => {
+                let project = r.insertId;
+                this.createUserProject(project, user, 'owner');
+    
+                resolve(r);
+            });
+        });
+    }
+
+    /**
      * Perform some tests on the database
      */
     testAll() {
         this.createUser("dbuser","DB_User","test@mail.com","1").then(r => {
             let user = r.insertId;
-            this.createProject("DBProject","This is a project created from the backend").then(r => {
+            this.createNewProject(user,"DBProject","This is a project created from the backend").then(r => { 
                 let project = r.insertId;
-                this.createUserProject(project, user, 'owner');
 
                 this.createSprint(project).then(r => {
                     let sprint = r.insertId;
