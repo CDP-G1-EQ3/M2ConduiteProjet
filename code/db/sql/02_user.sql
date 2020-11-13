@@ -1,0 +1,9 @@
+CREATE TABLE cdp_user (
+    id int UNSIGNED AUTO_INCREMENT,
+    identifier VARCHAR(24) NOT NULL UNIQUE,
+    username VARCHAR(24) NOT NULL,
+    mail VARCHAR(64) NOT NULL,
+    sha VARCHAR(256) NOT NULL,
+
+    CONSTRAINT PK_ID PRIMARY KEY (id)
+);
