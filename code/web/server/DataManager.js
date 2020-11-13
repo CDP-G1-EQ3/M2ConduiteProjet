@@ -254,6 +254,19 @@ class DataManager {
 
         return DataManager.database.fast(sql, opt);
     }
+
+    /**
+     * Perform some tests on the database
+     */
+    testAll() {
+        this.createUser("dbuser","DB_User","test@mail.com","1").then(r => {
+            let user = r.insertId;
+            this.createProject("DBProject","This is a project created from the backend").then(r => {
+                let project = r.insertId;
+                this.createUserProject(project, user, 'owner');
+            })
+        });
+    }
 }
 
 module.exports = DataManager;

@@ -64,9 +64,6 @@ class Database {
         try {
             await this.db.query(sql, opt).then(
                 (res) => {
-                    if(res == undefined) return;
-                    if(res[0] == undefined) return;
-                    if(res[0].hasOwnProperty("res") && res[0].res === null) return;
                     this.result = res;
                 }
             )
