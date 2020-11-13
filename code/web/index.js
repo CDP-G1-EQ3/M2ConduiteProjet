@@ -54,6 +54,8 @@ class App {
         this.initRoute("RootController");
 
         this.initRoute("DBTestController");
+        
+        this.initRoute("NotFoundController");
     }
 
     /**
