@@ -273,6 +273,25 @@ class DataManager {
     }
 
     /**
+     * Adds a predefined sprint to a project with base sprint tables
+     * @param {int} project 
+     */
+    createBaseSprint(project) {
+        return new Promise((resolve) => {
+            this.createSprint(project).then(r => {
+                let sprint = r.insertId;
+    
+                this.createSprintTable(project, sprint, "Todo");
+                this.createSprintTable(project, sprint, "Doing");
+                this.createSprintTable(project, sprint, "Done");
+    
+                resolve(r);
+            });
+        });
+
+    }
+
+    /**
      * Perform some tests on the database
      */
     testAll() {
@@ -280,26 +299,7 @@ class DataManager {
             let user = r.insertId;
             this.createNewProject(user,"DBProject","This is a project created from the backend").then(r => { 
                 let project = r.insertId;
-
-                this.createSprint(project).then(r => {
-                    let sprint = r.insertId;
-
-                    this.createSprintTable(project, sprint, "Todo").then(r => {
-                        let sprint_table = r.insertId;
-
-                        this.createTask(project, "Task 1", "2 days", sprint_table);
-                        this.createTask(project, "Task 2", "3 days", sprint_table);
-
-                        this.createUS(project, "Make some work", 5, sprint).then(r => {
-                            let us = r.insertId;
-
-                            this.createTask(project, "Task 3", "1 days", sprint_table, us);
-                        });
-                    });
-
-                    this.createSprintTable(project, sprint, "Doing");
-                    this.createSprintTable(project, sprint, "Done");
-                });
+                this.createBaseSprint(project);
             });
         });
     }
