@@ -245,7 +245,7 @@ class DataManager {
      * Create a US in a project
      * @param {int} project The ID of the project for this US
      * @param {string} label The text used to describe the US
-     * @param {string} difficulty The difficulty for this US
+     * @param {int} difficulty The difficulty for this US
      * @param {int} sprint (optionnal) The ID of a sprint to attach this US to
      */
     createUS(project, label, difficulty, sprint = null) {
@@ -273,12 +273,18 @@ class DataManager {
 
                         this.createTask(project, "Task 1", "2 days", sprint_table);
                         this.createTask(project, "Task 2", "3 days", sprint_table);
+
+                        this.createUS(project, "Make some work", 5, sprint).then(r => {
+                            let us = r.insertId;
+
+                            this.createTask(project, "Task 3", "1 days", sprint_table, us);
+                        });
                     });
 
                     this.createSprintTable(project, sprint, "Doing");
                     this.createSprintTable(project, sprint, "Done");
-                })
-            })
+                });
+            });
         });
     }
 }
