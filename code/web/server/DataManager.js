@@ -264,6 +264,20 @@ class DataManager {
             this.createProject("DBProject","This is a project created from the backend").then(r => {
                 let project = r.insertId;
                 this.createUserProject(project, user, 'owner');
+
+                this.createSprint(project).then(r => {
+                    let sprint = r.insertId;
+
+                    this.createSprintTable(project, sprint, "Todo").then(r => {
+                        let sprint_table = r.insertId;
+
+                        this.createTask(project, "Task 1", "2 days", sprint_table);
+                        this.createTask(project, "Task 2", "3 days", sprint_table);
+                    });
+
+                    this.createSprintTable(project, sprint, "Doing");
+                    this.createSprintTable(project, sprint, "Done");
+                })
             })
         });
     }
