@@ -130,6 +130,19 @@ class DataManager {
     }
 
     /**
+     * Create a new project member
+     * @param {int} project The project ID 
+     * @param {int} user The user ID
+     * @param {string} role The role for this user ('owner','admin','member')
+     */
+    createUserProject(project, user, role) {
+        let sql = "INSERT INTO cdp_user_project (`project`,`user`,`role`) VALUES (?,?,?)";
+        let opt = [project, user, role];
+
+        return DataManager.database.fast(sql, opt); 
+    }
+
+    /**
      * Gets all the sprints of a project
      * @param {int} project The project ID to gather the sprints from
      */
@@ -215,7 +228,45 @@ class DataManager {
         return DataManager.database.fast(sql, opt);
     }
 
+    /**
+     * Create a dependency between two tasks
+     * @param {int} project The ID of the project for the two tasks
+     * @param {int} parent The ID of the parent task
+     * @param {int} child The ID of the task that depends on the parent task
+     */
+    createTaskDep(project, parent, child) {
+        let sql = "INSERT INTO cdp_task_dep (`project`,`task`,`dep`) VALUES (?,?,?)";
+        let opt = [project, parent, child];
 
+        return DataManager.database.fast(sql, opt);
+    }
+
+    /**
+     * Create a US in a project
+     * @param {int} project The ID of the project for this US
+     * @param {string} label The text used to describe the US
+     * @param {string} difficulty The difficulty for this US
+     * @param {int} sprint (optionnal) The ID of a sprint to attach this US to
+     */
+    createUS(project, label, difficulty, sprint = null) {
+        let sql = "INSERT INTO cdp_us (`project`,`label`,`difficulty`,`sprint`) VALUES (?,?,?,?)";
+        let opt = [project, label, difficulty, sprint];
+
+        return DataManager.database.fast(sql, opt);
+    }
+
+    /**
+     * Perform some tests on the database
+     */
+    testAll() {
+        this.createUser("dbuser","DB_User","test@mail.com","1").then(r => {
+            let user = r.insertId;
+            this.createProject("DBProject","This is a project created from the backend").then(r => {
+                let project = r.insertId;
+                this.createUserProject(project, user, 'owner');
+            })
+        });
+    }
 }
 
 module.exports = DataManager;

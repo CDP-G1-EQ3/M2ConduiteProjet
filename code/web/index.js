@@ -20,6 +20,7 @@ class App {
         }
         this.app = application;
 
+        App.dm = dm;
         this.initEngine();
         this.initRoutes();
         this.start();
@@ -43,7 +44,7 @@ class App {
      */
     initRoute(object) {
         let controller = require("./server/controllers/"+object);
-        new controller().assign(this.app);
+        new controller(App.dm).assign(this.app);
     }
 
     /**
@@ -51,6 +52,8 @@ class App {
      */
     initRoutes() {
         this.initRoute("RootController");
+
+        this.initRoute("DBTestController");
     }
 
     /**

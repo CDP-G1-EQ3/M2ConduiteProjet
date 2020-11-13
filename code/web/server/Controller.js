@@ -5,7 +5,8 @@ class Controller {
     /**
      * This is an abstract class ; Prevent its instanciation
      */
-    constructor() {
+    constructor(dm) {
+        Controller.dm = dm;
         if (this.constructor === Controller) {
             throw new TypeError('Abstract class "Controller" cannot be instantiated directly');
         }
