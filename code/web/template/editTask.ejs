@@ -1,0 +1,9 @@
+
+<form class="form-signup">
+    <h1 class="h3 mb-3">Edition de tâche</h1>
+    <input type="text" id="inputTitle" class="form-control form-top" placeholder="Titre de la tâche" required value="<%= task.title %>">
+    <input type="text" id="inputDuration" class="form-control form-top" placeholder="Durée de la tâche" required value="<%= task.duration %>">
+    <input type="text" id="inputUS" class="form-control form-top" required value="<%= task.us %>">
+    <input type="hidden" id="inputSprintTable" class="form-control form-top" required value="<%= task.sprint_table %>">
+    <button class="btn btn-primary" type="submit">Valider</button>
+</form>

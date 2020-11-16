@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="fr">
+    <head>
+        <%- include('head'); %>
+        <link rel="stylesheet" href="register.css">
+    </head>
+
+    <body class="text-center">
+        <form class="form-signup">
+            <h1 class="h3 mb-3">Inscription</h1>
+            <input type="email" id="inputEmail" class="form-control form-top" placeholder="Adresse e-mail" required>
+            <input type="text" id="inputLogin" class="form-control form-middle" placeholder="Identifiant de connexion" required>
+            <input type="text" id="inputNickname" class="form-control form-middle" placeholder="Pseudonyme" required>
+            <input type="password" id="inputPassword" class="form-control form-bottom" placeholder="Mot de passe" required minlength="8">
+            <button class="btn btn-primary" type="submit">S'inscrire</button>
+            <a class="btn btn-secondary" href="/">Se connecter</a>
+        </form>
+        <footer>
+            <%- include('footer'); %>
+        </footer>
+    </body>
+</html>

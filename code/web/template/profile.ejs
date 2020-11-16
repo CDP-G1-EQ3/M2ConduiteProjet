@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="fr">
+    <head>
+        <%- include('head'); %>
+        <link rel="stylesheet" href="profile.css">
+    </head>
+
+    <body>
+        <h1 class="text-center">Profil</h1>
+        <div class="list-group container">
+            <% projects.forEach(function(project) { %>
+                <a href="<%= project.link %>" class="list-group-item list-group-item-action flex-column align-items-start">
+                    <h5 class="mb-1"><%= project.title %></h5>
+                    <p class="mb-1"><%= project.description %></p>
+                    <small><%= project.owner %></small>
+                </a>
+            <% }); %>
+        </div>
+
+        <footer>
+            <%- include('footer'); %>
+        </footer>
+    </body>
+</html>
