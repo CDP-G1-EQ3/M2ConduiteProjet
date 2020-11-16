@@ -22,11 +22,15 @@
 ## Backlog
 
 |ID | US | Importance | Difficulté | État |
-|:--:|----|:----------:|:------------:|:------------:|
-|01 | En tant que visiteur, je souhaite accéder à une page de d'inscription qui permet d'enregistrer un compte utilisateur avec e-mail (obligatoire, unique), un pseudonyme (obligatoire, 24 caractères max) et un mot de passe (obligatoire, 8 caractères minimum, au moins un chiffre et un caractère spécial) afin de m'authentifier sur le site. La page sera dotée d'un bouton "S'enregistrer" qui valide le formulaire, et d'un bouton "Se connecter" qui mène à la page de connexion au cas où je possèderais déjà un compte. |  | 2 | Todo |
-|02 | En tant qu'utilisateur, je souhaite accéder à une page contenant une liste des projet auxquels je participe (sous la forme Nom du projet, Description courte, Propriétaire du projet) et une barre de recherche (par Nom, Description et Propriétaire) afin de pouvoir facilement les retrouver. Je souhaite trier la liste alphabétiquement en cliquant sur un des noms de champs et accéder à la page d'un projet en cliquant sur ce dernier dans la liste. |  | 3 | Todo |
-|03 | En tant qu'utilisateur, je souhaite pouvoir créer un projet ayant un nom et une description afin d'ensuite en effectuer la planification et la gestion. |  | 2 | Todo |
-|04 | En tant que membre d'un projet, je souhaite pouvoir consulter la page d'un projet afin d'accéder aux différents onglets proposés et travailler dessus. |  | 2 | Todo |
+|:--:|----|:----------:|:------------:|----|
+|01 | En tant que visiteur, je souhaite accéder à un formulaire de création de contenant les champs : <br />- e-mail (obligatoire, unique)<br />- pseudonyme (obligatoire) <br />- mot de passe fort (obligatoire)<br />puis cliquer sur le bouton "S'enregistrer" afin de m'inscrire sur le site. |  | 2 | Todo |
+| | En tant qu'utilisateur, je souhaite accéder à un formulaire de connexion contenant les champs e-mail et mot de passe puis cliquer sur le bouton "Se connecter" afin de m'identifier sur le site. |  | 2 | Todo |
+|02 | En tant qu'utilisateur, je souhaite accéder à une liste de mes projets contenant les champs nom du projet, description courte et propriétaire du projet afin de visualiser les projets auxquels je participe. |  | 2 | Todo |
+| | En tant qu'utilisateur, je souhaite cliquer sur un des noms de champs de la liste de projets auxquels je participe afin de trier alphabétiquement la liste selon le champ choisi. |  | 2 | Todo |
+| | En tant qu'utilisateur, je souhaite effectuer une recherche dans la liste de projets auxquels je participe en fonction de leur nom, description et propriétaire afin de réduire la liste aux termes que je cherche. |  | 3 | Todo |
+| | En tant qu'utilisateur je souhaite cliquer sur un élément de la liste de projets auxquels je participe afin d'accéder à la page de ce projet. |  | 1 | Todo |
+|03 | En tant qu'utilisateur, je souhaite accéder à un formulaire de création de projet contenant les champs nom du projet (obligatoire) et description (optionnel) puis cliquer sur le bouton "Créer le projet" afin de créer un projet. |  | 2 | Todo |
+|04 | En tant que membre d'un projet, je souhaite pouvoir consulter la page d'un projet afin d'accéder aux différents onglets proposés et travailler dessus. A COMPLETER |  | 2 | Todo |
 |05 | En tant qu'administrateur d'un projet (créateur, ou membre ayant obtenu la permission par un créateur ou un autre administrateur), je souhaite avoir accès à une page des paramètres du projet. |  | 1 | Todo |
 |06 | En tant qu'administrateur d'un projet, je souhaite pouvoir gérer les membres du projet depuis un onglet des paramètres afin de leur attribuer un ou des rôles, en ajouter ou en expulser. |  | 2 | Todo |
 |07 | En tant que membre d'un projet, je souhaite pouvoir créer des US afin d'alimenter un backlog pour mon projet. |  | 2 | Todo |
