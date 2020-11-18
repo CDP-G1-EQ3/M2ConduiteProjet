@@ -35,7 +35,7 @@
 |13 | En tant que membre d'un projet, je souhaite accéder à un onglet backlog depuis la page du projet contenant une liste des US avec les champs ID, description, importance et difficulté afin de consulter les US du projet. | | 2 | Ouverte |
 |16 | En tant que membre d'un projet, je souhaite cliquer sur le bouton "Créer un sprint" depuis le backlog pour accéder à un formulaire contenant les champs nom (obligatoire) et description (optionnel) puis cliquer sur le bouton "Valider" afin d'ajouter un sprint. | | 2 | Ouverte |
 |17 | En tant que membre d'un projet, je souhaite cliquer sur un bouton placé à côté de chaque US du backlog pour ouvrir une liste des sprints puis cliquer sur le sprint désiré afin de déplacer l'US dans le sprint. | | 2 | Ouverte |
-|18 | En tant que créateur d'une US, je souhaite cliquer sur le bouton "Fermer l'US" afin de fermer l'US que j'ai créée lorsque sa réalisation est terminée et que je suis satisfait de la solution apportée. | | 1 | Ouverte |
+|18 | En tant que membre d'un projet, je souhaite cliquer sur le bouton "Fermer l'US" placé à côté de chaque US afin de fermer l'US lorsque sa réalisation est terminée. | | 1 | Ouverte |
 | |                                                              | |  |  |
 | | En tant que membre d'un projet, je souhaite pouvoir planifier des sprints depuis l'onglet sprints afin d'y organiser des tâches qui seront par défaut en "A faire", mais pourront être déplacées dans d'autres états (visuellement) comme "En cours" ou "Fait" par défaut. |  | 3 | Ouverte |
 | | En tant que membre d'un projet, je souhaite pouvoir créer des tâches faisant référence à des US et pouvant être dépendantes d'autres tâches afin de concevoir des sprint pour mon projet. |  | 2 | Ouverte |
