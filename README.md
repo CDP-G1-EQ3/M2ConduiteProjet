@@ -41,21 +41,16 @@
 |16 | En tant que membre d'un projet, je souhaite cliquer sur le bouton "Créer un sprint" depuis le backlog pour accéder à un formulaire contenant les champs nom (obligatoire) et description (optionnel) puis cliquer sur le bouton "Valider" afin d'ajouter un sprint. | | 2 | Ouverte |
 |17 | En tant que membre d'un projet, je souhaite pouvoir déplacer une US qualifiée du backlog vers un sprint afin de la planifier. | | 2 | Ouverte |
 |18 | En tant que créateur d'une US, je souhaite cliquer sur le bouton "Fermer l'US" afin de fermer l'US que j'ai créée lorsque sa réalisation est terminée et que je suis satisfait de la solution apportée. | | 1 | Ouverte |
-| |                                                              | |  |  |
-| | En tant que membre d'un projet, je souhaite pouvoir planifier des sprints depuis l'onglet sprints afin d'y organiser des tâches qui seront par défaut en "A faire", mais pourront être déplacées dans d'autres états (visuellement) comme "En cours" ou "Fait" par défaut. |  | 3 | Ouverte |
-| | En tant que membre d'un projet, je souhaite pouvoir créer des tâches faisant référence à des US et pouvant être dépendantes d'autres tâches afin de concevoir des sprint pour mon projet. |  | 2 | Ouverte |
-| | En tant que membre d'un projet, je souhaite pouvoir organiser les tâches selon leur état de complétion afin de toujours avoir une vue d'ensemble de l'avancée du projet. |  | 3 | Ouverte |
-| | En tant que membre d'un projet, je souhaite pouvoir configurer des tests automatiques afin de m'assurer que les ajouts proposés fonctionnent ainsi que le reste du projet. |  | 9 | Ouverte |
-| | En tant que membre d'un projet, je souhaite pouvoir annoter des releases correspondant à un tag ou un hash de commit afin d'effectuer des livraisons. |  | 1 | Ouverte |
-| | En tant que membre d'un projet, je souhaite pouvoir créer des documents sous plusieurs formats afin de produire de la documentation et des ressources nécessaires au projet. |  | 5 | Ouverte |
-| | En tant que membre d'un projet, je souhaite pouvoir créer des étiquettes afin de mieux trier les tâches. |  | 3 | Ouverte |
-| | En tant que membre d'un projet, je souhaite pouvoir rechercher des US dans le backlog selon ses attributs afin de pouvoir trouver l'US que je cherche même si il en existe un très grand nombre (des centaines). |  | 5 | Ouverte |
-| | En tant que membre d'un projet, je souhaite pouvoir consulter les tâches d'un sprint actif ou à venir qui n'ont pas été attribuées afin d'en prendre la charge et donner de l'avance au projet. |  | 3 | Ouverte |
-| | En tant que membre d'un ou plusieurs projets, je souhaite pouvoir consulter les tâches que je dois réaliser ensuite afin de me concentrer sur le travail le plus urgent. |  | 5 | Ouverte |
-| | En tant qu'utilisateur, je souhaite pouvoir accéder au site web sous forme d'application afin d'avoir plus de liberté quant à mon workflow. |  | 9 | Ouverte |
-| | En tant qu'utilisateur, je souhaite pouvoir ajouter d'autres utilisateurs à mes contacts afin de facilement retrouver les personnes avec qui je suis susceptible de travailler. |  | 3 | Ouverte |
-| | En tant qu'utilisateur, je souhaite pouvoir gérer mes contacts en les catégorisant afin de rendre plus clair mon répertoire. |  | 3 | Ouverte |
-| | En tant que membre d'un projet, je souhaite pouvoir utiliser ma liste de contacts lorsque j'ajoute des membres ou même un groupe de contacts à ce projet afin de plus facilement constituer mon équipe sur de nouveaux projets. |  | 5 | Ouverte |
-| | En tant que membre d'un projet, je souhaite pouvoir consulter des statistiques sur le projet afin d'en voir l'avancée, la fréquence des retards/avances ... |  | 5 | Ouverte |
-| | En tant que membre d'un projet, je souhaite pouvoir consulter le diagramme de Pert d'un sprint ou du projet entier à ce jour afin de visualiser le chemin critique à tout moment |  | 5 | Ouverte |
-
+|19 | En tant que membre d'un projet, je souhaite pouvoir ajouter des Users stories à un sprint à fin de pouvoir demarer un sprint. |  | 3 | Ouverte |
+|20 | En tant que membre d'un projet, je souhaite pouvoir demarrer un sprint en indiquant la durée et la date de debut du sprint. |  | 3 | Ouverte |
+|21 | En tant que membre d'un projet, je souhaite pouvoir créer des tâches faisant référence à des US et pouvant être dépendantes d'autres tâches afin de concevoir des sprint pour mon projet. |  | 2 | Ouverte |
+|22 | En tant que membre d'un projet, je souhaite pouvoir afficher les tâches filtrable par ceux dont les U.S sont dans un sprint, ceux dont les U.S ne sont pas dans un sprint ou bien les afficher toutes à fin de voir l'avancée du projet. |  | 3 | Ouverte |
+|23 | En tant que membre d'un projet, je souhaite pouvoir créer des étiquettes afin de mieux trier les tâches. |  | 3 | Ouverte |
+|24 | En tant que membre d'un projet, je souhaite pouvoir modifier ou supprimer des tâches a fin de corriger d'éventuelles erreurs. |  | 3 | Ouverte |
+|25 | En tant que membre d'un projet, je souhaite pouvoir configurer des tests automatiques afin de m'assurer que les ajouts proposés fonctionnent ainsi que le reste du projet. |  | 9 | Ouverte |
+|26 | En tant que membre d'un projet, je souhaite pouvoir annoter des releases correspondant à un tag ou un hash de commit afin d'effectuer des livraisons. |  | 1 | Ouverte |
+|27 | En tant que membre d'un projet, je souhaite pouvoir créer des documents sous plusieurs formats afin de produire de la documentation et des ressources nécessaires au projet. |  | 5 | Ouverte |
+|28 | En tant que membre d'un projet, je souhaite pouvoir rechercher des US dans le backlog selon leurs types (bug, nouvelle fonctionnalités, refactoring)  afin de pouvoir trouver les U.S qui m'interesse très rapidement. |  | 5 | Ouverte |
+|29 | En tant qu'utilisateur, je souhaite pouvoir ajouter, modifier ou supprimer d'autres utilisateurs à mes contacts afin de facilement retrouver les personnes avec qui je suis susceptible de travailler. |  | 3 | Ouverte |
+|30 | En tant que membre d'un projet, je souhaite pouvoir utiliser ma liste de contacts lorsque j'ajoute des membres ou même un groupe de contacts à ce projet afin de plus facilement constituer mon équipe sur de nouveaux projets. |  | 5 | Ouverte |
+|31 | En tant que membre d'un projet, je souhaite pouvoir consulter des statistiques sur le projet afin d'en voir l'avancée, la fréquence des retards/avances ... |  | 5 | Ouverte |
