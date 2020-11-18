@@ -22,7 +22,7 @@
 ## Backlog
 
 |ID | US | Importance | Difficulté | État |
-|:--:|----|:------------:|----|----|
+|:--:|----|:------------:|:--:|----|
 |01 | En tant que visiteur, je souhaite accéder à un formulaire de création de compte contenant les champs : <br />- e-mail (obligatoire, unique)<br />- pseudonyme (obligatoire) <br />- mot de passe fort (obligatoire)<br />puis cliquer sur le bouton "S'enregistrer" afin de m'inscrire sur le site. |  | 2 | Ouverte |
 | 02 | En tant qu'utilisateur, je souhaite accéder à un formulaire de connexion contenant les champs e-mail et mot de passe puis cliquer sur le bouton "Se connecter" afin de m'identifier sur le site. |  | 2 | Ouverte |
 |03 | En tant qu'utilisateur, je souhaite accéder à une liste de mes projets contenant les champs nom du projet, description courte et propriétaire du projet puis cliquer sur un des projets de la liste afin d'accéder à la page de ce projet |  | 2 | Ouverte |
@@ -31,10 +31,10 @@
 |07 | En tant qu'utilisateur, je souhaite accéder à un formulaire de création de projet contenant les champs nom du projet (obligatoire) et description (optionnel) puis cliquer sur le bouton "Créer le projet" afin de créer un projet. |  | 2 | Ouverte |
 |09 | En tant qu'administrateur d'un projet (créateur, ou membre ayant obtenu la permission par un créateur ou un autre administrateur), je souhaite accéder aux paramètres d'un projet depuis la page de celui-ci afin de les modifier. |  | 1 | Ouverte |
 |10 | En tant qu'administrateur d'un projet, je souhaite accéder à un onglet de gestion des membres depuis les paramètres du projet afin d'attribuer des rôles, ajouter des membres ou en expulser. |  | 2 | Ouverte |
-|11 | En tant que membre d'un projet, je souhaite accéder à un formulaire de création d'User Story (US) contenant les champs description (obligatoire), importance (optionnel), difficulté (optionnel) et attribuant un numéro unique (de manière incrémentale) lors de la validation afin d'ajouter une US au backlog de mon projet. |  | 3          | Ouverte |
+|11 | En tant que membre d'un projet, je souhaite accéder à un formulaire de création d'User Story (US) contenant les champs description (obligatoire), importance (optionnel), difficulté (optionnel) et attribuant un numéro unique (de manière incrémentale) lors de la validation afin d'ajouter une US au backlog de mon projet. |  |     3      | Ouverte |
 |13 | En tant que membre d'un projet, je souhaite accéder à un onglet backlog depuis la page du projet contenant une liste des US avec les champs ID, description, importance et difficulté afin de consulter les US du projet. | | 2 | Ouverte |
 |16 | En tant que membre d'un projet, je souhaite cliquer sur le bouton "Créer un sprint" depuis le backlog pour accéder à un formulaire contenant les champs nom (obligatoire) et description (optionnel) puis cliquer sur le bouton "Valider" afin d'ajouter un sprint. | | 2 | Ouverte |
-|17 | En tant que membre d'un projet, je souhaite cliquer sur un bouton placé à côté de chaque US du backlog pour ouvrir une liste des sprints puis cliquer sur le sprint désiré afin de déplacer l'US dans le sprint. | | 2 | Ouverte |
+|17 | En tant que membre d'un projet, je souhaite cliquer sur un bouton placé à côté de chaque US du backlog pour ouvrir une liste contenant les noms des sprints puis cliquer sur le nom du sprint désiré afin de déplacer l'US dans le sprint. | | 2 | Ouverte |
 |18 | En tant que membre d'un projet, je souhaite cliquer sur le bouton "Fermer l'US" placé à côté de chaque US afin de fermer l'US lorsque sa réalisation est terminée. | | 1 | Ouverte |
 | |                                                              | |  |  |
 | | En tant que membre d'un projet, je souhaite pouvoir planifier des sprints depuis l'onglet sprints afin d'y organiser des tâches qui seront par défaut en "A faire", mais pourront être déplacées dans d'autres états (visuellement) comme "En cours" ou "Fait" par défaut. |  | 3 | Ouverte |
