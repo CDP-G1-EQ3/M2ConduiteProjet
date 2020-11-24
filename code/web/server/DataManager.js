@@ -94,7 +94,7 @@ class DataManager {
         let opt = [user_id];
 
         let cond1 = "";
-        if(user_role == null) {
+        if(user_role != null) {
             cond1 += " AND up.role = ?";
             opt.push(user_role);
         }
