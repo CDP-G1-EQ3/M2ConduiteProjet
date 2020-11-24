@@ -36,6 +36,7 @@ class App {
         this.app.set('view engine', 'ejs');
         this.app.set('views', path.join(__dirname, '/template'));
         this.app.use(express.static(path.join(__dirname , '/data/css')));
+        this.app.use(express.static(path.join(__dirname , '/data/js')));
     }
 
     /**

@@ -3,17 +3,20 @@
 -- 02
 
 INSERT INTO `cdp_user`(`username`, `mail`, `sha`) 
-        VALUES ("ArnaudQu", "arnaud.quatreh@hotmail.fr", "C7BE47CEC41C3E5796146E91C7BF037818E9399A");
+        VALUES ("ArnaudQu", "arnaud.quatrehomme@etu.u-bordeaux.fr", "");
 
 -- 03
 
 INSERT INTO `cdp_project`(`name_`, `description_`, `ownerid_`) 
-        VALUES ("Project 01", "Premier projet", 1);
+        VALUES ("Project 01", "Premier projet", 1),
+                ("Project 02", "Second projet", 1),
+                ("Project 03", "Troisième projet", 2);
 
 -- 04
 
 INSERT INTO `cdp_user_project`(`user`, `project`, `role`) 
-        VALUES (1,1,"owner");
+        VALUES (1,1,"owner"),
+                (1,2,"owner");
 
 -- 05
 

@@ -3,6 +3,7 @@
     <head>
         <%- include('head'); %>
         <link rel="stylesheet" href="profile.css">
+        <script src="home.js" defer></script>
     </head>
 
     <body>
@@ -11,7 +12,10 @@
             <div class="row justify-content-center mb-2">
                 <a class="btn btn-primary col-3" href="createProject" role="button">Créer un projet</a>
             </div>
-            <div class="list-group container">
+            <div class="row justify-content-center mb-2">
+                <input type="text" class="form-control col-8" placeholder="Rechercher" id="searchProject">
+            </div>
+            <div class="list-group container" id="projectList">
                 <% if (projects) { %>
                     <% projects.forEach((project) => { %>
                         <a href="backlog/<%= project.id %>" class="list-group-item list-group-item-action flex-column align-items-start">
