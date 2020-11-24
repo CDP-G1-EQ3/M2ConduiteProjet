@@ -5,6 +5,7 @@ const path = require("path");
 const config = require('config');
 const userRoutes = require('./server/routes/user');
 const projectRoutes = require('./server/routes/project');
+const userStoryRoutes = require('./server/routes/userStory');
 const database = require("./server/Database");
 
 database.init();
@@ -25,6 +26,7 @@ app.use('/', userRoutes);
 
 app.use('/user', userRoutes);
 app.use('/project', projectRoutes);
+app.use('/us', userStoryRoutes);
 
 app.listen(config.get("server.port"), function () {
     console.log("CDP app listening on port "+config.get("server.port")+"!");
