@@ -14,7 +14,7 @@
             <div class="list-group container">
                 <% if (projects) { %>
                     <% projects.forEach((project) => { %>
-                        <a href="#" class="list-group-item list-group-item-action flex-column align-items-start">
+                        <a href="backlog/<%= project.id %>" class="list-group-item list-group-item-action flex-column align-items-start">
                             <h5 class="mb-1"><%= project.name_ %></h5>
                             <p class="mb-1"><%= project.description_ %></p>
                             <small><%= project.username %></small>
