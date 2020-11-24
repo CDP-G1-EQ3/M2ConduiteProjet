@@ -6,13 +6,14 @@
     </head>
 
     <body>
-        <h1 class="text-center">Profil</h1>
+        <h1 class="text-center">Accueil</h1>
+        <a class="btn btn-primary" href="createProject" role="button">Créer un projet</a>
         <div class="list-group container">
-            <% projects.forEach(function(project) { %>
-                <a href="<%= project.link %>" class="list-group-item list-group-item-action flex-column align-items-start">
-                    <h5 class="mb-1"><%= project.title %></h5>
-                    <p class="mb-1"><%= project.description %></p>
-                    <small><%= project.owner %></small>
+            <% projects.forEach((project) => { %>
+                <a href="#" class="list-group-item list-group-item-action flex-column align-items-start">
+                    <h5 class="mb-1"><%= project.name_ %></h5>
+                    <p class="mb-1"><%= project.description_ %></p>
+                    <small><%= project.username %></small>
                 </a>
             <% }); %>
         </div>

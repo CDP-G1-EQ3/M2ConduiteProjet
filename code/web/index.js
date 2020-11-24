@@ -53,7 +53,7 @@ class App {
     initRoutes() {
         this.initRoute("RootController");
         this.initRoute("RegisterController");
-        this.initRoute("ProfileController");
+        this.initRoute("HomeController");
 
         this.initRoute("DBTestController");
         

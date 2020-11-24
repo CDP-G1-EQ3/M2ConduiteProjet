@@ -3,11 +3,14 @@ const Controller = require("../Controller");
 class ProfileController extends Controller {
 
     getPath() {
-        return '/profile';
+        return '/home';
     }
 
     get(req, res) {
-        res.render("profile");
+        let userProjects = Controller.dm.getUserProjects(1);
+        userProjects.then((projects) => {
+            res.render("home", {projects});
+        });
     }
 }
 

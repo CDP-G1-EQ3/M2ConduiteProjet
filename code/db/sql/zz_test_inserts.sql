@@ -2,13 +2,13 @@
 
 -- 02
 
-INSERT INTO `cdp_user`(`identifier`, `username`, `mail`, `sha`) 
-        VALUES ("adri", "Adri", "adrien.boitelle@gmail.com", "");
+INSERT INTO `cdp_user`(`username`, `mail`, `sha`) 
+        VALUES ("ArnaudQu", "arnaud.quatreh@hotmail.fr", "C7BE47CEC41C3E5796146E91C7BF037818E9399A");
 
 -- 03
 
-INSERT INTO `cdp_project`(`name_`, `description_`) 
-        VALUES ("Project 01", "Premier projet");
+INSERT INTO `cdp_project`(`name_`, `description_`, `ownerid_`) 
+        VALUES ("Project 01", "Premier projet", 1);
 
 -- 04
 
