@@ -7,15 +7,21 @@
 
     <body>
         <h1 class="text-center">Accueil</h1>
-        <a class="btn btn-primary" href="createProject" role="button">Créer un projet</a>
-        <div class="list-group container">
-            <% projects.forEach((project) => { %>
-                <a href="#" class="list-group-item list-group-item-action flex-column align-items-start">
-                    <h5 class="mb-1"><%= project.name_ %></h5>
-                    <p class="mb-1"><%= project.description_ %></p>
-                    <small><%= project.username %></small>
-                </a>
-            <% }); %>
+        <div class="container">
+            <div class="row justify-content-center mb-2">
+                <a class="btn btn-primary col-3" href="createProject" role="button">Créer un projet</a>
+            </div>
+            <div class="list-group container">
+                <% if (projects) { %>
+                    <% projects.forEach((project) => { %>
+                        <a href="#" class="list-group-item list-group-item-action flex-column align-items-start">
+                            <h5 class="mb-1"><%= project.name_ %></h5>
+                            <p class="mb-1"><%= project.description_ %></p>
+                            <small><%= project.username %></small>
+                        </a>
+                    <% }); %>
+                <% } %>
+            </div>
         </div>
 
         <footer>
