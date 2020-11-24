@@ -11,8 +11,9 @@ exports.signup= (req, res) => {
             userModel.createUser(req.body.username, req.body.mail, req.body.password)
                 .then(sqlResult => {
                     if (sqlResult) {
-                        res.status(201).json({ message: "user added" });
-                        console.log(sqlResult);
+                        //res.status(201).json({ message: "user added" });
+                        //console.log(sqlResult);
+                        res.render("login");
                     }else {
                         res.json({ message: 'user is not added, the user may already exists'});
                     }
@@ -23,6 +24,7 @@ exports.signup= (req, res) => {
 }
 
 exports.renderLogin = (req, res) => {
+    res.render("login");
 }
 
 exports.login= (req, res) => {
@@ -35,7 +37,7 @@ exports.login= (req, res) => {
                              res.json({ message: "invalid passord" });
                          else {
                              global.userId = sqlResult[0].id;
-                             res.json({ message: "user logged " });
+                             res.render("home");
                          }
                      })
              }

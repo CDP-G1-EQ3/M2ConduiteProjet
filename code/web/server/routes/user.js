@@ -5,8 +5,8 @@ const express = require("express")
 
 let router = express.Router();
 
-router.get('/', userController.login);
 router.post('/login', userController.login);
+router.get('/', userController.renderLogin);
 router.get('/login', userController.renderLogin);
 
 router.post('/signup', userController.signup);
