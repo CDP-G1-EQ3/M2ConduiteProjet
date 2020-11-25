@@ -21,6 +21,7 @@ app.use(bodyParser.urlencoded({ extended: false }))
 app.set('view engine', 'ejs');
 app.set('views', path.join(__dirname, '/template'));
 app.use(express.static(path.join(__dirname , '/data/css')));
+app.use(express.static(path.join(__dirname , '/data/js')));
 
 app.use('/', userRoutes);
 
