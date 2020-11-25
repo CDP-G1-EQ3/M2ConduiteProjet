@@ -39,11 +39,7 @@ exports.login= (req, res) => {
                             res.render("login", {errorLogin: "mot de passe incorrect"});
                          else {
                              global.userId = sqlResult[0].id;
-<<<<<<< HEAD
                              res.redirect('/project');
-=======
-                             res.redirect("/project");
->>>>>>> cbbbfa61edf8385a3bdf0cf33f06cb0a78b47070
                          }
                      })
              }
