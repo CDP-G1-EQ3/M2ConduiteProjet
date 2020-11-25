@@ -5,7 +5,7 @@ exports.getAllProjects = (req, res) => {
     .then(sqlResult => {
         if (sqlResult.length != 0) {
             //res.json({ message: "succes", res: sqlResult })
-            res.render("home", sqlResult);
+            res.render("home", {projects: sqlResult});
         }else {
             res.json({ message: "faild", res: sqlResult })
         }

@@ -16,7 +16,7 @@
                 <input type="text" class="form-control col-8" placeholder="Rechercher" id="searchProject">
             </div>
             <div class="list-group container" id="projectList">
-                <% if (projects) { %>
+                <% if (typeof projects != "undefined") { %>
                     <% projects.forEach((project) => { %>
                         <a href="backlog/<%= project.id %>" class="list-group-item list-group-item-action flex-column align-items-start">
                             <h5 class="mb-1"><%= project.name_ %></h5>
