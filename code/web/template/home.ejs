@@ -2,8 +2,7 @@
 <html lang="fr">
     <head>
         <%- include('head'); %>
-        <link rel="stylesheet" href="profile.css">
-        <script src="home.js" defer></script>
+        <script src="/js/home.js" defer></script>
     </head>
 
     <body>
@@ -24,6 +23,8 @@
                             <small><%= project.username %></small>
                         </a>
                     <% }); %>
+                <% } else { %>
+                    <p class="text-center">Vous ne participez à aucun projet</p>
                 <% } %>
             </div>
         </div>

@@ -4,10 +4,9 @@ exports.getAllProjects = (req, res) => {
     projectModel.getUserProjects(global.userId)
     .then(sqlResult => {
         if (sqlResult.length != 0) {
-            //res.json({ message: "succes", res: sqlResult })
             res.render("home", {projects: sqlResult});
         }else {
-            res.json({ message: "faild", res: sqlResult })
+            res.json({ message: "failed", res: sqlResult })
         }
     })
     .catch(err => {
