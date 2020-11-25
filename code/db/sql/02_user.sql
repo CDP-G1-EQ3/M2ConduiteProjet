@@ -1,6 +1,6 @@
 CREATE TABLE cdp_user (
     id int UNSIGNED AUTO_INCREMENT,
-    username VARCHAR(24) NOT NULL UNIQUE,
+    username VARCHAR(24) NOT NULL,
     mail VARCHAR(64) NOT NULL UNIQUE,
     sha VARCHAR(256) NOT NULL,
 

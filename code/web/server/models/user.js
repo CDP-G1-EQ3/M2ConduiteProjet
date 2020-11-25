@@ -18,6 +18,6 @@ exports.createUser = (username, mail, sha) => {
      * Get a user's information
      * @param {int} user_identifier A user ID
      */
-exports.getUserByUsername = (user_identifier) => {        
-    return database.fast("SELECT * FROM cdp_user WHERE username=?", [user_identifier]);
+exports.getUserByMail= (mail) => {        
+    return database.fast("SELECT * FROM cdp_user WHERE mail=?", [mail]);
 }

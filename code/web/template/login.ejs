@@ -10,10 +10,10 @@
                 <form method="POST" action="/user/login">
                     <input type="email" id="inputLogin" name="mail" class="form-control form-top" placeholder="address email" required> <br>
                     <input type="password" id="inputPassword"i name="password" class="form-control form-bottom" placeholder="Mot de passe" minlength="8" required> <br>
-                    <button class="btn btn-primary text-center" type="submit">SE CONNECTER</button>
                     <% if (typeof errorLogin != 'undefined') { %>
-                    <div class="text-danger text-center"><%= error %></div><br>
+                    <div class="text-danger text-center"><%= errorLogin %></div><br>
                     <% } %>
+                    <button class="btn btn-primary text-center" type="submit">SE CONNECTER</button>
                 </form>
             </div>
         </div>

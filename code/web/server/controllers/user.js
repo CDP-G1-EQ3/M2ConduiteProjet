@@ -30,13 +30,13 @@ exports.renderLogin = (req, res) => {
 }
 
 exports.login= (req, res) => {
-     userModel.getUserByUsername(req.body.username)
+     userModel.getUserByMail(req.body.mail)
          .then(sqlResult => {
              if (sqlResult.length !== 0) {
                  bcrypt.compare(req.body.password, sqlResult[0].sha)
                      .then(valid => {
                          if (!valid)
-                             res.json({ message: "invalid passord" });
+                            res.render("login", {errorLogin: "mot de passe incorrect"});
                          else {
                              global.userId = sqlResult[0].id;
                              res.render("home");
@@ -44,7 +44,7 @@ exports.login= (req, res) => {
                      })
              }
              else
-                 res.json({ message: "no user with this username" })
+                res.render("login", {errorLogin: "aucun utilisateur ne correspond à cette addresse mail"});
          })
          .catch(err => {
              res.json({error: err});
