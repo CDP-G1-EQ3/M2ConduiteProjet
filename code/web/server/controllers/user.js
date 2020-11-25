@@ -11,14 +11,16 @@ exports.signup= (req, res) => {
             userModel.createUser(req.body.username, req.body.mail, req.body.password)
                 .then(sqlResult => {
                     if (sqlResult) {
-                        //res.status(201).json({ message: "user added" });
-                        //console.log(sqlResult);
                         res.render("login");
                     }else {
-                        res.json({ message: 'user is not added, the user may already exists'});
+                        error = "unknown error"
+                        res.render("register", error);
                     }
                 })
-                .catch(sqlError => { res.json({ message: 'error when attempting to create user'}); });
+                .catch(sqlError => { 
+                    error = "a user with this email/username already exists"
+                    res.render("register", {error: error});
+                 });
         }
    })
 }

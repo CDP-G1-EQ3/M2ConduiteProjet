@@ -24,29 +24,19 @@
                         <input type="text" class="form-control" id="username" name="username" aria-describedby="emailHelp" placeholder="Entrer votre Pseudonyme" required>
                     </div>
                     <div class="form-group">
-                        <input type="password" class="form-control" name="password" id="password" placeholder="entrer votre mot de passe" required>
+                        <input type="password" class="form-control" name="password" id="password" placeholder="entrer votre mot de passe" minlength="8" required>
                     </div>
                     <div class="form-group">
-                        <input type="password" class="form-control" name="passwordConfirmation" id="passwordConfirmation" placeholder="entrer à nouveau votre mot de passe" required>
+                        <input type="password" class="form-control" name="passwordConfirmation" id="passwordConfirmation" placeholder="entrer à nouveau votre mot de passe" minlength="8" required>
                     </div>
-                    <% if (locals.error) { %>
-                    <div class="text-danger">une erreur s'est produite</div><br>
+                    <div id="errorJs" class="text-danger text-center"></div><br>
+                    <% if (typeof error != 'undefined') { %>
+                    <div class="text-danger text-center"><%= error %></div><br>
                     <% } %>
                     <button type="submit" class="btn btn-primary">S'inscrire</button>
                 </form>
             </div>
         </div>
+        <script src="/js/register.js"></script>
     </body>
 </html>
-
-<!--
-                <form method="post" action="/user/signup">
-                    <h1 class="h3 mb-3">Inscription</h1>
-                    <input type="email" id="inputEmail" name="mail" class="form-control form-top" placeholder="Adresse e-mail" required>
-                    <input type="text" id="inputNickname" name="username" class="form-control form-middle" placeholder="Pseudonyme" required>
-                    <input type="password" id="inputPassword" name="password" class="form-control form-bottom" placeholder="Mot de passe" required minlength="8">
-                    <input type="password" id="inputPassword" name="passwordConfirmation" class="form-control form-bottom" placeholder="confirmation du mot de passe" required minlength="8">
-                    <button class="btn btn-primary" type="submit">S'inscrire</button>
-                    <a class="btn btn-secondary" href="/user/login">Se connecter</a>
-                </form>
-            -->
