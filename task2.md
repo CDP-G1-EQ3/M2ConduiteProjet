@@ -1,3 +1,10 @@
+# DoD pour les tâches du sprint
+- La tâche a été implémenté
+- Les tests unitaires ou e2e correspondantes ont été exécutés et elles passent
+- La tâche a été push
+- La tâche a été revue au moins un pair
+
+# Liste des tâches
 | ID | US ID | Task | Durée | Dépendance | DoD | État | Assigné |
 |:--:|:-----:|:-----|:-----:|:----------:|-----|:----:|:-------:|
 |T01|01| Créer et implémenter le template `register.ejs` contenant le formulaire d'ajout d'un nouvel utilisateur. Le formulaire devra contenir les champs: e-mail, pseudonyme, mot de passe et confirmation du mot de passe. Un bouton "S'inscrire" devra soumettre le formulaire avec la méthode POST vers la route`/user/signup` et un bouton "Se connecter" devra rediriger vers la page de connexion (GET: `/user/login`) .  La page devra contenir un élément html (div ou alert bootstrap) pour afficher les éventuelles erreurs. | 1 |  |  | TODO ||
