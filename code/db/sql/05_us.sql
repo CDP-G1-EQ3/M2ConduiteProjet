@@ -3,6 +3,7 @@ CREATE TABLE cdp_us (
   id int UNSIGNED AUTO_INCREMENT,
   label TEXT NOT NULL,
   difficulty int UNSIGNED NOT NULL,
+  importance ENUM('maximale', 'normale', 'minimale'),
   sprint int UNSIGNED,
 
   INDEX I_PROJECT (project),
