@@ -20,8 +20,7 @@ let bodyParser = require('body-parser');
 app.use(bodyParser.urlencoded({ extended: false }))
 app.set('view engine', 'ejs');
 app.set('views', path.join(__dirname, '/template'));
-app.use('/js', express.static(__dirname + '/data/js'))
-app.use('/css', express.static(__dirname + '/data/css'))
+app.use(express.static(path.join(__dirname , '/data')));
 
 app.use('/', userRoutes);
 
