@@ -2,23 +2,26 @@
 <html lang="fr">
     <head>
         <%- include('head'); %>
-        <link rel="stylesheet" href="login.css">
     </head>
-
-    <body class="container">
-        <div class="row justify-content-center">
-            <div class="col-4">
-                <form class="form-signin" method="post" action="/user/login">
-                    <h1 class="h3 mb-3">Connexion</h1>
-                    <input type="text" id="inputLogin" name="username" class="form-control form-top" placeholder="Identifiant" required>
-                    <input type="password" id="inputPassword"i name="password" class="form-control form-bottom" placeholder="Mot de passe" required>
-                    <button class="btn btn-primary" type="submit">Se connecter</button>
-                    <a class="btn btn-secondary" href="/user/signup">S'inscrire</a>
+    <body class="container bg-secondary" method="post" action="/user/login">
+        <div class="row justify-content-center my-5">
+            <div class="col-4 bg-light py-3 rounded">
+                <h6 class="text-center">J'ai déjà un compte</h6>
+                <form method="POST" action="/user/login">
+                    <input type="email" id="inputLogin" name="mail" class="form-control form-top" placeholder="address email" required> <br>
+                    <input type="password" id="inputPassword"i name="password" class="form-control form-bottom" placeholder="Mot de passe" minlength="8" required> <br>
+                    <% if (typeof errorLogin != 'undefined') { %>
+                    <div class="text-danger text-center"><%= errorLogin %></div><br>
+                    <% } %>
+                    <button class="btn btn-primary text-center" type="submit">SE CONNECTER</button>
                 </form>
             </div>
         </div>
-        <footer>
-            <%- include('footer'); %>
-        </footer>
+        <div class="row justify-content-center ">
+            <div class="col-4 d-flex justify-content-center flex-column bg-light py-3 rounded">
+                <h6 class="text-center">Nouveau sur notre Site</h6>
+                <a class="btn btn-primary btn-sm" href="/user/signup">S'INSCRIRE</a>
+            </div>
+        </div>
     </body>
 </html>

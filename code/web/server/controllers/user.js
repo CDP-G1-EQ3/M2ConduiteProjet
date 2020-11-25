@@ -11,14 +11,16 @@ exports.signup= (req, res) => {
             userModel.createUser(req.body.username, req.body.mail, req.body.password)
                 .then(sqlResult => {
                     if (sqlResult) {
-                        //res.status(201).json({ message: "user added" });
-                        //console.log(sqlResult);
                         res.render("login");
                     }else {
-                        res.json({ message: 'user is not added, the user may already exists'});
+                        error = "unknown error"
+                        res.render("register", error);
                     }
                 })
-                .catch(sqlError => { res.json({ message: 'error when attempting to create user'}); });
+                .catch(sqlError => { 
+                    error = "a user with this email/username already exists"
+                    res.render("register", {error: error});
+                 });
         }
    })
 }
@@ -28,13 +30,13 @@ exports.renderLogin = (req, res) => {
 }
 
 exports.login= (req, res) => {
-     userModel.getUserByUsername(req.body.username)
+     userModel.getUserByMail(req.body.mail)
          .then(sqlResult => {
              if (sqlResult.length !== 0) {
                  bcrypt.compare(req.body.password, sqlResult[0].sha)
                      .then(valid => {
                          if (!valid)
-                             res.json({ message: "invalid passord" });
+                            res.render("login", {errorLogin: "mot de passe incorrect"});
                          else {
                              global.userId = sqlResult[0].id;
                              res.render("home");
@@ -42,7 +44,7 @@ exports.login= (req, res) => {
                      })
              }
              else
-                 res.json({ message: "no user with this username" })
+                res.render("login", {errorLogin: "aucun utilisateur ne correspond à cette addresse mail"});
          })
          .catch(err => {
              res.json({error: err});
