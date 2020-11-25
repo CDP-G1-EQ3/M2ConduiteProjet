@@ -11,6 +11,7 @@
 |09 | En tant que membre d'un projet, je souhaite pouvoir créer une User Story en renseignant sa description (obligatoire), sa priorité et sa difficulté afin de pouvoir constituer un backlog. | haute |     3      | Ouverte |
 |10 | En tant que membre d'un projet, je souhaite pouvoir modifier ou supprimer des User Stories afin de pouvoir corriger d'éventuelles erreurs. | haute |     3      | Ouverte |
 |11 | En tant que membre d'un projet, je souhaite accéder au backlog contenant la liste de toutes les User Stories avec les champs description, identifiant, importance et difficulté afin de pouvoir les gérer (modification, suppression, tri). | haute | 2 | Ouverte |
+|26 | En tant que membre d'un projet, je souhaite pouvoir me déplacer entre les differentes fonctionnalités (projets, backlog, sprints, tâches) en utilisant un menu afin de faciliter l'utilisation de l'application. | minimale | 3 | Ouverte |
 
 ### Diagramme de Pert
 
