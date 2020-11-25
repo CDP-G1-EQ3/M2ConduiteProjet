@@ -37,7 +37,7 @@ exports.login= (req, res) => {
                              res.json({ message: "invalid passord" });
                          else {
                              global.userId = sqlResult[0].id;
-                             res.render("home");
+                             res.redirect("/project");
                          }
                      })
              }
