@@ -2,6 +2,7 @@
 <html lang="fr">
     <head>
         <%- include('head'); %>
+        <script src="/js/createProject.js" defer></script>
     </head>
 
     <body>
@@ -9,12 +10,13 @@
         <div class="container text-center">
             <div class="row justify-content-center">
                 <div class="col-6">
-                    <form class="form-signup" method="post" action="/project/new" autocomplete="off">
+                    <form class="form-signup mb-3" method="post" action="/project/new" autocomplete="off">
                         <input type="text" id="inputTitle" name="title" class="form-control form-top" placeholder="Titre du projet (Obligatoire)" required>
                         <textarea id="inputDescription" name="description" class="form-control form-bottom" placeholder="Description du projet (Optionnel)"></textarea>
                         <button class="btn btn-primary" type="submit">Créer</button>
                         <a class="btn btn-secondary" href="/project">Annuler</a>
                     </form>
+                    <div id="errorMsg" class="alert alert-danger text-left" hidden>Erreur lors de la création du projet</div>
                 </div>
             </div>
         </div>
