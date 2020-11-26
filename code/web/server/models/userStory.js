@@ -29,3 +29,8 @@ exports.deleteUserStoryById = (usId) => {
 exports.getUserStoryById = (usId) => {
     return database.fast("SELECT * FROM cdp_us WHERE id=?", [usId]);
 }
+
+exports.updateUserStoryById = (usId, label, difficulty, importance) => {
+    const opt = [label, difficulty, importance, usId];
+    return database.fast("UPDATE cdp_us SET label=?, difficulty=?, importance=? WHERE id=?", opt);
+}

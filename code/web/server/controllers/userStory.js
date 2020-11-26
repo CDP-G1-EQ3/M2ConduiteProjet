@@ -34,7 +34,15 @@ exports.renderBacklog = (req, res) => {
 }
 
 exports.updateUserStory = (req, res) => {
-    
+    userStoryModel.getUserStoryById(req.params.usId)
+       .then(userStories => {
+           userStoryModel.updateUserStoryById(req.params.usId, req.body.description, req.body.difficulty, req.body.importance)
+               .then(sqlResult => {
+                   res.redirect("/backlog/" + userStories[0].project);
+               })
+               .catch(error => res.json({ error: "update operation on a U.S failed" }));
+       })
+       .catch(error => res.json({ error: "error when attempting to get the US: " + req.params.usId}));
 }
 
 exports.deleteUserStory = (req, res) => {
