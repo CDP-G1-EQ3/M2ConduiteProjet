@@ -4,7 +4,11 @@ exports.addUserStory = (req, res) => {
     userStoryModel.createUS(req.body.idProject, req.body.description, req.body.difficulty, req.body.importance)
         .then(sqlResult => {
             const message = (sqlResult != null) ? "U.S created" : "U.S creation failed";
-            res.send(message);
+            if (sqlResult) {
+                res.redirect("/backlog/" + req.body.idProject);
+            }else {
+                res.json({erro: "error when attempting to créate a US"});
+            }
         })
         .catch(error => res.send(error));
 }

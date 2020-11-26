@@ -26,7 +26,7 @@ app.use('/', userRoutes);
 
 app.use('/user', userRoutes);
 app.use('/project', projectRoutes);
-app.use('/us', userStoryRoutes);
+app.use('/backlog', userStoryRoutes);
 
 app.listen(config.get("server.port"), function () {
     console.log("CDP app listening on port "+config.get("server.port")+"!");
