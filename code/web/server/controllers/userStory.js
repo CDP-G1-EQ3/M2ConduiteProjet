@@ -25,7 +25,8 @@ const getUserStoriesByProjectId = (req, res) => {
 exports.renderBacklog = (req, res) => {
     userStoryModel.getUserStoriesByIdProject(req.params.projectId)
         .then(sqlResult => {
-            res.render("backlog", {userStories: sqlResult});
+            let userStories = {userStories: sqlResult, projectId: req.params.projectId};
+            res.render("backlog", {userStories});
         })
         .catch(error => res.send(error));
 
