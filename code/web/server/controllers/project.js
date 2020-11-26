@@ -16,7 +16,7 @@ exports.addProject = (req, res) => {
             res.redirect("/project");
         })
         .catch(sqlError => {
-            res.redirect("/project/new?error")
+            res.render("createProject", {error: "Erreur lors de la création du projet"});
         });
 }
 

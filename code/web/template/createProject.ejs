@@ -2,7 +2,6 @@
 <html lang="fr">
     <head>
         <%- include('head'); %>
-        <script src="/js/createProject.js" defer></script>
     </head>
 
     <body>
@@ -16,7 +15,9 @@
                         <button class="btn btn-primary" type="submit">Créer</button>
                         <a class="btn btn-secondary" href="/project">Annuler</a>
                     </form>
-                    <div id="errorMsg" class="alert alert-danger text-left" hidden>Erreur lors de la création du projet</div>
+                    <% if (typeof error != 'undefined') { %>
+                        <div id="errorMsg" class="alert alert-danger text-left"><%= error %></div>
+                    <% } %>
                 </div>
             </div>
         </div>
