@@ -99,7 +99,7 @@ class DataManager {
             opt.push(user_role);
         }
 
-        return DataManager.database.fast("SELECT * FROM cdp_project as p, cdp_user_project as up WHERE up.project = p.id AND up.user = ?"+cond1, opt);
+        return DataManager.database.fast("SELECT p.id, p.name_, p.description_, o.username FROM cdp_project as p, cdp_user_project as up, cdp_user as o WHERE up.project = p.id AND p.ownerid_ = o.id AND up.user = ?"+cond1, opt);
     }
 
     /**
