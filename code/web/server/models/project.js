@@ -5,14 +5,10 @@ const database = require("../Database");
  * @param {string} title The title of the project
  * @param {string} description The description of the project
  */
-exports.createNewProject = (user, title, description) => {
-    return new Promise((resolve) => {
-        createProject(title, description).then(r => {
-            let project = r.insertId;
-            createUserProject(project, user, 'owner');
-            resolve(r);
-        });
-    });
+exports.createNewProject = async (user, title, description) => {
+    let result = await createProject(user, title, description);
+    let project = result.insertId;
+    return createUserProject(project, user, 'owner');
 }
 
 
@@ -21,9 +17,9 @@ exports.createNewProject = (user, title, description) => {
  * @param {string} name The name of the project
  * @param {string} description The description of the project
  */
-function createProject(name, description) {
-    let sql = "INSERT INTO cdp_project (`name_`,`description_`) VALUES (?,?)";
-    let opt = [name, description];
+function createProject(user, title, description) {
+    let sql = "INSERT INTO cdp_project (`name_`,`description_`,`ownerid_`) VALUES (?,?,?)";
+    let opt = [title, description, user];
 
     return database.fast(sql, opt); 
 }

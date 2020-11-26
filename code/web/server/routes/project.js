@@ -4,7 +4,8 @@ const express = require("express")
 
 let router = express.Router();
 
-router.post('/', projectController.addProject);
+router.post('/new', projectController.addProject);
+router.get('/new', projectController.renderAddProject);
 router.get('/', projectController.getAllProjects);
 
 module.exports = router;
