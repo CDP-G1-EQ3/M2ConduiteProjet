@@ -5,14 +5,10 @@ const database = require("../Database");
  * @param {string} title The title of the project
  * @param {string} description The description of the project
  */
-exports.createNewProject = (user, title, description) => {
-    return new Promise((resolve) => {
-        createProject(user, title, description).then(r => {
-            let project = r.insertId;
-            createUserProject(project, user, 'owner');
-            resolve(r);
-        });
-    });
+exports.createNewProject = async (user, title, description) => {
+    let result = await createProject(user, title, description);
+    let project = result.insertId;
+    return createUserProject(project, user, 'owner');
 }
 
 
