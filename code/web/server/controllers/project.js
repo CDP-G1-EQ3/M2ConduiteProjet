@@ -11,17 +11,19 @@ exports.getAllProjects = (req, res) => {
 }
 
 exports.addProject = (req, res) => {
-    projectModel.createNewProject(global.userId, req.body.name, req.body.description)
+    projectModel.createNewProject(global.userId, req.body.title, req.body.description)
         .then(sqlResult => {
             if (sqlResult) {
-                res.json({ message: "project added", res: sqlResult});
+                res.redirect("/project");
             } else {
-                console.log("===> 5")
                 res.json({ message: "A project with this name alread exists", res: sqlResult });
             }
         })
         .catch(err => {
-            console.log("===> 6")
             res.json({ error: err});
         });
+}
+
+exports.renderAddProject = (req, res) => {
+    res.render("createProject");
 }
