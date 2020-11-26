@@ -2,20 +2,20 @@
 <html lang="fr">
     <head>
         <%- include('head'); %>
-        <script src="/js/home.js" defer></script>
+        <script src="/js/project.js" defer></script>
     </head>
 
     <body>
         <h1 class="text-center">Accueil</h1>
         <div class="container">
             <div class="row justify-content-center mb-2">
-                <a class="btn btn-primary col-3" href="createProject" role="button">Créer un projet</a>
+                <a class="btn btn-primary col-3" href="/project/new" role="button">Créer un projet</a>
             </div>
             <div class="row justify-content-center mb-2">
                 <input type="text" class="form-control col-8" placeholder="Rechercher" id="searchProject">
             </div>
             <div class="list-group container" id="projectList">
-                <% if (typeof projects != "undefined") { %>
+                <% if (typeof projects != "undefined" && projects.length != 0) { %>
                     <% projects.forEach((project) => { %>
                         <a href="backlog/<%= project.id %>" class="list-group-item list-group-item-action flex-column align-items-start">
                             <h5 class="mb-1"><%= project.name_ %></h5>
