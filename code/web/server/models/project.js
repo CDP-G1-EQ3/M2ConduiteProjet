@@ -55,5 +55,5 @@ exports.getUserProjects = (user_id, user_role = null) => {
         opt.push(user_role);
     }
 
-    return database.fast("SELECT p.id, p.name_, p.description_, o.username FROM cdp_project as p, cdp_user_project as up, cdp_user as o WHERE up.project = p.id AND p.ownerid_ = o.id AND up.user = ?"+cond1, opt);
+    return database.fast("SELECT p.id, p.name_, p.description_, o.username FROM cdp_project as p, cdp_user_project as up, cdp_user as o WHERE up.project = p.id AND up.user = o.id AND up.user = ? "+cond1, opt);
 }
