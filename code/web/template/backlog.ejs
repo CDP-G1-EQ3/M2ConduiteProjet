@@ -5,11 +5,40 @@
     </head>
 
 <body>
-
-    <!-- Button trigger modal -->
-    <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModal">
-        Créer US
-    </button>
+    <div class="container">
+        <div class="row my-3">
+            <div class="col-6">
+                <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModal">
+                    Créer US
+                </button>
+            </div>
+       </div>
+        <div class="row">
+            <div class="col-8">
+                <table class="table">
+                    <thead>
+                        <tr>
+                        <th scope="col">identifiant</th>
+                        <th scope="col">Description</th>
+                        <th scope="col">importance</th>
+                        <th scope="col">difficulté</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <% for(let i=0; i<userStories.userStories.length; i++) { %> 
+                        <tr>
+                            <th scope="row"><%= userStories.userStories[i].id %></th>
+                            <td><%= userStories.userStories[i].label %></td>
+                            <td><%= userStories.userStories[i].importance %></td>
+                            <td><%= userStories.userStories[i].difficulty %></td>
+                            </tr>
+                        <tr>
+                        <% } %>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
 
     <!-- Modal -->
     <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
