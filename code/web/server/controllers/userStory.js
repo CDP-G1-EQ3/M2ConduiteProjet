@@ -13,10 +13,20 @@ exports.addUserStory = (req, res) => {
         .catch(error => res.send(error));
 }
 
-exports.getUserStoriesByProjectId = (req, res) => {
+// not used yet
+const getUserStoriesByProjectId = (req, res) => {
     userStoryModel.getUserStoriesByIdProject(req.params.projectId)
         .then(sqlResult => {
             res.send(sqlResult);
         })
         .catch(error => res.send(error));
+}
+
+exports.renderBacklog = (req, res) => {
+    userStoryModel.getUserStoriesByIdProject(req.params.projectId)
+        .then(sqlResult => {
+            res.render("backlog", {userStories: sqlResult});
+        })
+        .catch(error => res.send(error));
+
 }
