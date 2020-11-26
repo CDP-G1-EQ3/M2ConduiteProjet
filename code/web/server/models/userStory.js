@@ -20,3 +20,12 @@ exports.getUserStoriesByIdProject = (projectId) => {
     const opt = [projectId];
     return database.fast(sql, opt);
 }
+
+exports.deleteUserStoryById = (usId) => {
+     const sql = "DELETE FROM cdp_us WHERE id=?";
+     return database.fast(sql, [usId]);
+}
+
+exports.getUserStoryById = (usId) => {
+    return database.fast("SELECT * FROM cdp_us WHERE id=?", [usId]);
+}
