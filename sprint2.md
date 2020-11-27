@@ -13,6 +13,5 @@
 |11 | En tant que membre d'un projet, je souhaite accéder au backlog contenant la liste de toutes les User Stories avec les champs description, identifiant, importance et difficulté afin de pouvoir les gérer (modification, suppression, tri). | maximale | 2 | Fermer |
 |26 | En tant que membre d'un projet, je souhaite pouvoir me déplacer entre les differentes fonctionnalités (projets, backlog, sprints, tâches) en utilisant un menu afin de faciliter l'utilisation de l'application. | normale | 3 | Ouvert |
 
-### Velocité
-- Difficulté totale: 19
-- Déjà fait: 16
+- Prévision de charge: 19
+- vélocité: 16
