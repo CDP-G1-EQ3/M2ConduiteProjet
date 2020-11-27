@@ -24,6 +24,8 @@
         "semi": [
             "error",
             "always"
-        ]
+        ],
+        "brace-style": [2, "stroustrup", { "allowSingleLine": true }],
+        "camelcase": [2, {"properties": "always"}]
     }
 }
