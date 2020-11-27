@@ -12,6 +12,5 @@
 |24 | En tant que membre d'un projet, je souhaite pouvoir uploader des fichiers sous plusieurs formats (zip, targ.gz, pdf, md) et de leur attribuer un titre, une description et un tag afin de constituer les releases et les documentations de mes projets. La description et le tag sont optionnels pour un fichier de documentation. | normale | 3 | Ouverte |
 |25 | En tant que membre d'un projet, je souhaite pouvoir télécharger ou supprimer tout fichier uploadé afin de corriger d'éventuelles erreurs. | normale | 3 | Ouverte |
 |26 | En tant que membre d'un projet, je souhaite pouvoir me déplacer entre les differentes fonctionnalités (projets, backlog, sprints, tâches) en utilisant un menu afin de faciliter l'utilisation de l'application. | normale | 3 | Ouverte |
-### Velocité
-- Difficulté totale: 25
-- Déjà fait: 0
+- Prévision de charge: 25
+- Vélocité: 0
