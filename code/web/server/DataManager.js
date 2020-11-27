@@ -52,7 +52,7 @@ class DataManager {
      * @param {int} user_identifier A user ID
      */
     getUserFromIdentifier(user_identifier) {        
-        return DataManager.database.fast("SELECT * FROM cdp_user WHERE identifier=?", [user_identifier]);
+        return DataManager.database.fast("SELECT * FROM cdp_user WHERE username=?", [user_identifier]);
     }
 
     /**
@@ -78,9 +78,9 @@ class DataManager {
      * @param {string} mail The email adresse of the user
      * @param {string} sha The encrypted password of the user
      */
-    createUser(identifier, username, mail, sha) {
-        let sql = "INSERT INTO cdp_user (`identifier`, `username`, `mail`, `sha`) VALUES (?,?,?,?)";
-        let opt = [identifier, username, mail, sha];
+    createUser(username, mail, sha) {
+        let sql = "INSERT INTO cdp_user (`username`, `mail`, `sha`) VALUES (?,?,?)";
+        let opt = [username, mail, sha];
 
         return DataManager.database.fast(sql, opt);
     }
@@ -94,12 +94,12 @@ class DataManager {
         let opt = [user_id];
 
         let cond1 = "";
-        if(user_role == null) {
+        if(user_role != null) {
             cond1 += " AND up.role = ?";
             opt.push(user_role);
         }
 
-        return DataManager.database.fast("SELECT * FROM cdp_project as p, cdp_user_project as up WHERE up.project = p.id AND up.user = ?"+cond1, opt);
+        return DataManager.database.fast("SELECT p.id, p.name_, p.description_, o.username FROM cdp_project as p, cdp_user_project as up, cdp_user as o WHERE up.project = p.id AND p.ownerid_ = o.id AND up.user = ?"+cond1, opt);
     }
 
     /**

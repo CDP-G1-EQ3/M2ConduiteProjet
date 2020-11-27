@@ -1,22 +1,42 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="fr">
     <head>
         <%- include('head'); %>
-        <link rel="stylesheet" href="register.css">
     </head>
 
-    <body class="text-center">
-        <form class="form-signup">
-            <h1 class="h3 mb-3">Inscription</h1>
-            <input type="email" id="inputEmail" class="form-control form-top" placeholder="Adresse e-mail" required>
-            <input type="text" id="inputLogin" class="form-control form-middle" placeholder="Identifiant de connexion" required>
-            <input type="text" id="inputNickname" class="form-control form-middle" placeholder="Pseudonyme" required>
-            <input type="password" id="inputPassword" class="form-control form-bottom" placeholder="Mot de passe" required minlength="8">
-            <button class="btn btn-primary" type="submit">S'inscrire</button>
-            <a class="btn btn-secondary" href="/">Se connecter</a>
-        </form>
-        <footer>
-            <%- include('footer'); %>
-        </footer>
+    <body class="container bg-secondary" method="post" action="/user/signup">
+        <div class="row justify-content-center my-5">
+            <div class="col-4 d-flex justify-content-center flex-column bg-light py-3 rounded">
+                <h6 class="text-center">J'ai déjà un compte</h6>
+                <a class="btn btn-primary btn-sm" href="/user/login">SE CONNECTER</a>
+            </div>
+        </div>
+
+        <div class="row justify-content-center">
+            <div class="col-4 bg-light py-3 rounded">
+                <h6 class="text-center">Nouveau sur notre site ?</h6>
+                <p class="text-center">Saisissez vos informations pour continuer</p>
+                <form method="POST" action="/user/signup">
+                    <div class="form-group">
+                        <input type="email" class="form-control" id="mail" name="mail" aria-describedby="emailHelp" placeholder="Entrer votre email" required>
+                    </div>
+                    <div class="form-group">
+                        <input type="text" class="form-control" id="username" name="username" aria-describedby="emailHelp" placeholder="Entrer votre Pseudonyme" required>
+                    </div>
+                    <div class="form-group">
+                        <input type="password" class="form-control" name="password" id="password" placeholder="entrer votre mot de passe" minlength="8" required>
+                    </div>
+                    <div class="form-group">
+                        <input type="password" class="form-control" name="passwordConfirmation" id="passwordConfirmation" placeholder="entrer à nouveau votre mot de passe" minlength="8" required>
+                    </div>
+                    <div id="errorJs" class="text-danger text-center"></div><br>
+                    <% if (typeof error != 'undefined') { %>
+                    <div class="text-danger text-center"><%= error %></div><br>
+                    <% } %>
+                    <button type="submit" class="btn btn-primary">S'inscrire</button>
+                </form>
+            </div>
+        </div>
+        <script src="/js/register.js"></script>
     </body>
 </html>
