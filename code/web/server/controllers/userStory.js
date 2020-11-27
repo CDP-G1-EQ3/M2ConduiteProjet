@@ -1,6 +1,7 @@
 let userStoryModel = require("../models/userStory");
 
 exports.addUserStory = (req, res) => {
+    console.log(req.body);
     userStoryModel.createUS(req.body.idProject, req.body.description, req.body.difficulty, req.body.importance)
         .then(sqlResult => {
             const message = (sqlResult != null) ? "U.S created" : "U.S creation failed";
@@ -25,7 +26,6 @@ const getUserStoriesByProjectId = (req, res) => {
 exports.renderBacklog = (req, res) => {
     userStoryModel.getUserStoriesByIdProject(req.params.projectId)
         .then(sqlResult => {
-            console.log(sqlResult);
             let userStories = {userStories: sqlResult, projectId: req.params.projectId};
             res.render("backlog", {userStories});
         })
