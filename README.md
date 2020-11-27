@@ -23,17 +23,17 @@
 
 |ID | US | Importance | Difficulté | État |
 |:--:|----|:------------:|:--:|----|
-|01 | En tant que visiteur, je souhaite pouvoir créer un compte en renseignant une adresse mail, un pseudonyme, un mot de passe et une confirmation du mot de passe afin de créer et de gérer mes projets. Toutes les informations à renseigner sont obligatoires. | normale | 2 | Ouverte |
-| 02 | En tant qu'utilisateur, je souhaite pouvoir me connecter à mon compte en renseignant mon e-mail et mot de passe afin d'avoir accès à mes projets. | normale | 2 | Ouverte |
-|03 | En tant qu'utilisateur, je souhaite pouvoir créer un projet en renseignant un nom (obligatoire) et une description (optionnel) afin de pouvoir faire une gestion agile sur mon projet. | maximale | 2 | Ouverte |
-| 04 | En tant qu'utilisateur, je souhaite effectuer une recherche dans la liste de projets auxquels je participe en fonction de leur nom afin de retrouver facilement un projet qui m'intéresse. | normale | 3 | Ouverte |
-|05 | En tant qu'utilisateur, je souhaite accéder à une liste de mes projets contenant comme champs le nom du projet, sa description courte et le propriétaire du projet afin de pouvoir accéder au projet qui m'intéresse | maximale | 2 | Ouverte |
+|01 | En tant que visiteur, je souhaite pouvoir créer un compte en renseignant une adresse mail, un pseudonyme, un mot de passe et une confirmation du mot de passe afin de créer et de gérer mes projets. Toutes les informations à renseigner sont obligatoires. | normale | 2 | Fermée |
+| 02 | En tant qu'utilisateur, je souhaite pouvoir me connecter à mon compte en renseignant mon e-mail et mot de passe afin d'avoir accès à mes projets. | normale | 2 | Fermée |
+|03 | En tant qu'utilisateur, je souhaite pouvoir créer un projet en renseignant un nom (obligatoire) et une description (optionnel) afin de pouvoir faire une gestion agile sur mon projet. | maximale | 2 | Fermée |
+| 04 | En tant qu'utilisateur, je souhaite effectuer une recherche dans la liste de projets auxquels je participe en fonction de leur nom afin de retrouver facilement un projet qui m'intéresse. | normale | 2 | Fermée |
+|05 | En tant qu'utilisateur, je souhaite accéder à une liste de mes projets contenant comme champs le nom du projet, sa description courte et le propriétaire du projet afin de pouvoir accéder au projet qui m'intéresse | maximale | 2 | Fermée |
 |06 | En tant qu'administrateur d'un projet (créateur, ou membre ayant obtenu la permission d'un autre administrateur), je souhaite accéder aux informations du projet (son nom, sa description, le chef du projet) afin de pouvoir les modifier. | minimale | 1 | Ouverte |
 |07 | En tant qu'administrateur d'un projet, je souhaite pouvoir accéder à une page de gestion des membres depuis les paramètres du projet afin d'attribuer des rôles, ajouter des membres ou en expulser. | normale | 2 | Ouverte |
 |08 | En tant qu'administrateur d'un projet, je souhaite pouvoir déplacer une ou plusieurs tâches d'un état à un autre afin d'organiser mes tâches. Les états pour une tâche sont todo, doing et done | maximale | 2 | Ouverte |
-|09 | En tant que membre d'un projet, je souhaite pouvoir créer une User Story en renseignant sa description (obligatoire), sa priorité et sa difficulté afin de pouvoir constituer un backlog. | maximale |     3      | Ouverte |
-|10 | En tant que membre d'un projet, je souhaite pouvoir modifier ou supprimer des User Stories afin de pouvoir corriger d'éventuelles erreurs. | maximale |     3      | Ouverte |
-|11 | En tant que membre d'un projet, je souhaite accéder au backlog contenant la liste de toutes les User Stories avec les champs description, identifiant, importance et difficulté afin de pouvoir les gérer (modification, suppression, tri). | maximale | 2 | Ouverte |
+|09 | En tant que membre d'un projet, je souhaite pouvoir créer une User Story en renseignant sa description (obligatoire), sa priorité et sa difficulté afin de pouvoir constituer un backlog. | maximale |     3      | Fermée |
+|10 | En tant que membre d'un projet, je souhaite pouvoir modifier ou supprimer des User Stories afin de pouvoir corriger d'éventuelles erreurs. | maximale |     3      | Fermée |
+|11 | En tant que membre d'un projet, je souhaite accéder au backlog contenant la liste de toutes les User Stories avec les champs description, identifiant, importance et difficulté afin de pouvoir les gérer (modification, suppression, tri). | maximale | 2 | Fermée |
 |12 | En tant qu'administrateur d'un projet ou créateur d'une US, je souhaite pouvoir la fermer afin de préciser que sa réalisation est terminée. | normale | 1 | Ouverte |
 |13 | En tant que membre d'un projet, je souhaite pouvoir rechercher des US dans le backlog selon leur description afin de pouvoir trouver très rapidement les U.S qui m'intéressent. | normale | 5 | Ouverte |
 |14 | En tant que membre d'un projet, je souhaite pouvoir limiter le nombre de User Stories à afficher en même temps dans le backlog à 100, 500 ou toutes les U.S afin de pouvoir les consulter sous forme de pagination (les 100 suivant ou bien les 100 précédents par exemple). | normale | 3 | Ouverte |
