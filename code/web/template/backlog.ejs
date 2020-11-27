@@ -39,6 +39,7 @@
             </div>
             <div class="col-4" id="infosUs">
                  <form method="POST" onsubmit="onFormSubmit(this);">
+                    <input type="hidden" id="method" name="method" value="put">
                     <div class="form-group">
                         <label for="description">Description</label><br>
                         <textarea name="description" id="description" cols="30" rows="5" required></textarea>
@@ -53,7 +54,8 @@
                     <label for="customRange2">Priorité</label>
                     <input type="range" id="priority" name="difficulty" class="custom-range" min="1" max="100" id="customRange2">
 
-                    <button type="submit" class="btn btn-primary">Enregistrer</button>
+                    <button type="submit" class="btn btn-primary" onclick="setMethod('put');">Enregistrer</button>
+                    <button type="submit" class="btn btn-primary" onclick="setMethod('delete');">Supprimer</button>
                     <button type="button" id="fermer" class="btn btn-secondary">Fermer</button>
                 </form>
             </div>

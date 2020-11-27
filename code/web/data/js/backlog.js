@@ -8,6 +8,11 @@ btnFermer.addEventListener("click", () => {
     infosUs.style.display = "none";
 });
 
+function setMethod(method) {
+    let methodElement = document.querySelector("#method");
+    methodElement.value = method;
+}
+
 let usId;
 
 for (let i=0; i<backlogLines.length; i++) {
