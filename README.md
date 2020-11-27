@@ -34,12 +34,12 @@
 |09 | En tant que membre d'un projet, je souhaite pouvoir créer une User Story en renseignant sa description (obligatoire), sa priorité et sa difficulté afin de pouvoir constituer un backlog. | maximale |     3      | Ouverte |
 |10 | En tant que membre d'un projet, je souhaite pouvoir modifier ou supprimer des User Stories afin de pouvoir corriger d'éventuelles erreurs. | maximale |     3      | Ouverte |
 |11 | En tant que membre d'un projet, je souhaite accéder au backlog contenant la liste de toutes les User Stories avec les champs description, identifiant, importance et difficulté afin de pouvoir les gérer (modification, suppression, tri). | maximale | 2 | Ouverte |
-|12 | En tant qu'administrateur d'un projet ou créateur d'une US, je souhaite pouvoir la fermer afin de préciser que sa réalisation est terminée. | minimale | 1 | Ouverte |
+|12 | En tant qu'administrateur d'un projet ou créateur d'une US, je souhaite pouvoir la fermer afin de préciser que sa réalisation est terminée. | normale | 1 | Ouverte |
 |13 | En tant que membre d'un projet, je souhaite pouvoir rechercher des US dans le backlog selon leur description afin de pouvoir trouver très rapidement les U.S qui m'intéressent. | normale | 5 | Ouverte |
 |14 | En tant que membre d'un projet, je souhaite pouvoir limiter le nombre de User Stories à afficher en même temps dans le backlog à 100, 500 ou toutes les U.S afin de pouvoir les consulter sous forme de pagination (les 100 suivant ou bien les 100 précédents par exemple). | normale | 3 | Ouverte |
 |15 | En tant que membre d'un projet, je souhaite pouvoir trier les U.S du backlog selon leur importance ou leur difficulté. | normale | 2 | Ouverte |
 |16 | En tant que membre d'un projet, je souhaite pouvoir créer un sprint et y ajouter des User Stories afin de pouvoir le démarrer. Le nom du sprint sera généré automatiquement sous la forme "sprint X" (où X est un nombre qui représente le nombre courant de sprints) | maximale | 2 | Ouverte |
-|17 | En tant que membre d'un projet, je souhaite pouvoir démarrer un sprint en indiquant la durée et la date de début du sprint. | minimale | 3 | Ouverte |
+|17 | En tant que membre d'un projet, je souhaite pouvoir démarrer un sprint en indiquant la durée et la date de début du sprint. | maximale | 3 | Ouverte |
 |18 | En tant que membre d'un projet, je souhaite pouvoir créer des tâches faisant référence à des US et pouvant être dépendantes d'autres tâches afin de concevoir des sprints pour mon projet. | maximale | 2 | Ouverte |
 |19 | En tant que membre d'un projet, je souhaite pouvoir afficher les tâches et les filtrer selon que les U.S associées sont dans un sprint ou pas afin de voir l'avancée du projet. | maximale | 3 | Ouverte |
 |20 | En tant que membre d'un projet, je souhaite pouvoir créer des étiquettes en renseignant un nom afin de mieux trier les tâches. | minimale | 3 | Ouverte |
