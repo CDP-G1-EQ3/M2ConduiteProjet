@@ -8,6 +8,8 @@ const projectRoutes = require('./server/routes/project');
 const userStoryRoutes = require('./server/routes/userStory');
 const database = require("./server/Database");
 
+const e2eTest = require("./test/e2e/registerTest");
+
 database.init();
 
 if(!config.has("server")) {
