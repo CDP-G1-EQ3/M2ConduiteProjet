@@ -22,3 +22,13 @@ async function getLastId() {
         return sqlResult[0].id;
     return 0;
 }
+
+exports.addUsToSprint = (req, res) => {
+    sprintModel.updateUsSprint(req.params.sprintId, req.params.usId)
+        .then(sqlResult => {
+            res.redirect("/backlog/" + global.currentProjectId);
+        })
+        .catch(error => {
+            res.send(error);
+        });
+}
