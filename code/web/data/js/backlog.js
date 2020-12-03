@@ -69,6 +69,18 @@ sourceAndDestinationElements.forEach(element => {
         dropzone.appendChild(document.getElementById(data));
         console.log("target", dropzone);
         console.log("droped");
+
+        const dragged = document.getElementById(data);
+        const usId = dragged.children[0].children[0].innerText;
+        const usSprint = dropzone.getAttribute("data-sprintId");
+        console.log(usSprint);
+        let url = "http://localhost/sprint/" + usId + "/" + usSprint;
+        fetch(url, {
+            method: "post",
+        }).then(() => {
+            console.log("succes");
+        })
+        .catch(error => console.log("error: " + error));
     })
 
     element.addEventListener("dragover", (ev) => {

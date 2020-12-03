@@ -22,11 +22,11 @@
                 </form>
             </div>
        </div>
-       <% for (let i=0; i<response.sprintsName.length; i++) { %>
+       <% for (let i=0; i<response.sprints.length; i++) { %>
             <div class="row">
                 <div class="col">
-                    <p><%= response.sprintsName[i] %></p>
-                    <ul class="list-group sourceAndDestination">
+                    <p><%= response.sprints[i].name %></p>
+                    <ul class="list-group sourceAndDestination" data-sprintId="<%= response.sprints[i].id %>">
                         <% let identifiant = 0; %>
                         <% response.sprintsUs[i].forEach((us , index) => { %>
                             <% identifiant += 2; %>
@@ -48,7 +48,7 @@
         <div class="row">
             <div class="col-8">
                     <p>backlog</p>
-                   <ul class="list-group sourceAndDestination">
+                   <ul class="list-group sourceAndDestination" data-sprintId="NULL">
                         <% let identifiant = 1; %>
                         <% for(let i=0; i<response.userStories.length; i++) { %> 
                             <% identifiant += 2 %>

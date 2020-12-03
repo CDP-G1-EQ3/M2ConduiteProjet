@@ -24,6 +24,8 @@ async function getLastId() {
 }
 
 exports.addUsToSprint = (req, res) => {
+    if (req.params.sprintId === "NULL")
+        req.params.sprintId = null;
     sprintModel.updateUsSprint(req.params.sprintId, req.params.usId)
         .then(sqlResult => {
             res.redirect("/backlog/" + global.currentProjectId);

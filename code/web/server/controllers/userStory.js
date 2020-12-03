@@ -33,19 +33,19 @@ exports.renderBacklog = async (req, res) => {
     let allUs = await userStoryModel.getUserStoriesByIdProject(req.params.projectId)
     const notActiveSprints = await sprintModel.selectNotActiveSprint(req.params.projectId);
     let sprintsUs = [];
-    let sprintsName = [];
+    let sprints = [];
     for (let i=0; i<notActiveSprints.length; i++) {
         sprint = notActiveSprints[i];
         const userStories = await userStoryModel.getUserStoriesBySprint(req.params.projectId, sprint.id);
         sprintsUs.push(userStories);
-        sprintsName.push(sprint.name);
+        sprints.push({name:sprint.name, id: sprint.id});
     };
     let response = {
         userStories: allUs,
         sprintsUs: sprintsUs,
-        sprintsName: sprintsName
+        sprints: sprints,
+        projectId: req.params.projectId
     }
-    console.log(response);
     res.render("backlog", {response});
 }
 
