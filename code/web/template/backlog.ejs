@@ -16,9 +16,31 @@
                 </form>
             </div>
        </div>
+       <% for (let i=0; i<response.sprintsName.length; i++) { %>
+            <div class="row">
+                <div class="col">
+                    <p><%= response.sprintsName[i] %></p>
+                    <ul class="list-group">
+                        <% response.sprintsUs[i].forEach(us => { %>
+                            <li class="backlogLine list-group-item d-flex justify-content-between">
+                                <span scope="row">
+                                    <span><%= us.id %> </span> &ensp;
+                                    <span><%= us.label %></span>
+                                </span>
+                                <span>
+                                    <span><%= us.importance %></span> &ensp;
+                                    <span><%= us.difficulty %></span>
+                                </span>
+                            </li>
+                        <% }); %>
+                    </ul>
+                </div>
+            </div>
+        <% } %>
         <div class="row">
             <div class="col-8">
                    <ul class="list-group">
+                       <p>backlog</p>
                         <% for(let i=0; i<response.userStories.length; i++) { %> 
                         <li class="backlogLine list-group-item d-flex justify-content-between">
                             <span scope="row">

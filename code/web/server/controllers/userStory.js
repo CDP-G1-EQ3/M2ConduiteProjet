@@ -45,6 +45,7 @@ exports.renderBacklog = async (req, res) => {
         sprintsUs: sprintsUs,
         sprintsName: sprintsName
     }
+    console.log(response);
     res.render("backlog", {response});
 }
 
