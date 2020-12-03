@@ -2,6 +2,12 @@
 <html lang="fr">
     <head>
         <%- include('head'); %>
+        <style>
+            .souceAndDestination {
+                min-height: 400px;
+                border: 1px solid red;
+            }
+        </style>
     </head>
 
 <body>
@@ -20,9 +26,11 @@
             <div class="row">
                 <div class="col">
                     <p><%= response.sprintsName[i] %></p>
-                    <ul class="list-group">
-                        <% response.sprintsUs[i].forEach(us => { %>
-                            <li class="backlogLine list-group-item d-flex justify-content-between">
+                    <ul class="list-group sourceAndDestination">
+                        <% let identifiant = 0; %>
+                        <% response.sprintsUs[i].forEach((us , index) => { %>
+                            <% identifiant += 2; %>
+                            <li id="<%= identifiant %>" class="backlogLine draggable list-group-item d-flex justify-content-between" draggable="true">
                                 <span scope="row">
                                     <span><%= us.id %> </span> &ensp;
                                     <span><%= us.label %></span>
@@ -39,10 +47,12 @@
         <% } %>
         <div class="row">
             <div class="col-8">
-                   <ul class="list-group">
-                       <p>backlog</p>
+                    <p>backlog</p>
+                   <ul class="list-group sourceAndDestination">
+                        <% let identifiant = 1; %>
                         <% for(let i=0; i<response.userStories.length; i++) { %> 
-                        <li class="backlogLine list-group-item d-flex justify-content-between">
+                            <% identifiant += 2 %>
+                        <li id="<%= identifiant %>" class="backlogLine draggable list-group-item d-flex justify-content-between" draggable="true">
                             <span scope="row">
                                 <span><%= response.userStories[i].id %> </span> &ensp;
                                 <span><%= response.userStories[i].label %></span>
