@@ -1,12 +1,10 @@
 CREATE TABLE cdp_task (
-  project int UNSIGNED NOT NULL,
   id int UNSIGNED AUTO_INCREMENT,
-
+  project int UNSIGNED NOT NULL,
   title TEXT NOT NULL,
-  duration TEXT NOT NULL,
-  
+  duration TEXT,
+  state ENUM('todo', 'doing', 'done'),
   us int UNSIGNED,
-  sprint_table int UNSIGNED NOT NULL,
 
   INDEX I_PROJECT (project),
   INDEX I_ID (id),
@@ -16,8 +14,5 @@ CREATE TABLE cdp_task (
     ON DELETE CASCADE,
   FOREIGN KEY (us) 
     REFERENCES cdp_us(id) 
-    ON DELETE CASCADE,
-  FOREIGN KEY (project) 
-    REFERENCES cdp_sprint_table(id) 
     ON DELETE CASCADE
 );
