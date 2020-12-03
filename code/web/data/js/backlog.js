@@ -17,23 +17,23 @@ let usId;
 
 for (let i=0; i<backlogLines.length; i++) {
     backlogLines[i].addEventListener("click", () => {
-        let children = backlogLines[i].childNodes;
+        let children = backlogLines[i].children;
+        console.log(children);
+
         let description = document.querySelector("#description");
         let importance = document.querySelector("#importance");
         let priority = document.querySelector("#priority");
 
-        description.value = children[3].innerText;
-        priority.value = children[7].innerText;
+        description.value = children[0].children[1].innerText;
+        priority.value = children[1].children[1].innerText;
 
         for(let j=0; j<importance.options.length; j++) {
-            if (importance.options[j].innerText === children[5].innerText) {
+            if (importance.options[j].innerText === children[1].children[0].innerText) {
                 importance.selectedIndex = j;
                 break;
             }
         }
-        usId = children[1].innerText;
-        infosUs.setAttribute("action", "/backlog/us/" + children[1].innerText);
-        console.log("action: ", infosUs.getAttribute("action"));
+        usId = children[0].children[0].innerText;
         infosUs.style.display = "block";
     });
 }

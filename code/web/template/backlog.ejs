@@ -18,27 +18,20 @@
        </div>
         <div class="row">
             <div class="col-8">
-                <table class="table">
-                    <thead>
-                        <tr>
-                        <th scope="col">identifiant</th>
-                        <th scope="col">Description</th>
-                        <th scope="col">importance</th>
-                        <th scope="col">difficulté</th>
-                        </tr>
-                    </thead>
-                    <tbody>
+                   <ul class="list-group">
                         <% for(let i=0; i<userStories.userStories.length; i++) { %> 
-                        <tr class="backlogLine">
-                            <th scope="row"><%= userStories.userStories[i].id %></th>
-                            <td><%= userStories.userStories[i].label %></td>
-                            <td><%= userStories.userStories[i].importance %></td>
-                            <td><%= userStories.userStories[i].difficulty %></td>
-                            </tr>
-                        <tr>
+                        <li class="backlogLine list-group-item d-flex justify-content-between">
+                            <span scope="row">
+                                <span><%= userStories.userStories[i].id %> </span> &ensp;
+                                <span><%= userStories.userStories[i].label %></span>
+                            </span>
+                            <span>
+                                <span><%= userStories.userStories[i].importance %></span> &ensp;
+                                <span><%= userStories.userStories[i].difficulty %></span>
+                            </span>
+                        </li>
                         <% } %>
-                    </tbody>
-                </table>
+                    </ul>
             </div>
             <div class="col-4" id="infosUs">
                  <form method="POST" onsubmit="onFormSubmit(this);">
