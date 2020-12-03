@@ -34,3 +34,8 @@ exports.updateUserStoryById = (usId, label, difficulty, importance) => {
     const opt = [label, difficulty, importance, usId];
     return database.fast("UPDATE cdp_us SET label=?, difficulty=?, importance=? WHERE id=?", opt);
 }
+
+exports.getUserStoriesBySprint = (projectId, sprintId) => {
+    const sql = "SELECT * FROM cdp_us WHERE project=? AND sprint=?";
+    return database.fast(sql, [projectId, sprintId]);
+}

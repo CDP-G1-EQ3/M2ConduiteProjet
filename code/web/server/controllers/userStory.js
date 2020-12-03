@@ -1,4 +1,5 @@
 let userStoryModel = require("../models/userStory");
+let sprintModel = require("../models/sprint");
 
 exports.addUserStory = (req, res) => {
     userStoryModel.createUS(req.body.idProject, req.body.description, req.body.difficulty, req.body.importance)
@@ -22,14 +23,29 @@ const getUserStoriesByProjectId = (req, res) => {
         .catch(error => res.send(error));
 }
 
-exports.renderBacklog = (req, res) => {
-    global.currentProjectId = (req.params.projectId) ? req.params.projectId : global.currentProjectId;
-    userStoryModel.getUserStoriesByIdProject(req.params.projectId)
-        .then(sqlResult => {
+            /*
             let userStories = {userStories: sqlResult, projectId: req.params.projectId};
             res.render("backlog", {userStories});
-        })
-        .catch(error => res.send(error));
+            */
+ 
+exports.renderBacklog = async (req, res) => {
+    global.currentProjectId = (req.params.projectId) ? req.params.projectId : global.currentProjectId;
+    let allUs = await userStoryModel.getUserStoriesByIdProject(req.params.projectId)
+    const notActiveSprints = await sprintModel.selectNotActiveSprint(req.params.projectId);
+    let sprintsUs = [];
+    let sprintsName = [];
+    for (let i=0; i<notActiveSprints.length; i++) {
+        sprint = notActiveSprints[i];
+        const userStories = await userStoryModel.getUserStoriesBySprint(req.params.projectId, sprint.id);
+        sprintsUs.push(userStories);
+        sprintsName.push(sprint.name);
+    };
+    let response = {
+        userStories: allUs,
+        sprintsUs: sprintsUs,
+        sprintsName: sprintsName
+    }
+    res.render("backlog", {response});
 }
 
 exports.updateUserStory = (req, res) => {

@@ -13,3 +13,7 @@ exports.updateUsSprint = (sprintId, usId) => {
     const sql = "UPDATE cdp_us SET sprint=? WHERE id=?";
     return database.fast(sql, [sprintId, usId]);
 }
+
+exports.selectNotActiveSprint = (projectId) => {
+    return database.fast("SELECT * FROM cdp_sprint WHERE project=? AND state IS NULL", [projectId]);
+}
