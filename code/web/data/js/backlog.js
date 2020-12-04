@@ -95,7 +95,7 @@ sourceAndDestinationElements.forEach(element => {
         fetch(url, {
             method: "post",
         }).then(() => {
-            console.log("succes");
+            location.reload();
         })
         .catch(error => console.log("error: " + error));
     })

@@ -17,23 +17,25 @@
                 <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModal">
                     Créer US
                 </button>
-                <form action="/sprint" method="post">
-                    <button type="submit" class="btn btn-primary"> Créer sprint </button>
-                </form>
-            </div>
+           </div>
        </div>
        <% for (let i=0; i<response.sprints.length; i++) { %>
             <div class="row">
                 <div class="col">
                     <div class="d-flex justify-content-between">
                         <p><%= response.sprints[i].name %></p> 
-                        <% if (response.sprints[i].state != "active") { %>
+                        <% if (response.sprints[i].state != "active" && response.sprintsUs[i].length > 0) { %>
                         <button type="button" class="btn btn-primary btnShowStartSprintModal" data-sprintId="<%= response.sprints[i].id %>" data-toggle="modal" data-target="#modalStartSprint" <% if (response.activeSprint) {%> disabled <% } %>>
                             Demarrer sprint
                         </button>
                         <% } %>
                     </div>
                    <ul class="list-group sourceAndDestination mb-5" data-sprintId="<%= response.sprints[i].id %>">
+                        <% if (response.sprintsUs[i].length === 0) { %>
+                            <li class="list-group-item d-flex justify-content-center">
+                                Faites glisser des U.S dans cette zone pour les ajouter
+                            </li>
+                        <% } %>
                         <% let identifiant = 0; %>
                         <% response.sprintsUs[i].forEach((us , index) => { %>
                             <% identifiant += 2; %>
@@ -54,8 +56,13 @@
         <% } %>
         <div class="row">
             <div class="col-8">
-                    <p>backlog</p>
-                   <ul class="list-group sourceAndDestination" data-sprintId="NULL">
+                    <div class="d-flex justify-content-between">
+                        <p>backlog</p>
+                        <form action="/sprint" method="post">
+                            <button type="submit" class="btn btn-primary"> Créer sprint </button>
+                        </form>
+                    </div>
+                  <ul class="list-group sourceAndDestination" data-sprintId="NULL">
                         <% let identifiant = 1; %>
                         <% for(let i=0; i<response.userStories.length; i++) { %> 
                             <% identifiant += 2 %>
