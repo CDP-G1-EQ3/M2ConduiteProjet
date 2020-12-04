@@ -5,8 +5,8 @@ exports.insertSprint = (projectId, name) => {
     return database.fast(sql, [projectId, name]);
 }
 
-exports.selectLastSprint = (projectId) => {
-    return database.fast("SELECT * FROM cdp_sprint WHERE project=? ORDER BY id DESC LIMIT 0,1", [projectId]);
+exports.selectLastSprint = () => {
+    return database.fast("SELECT * FROM cdp_sprint ORDER BY id DESC LIMIT 0,1");
 }
 
 exports.updateUsSprint = (sprintId, usId) => {
