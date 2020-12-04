@@ -14,8 +14,14 @@ exports.createUS = (project, label, difficulty, importance, sprint = null) => {
     return database.fast(sql, opt);
 }
 
-
+//TODO rename
 exports.getUserStoriesByIdProject = (projectId) => {
+    const sql = "SELECT * FROM cdp_us WHERE project = ?";
+    const opt = [projectId];
+    return database.fast(sql, opt);
+}
+
+exports.getBacklogUserStories = (projectId) => {
     const sql = "SELECT * FROM cdp_us WHERE project = ? AND sprint IS NULL";
     const opt = [projectId];
     return database.fast(sql, opt);

@@ -14,23 +14,9 @@ exports.addUserStory = (req, res) => {
         .catch(error => res.send(error));
 }
 
-// not used yet
-const getUserStoriesByProjectId = (req, res) => {
-    userStoryModel.getUserStoriesByIdProject(req.params.projectId)
-        .then(sqlResult => {
-            res.send(sqlResult);
-        })
-        .catch(error => res.send(error));
-}
-
-            /*
-            let userStories = {userStories: sqlResult, projectId: req.params.projectId};
-            res.render("backlog", {userStories});
-            */
- 
 exports.renderBacklog = async (req, res) => {
     global.currentProjectId = (req.params.projectId) ? req.params.projectId : global.currentProjectId;
-    let allUs = await userStoryModel.getUserStoriesByIdProject(req.params.projectId)
+    let allUs = await userStoryModel.getBacklogUserStories(req.params.projectId)
     const notActiveSprints = await sprintModel.selectNotActiveSprint(req.params.projectId);
     let sprintsUs = [];
     let sprints = notActiveSprints;
