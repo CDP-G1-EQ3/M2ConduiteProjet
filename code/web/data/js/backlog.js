@@ -42,6 +42,23 @@ function onFormSubmit(form) {
     form.action = "/backlog/us/" + usId;
 }
 
+//----------------------- modal start sprint
+function submitStartSprintForm(form) {
+    form.action = "/sprint/start/";
+}
+
+(function() {
+    let btnShowStartSprintModal = document.querySelectorAll(".btnShowStartSprintModal");
+    console.log(btnShowStartSprintModal)
+    btnShowStartSprintModal.forEach(btn => {
+        btn.addEventListener("click", () => {
+            let sprintIdInput = document.querySelector("#sprintId");
+            sprintIdInput.setAttribute("value", btn.getAttribute("data-sprintId"));
+            console.log(sprintIdInput);
+        });
+    });
+})();
+    
 
 //------------------------ drag and drop
 let listItems = document.querySelectorAll(".draggable");

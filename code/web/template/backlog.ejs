@@ -25,8 +25,15 @@
        <% for (let i=0; i<response.sprints.length; i++) { %>
             <div class="row">
                 <div class="col">
-                    <p><%= response.sprints[i].name %></p>
-                    <ul class="list-group sourceAndDestination" data-sprintId="<%= response.sprints[i].id %>">
+                    <div class="d-flex justify-content-between">
+                        <p><%= response.sprints[i].name %></p> 
+                        <% if (response.sprints[i].state != "active") { %>
+                        <button type="button" class="btn btn-primary btnShowStartSprintModal" data-sprintId="<%= response.sprints[i].id %>" data-toggle="modal" data-target="#modalStartSprint" <% if (response.activeSprint) {%> disabled <% } %>>
+                            Demarrer sprint
+                        </button>
+                        <% } %>
+                    </div>
+                   <ul class="list-group sourceAndDestination mb-5" data-sprintId="<%= response.sprints[i].id %>">
                         <% let identifiant = 0; %>
                         <% response.sprintsUs[i].forEach((us , index) => { %>
                             <% identifiant += 2; %>
@@ -138,6 +145,9 @@
         </div>
     </div>
     </div>
+
+
+    <%- include('startSprint'); %>
 
     <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
     <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js" integrity="sha384-9/reFTGAW83EW2RDu2S0VKaIzap3H66lZH81PoYlFhbGU+6BZp6G7niu735Sk7lN" crossorigin="anonymous"></script>

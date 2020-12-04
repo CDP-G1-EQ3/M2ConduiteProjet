@@ -24,6 +24,7 @@ async function getLastId() {
 }
 
 exports.addUsToSprint = (req, res) => {
+    console.log("popo")
     if (req.params.sprintId === "NULL")
         req.params.sprintId = null;
     sprintModel.updateUsSprint(req.params.sprintId, req.params.usId)
@@ -33,4 +34,12 @@ exports.addUsToSprint = (req, res) => {
         .catch(error => {
             res.send(error);
         });
+}
+
+exports.startSprint = (req, res) => {
+    sprintModel.startSprint(req.body.sprintId, req.body.startDate, req.body.endDate)
+        .then(sqlResult => {
+            res.redirect("/backlog/" + global.currentProjectId);
+        })
+        .catch(error => res.send(error));
 }

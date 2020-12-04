@@ -33,20 +33,28 @@ exports.renderBacklog = async (req, res) => {
     let allUs = await userStoryModel.getUserStoriesByIdProject(req.params.projectId)
     const notActiveSprints = await sprintModel.selectNotActiveSprint(req.params.projectId);
     let sprintsUs = [];
-    let sprints = [];
+    let sprints = notActiveSprints;
     for (let i=0; i<notActiveSprints.length; i++) {
         sprint = notActiveSprints[i];
         const userStories = await userStoryModel.getUserStoriesBySprint(req.params.projectId, sprint.id);
         sprintsUs.push(userStories);
-        sprints.push({name:sprint.name, id: sprint.id});
     };
     let response = {
         userStories: allUs,
         sprintsUs: sprintsUs,
         sprints: sprints,
-        projectId: req.params.projectId
+        projectId: req.params.projectId,
+        activeSprint: containActiveSprint(sprints)
     }
     res.render("backlog", {response});
+}
+
+function containActiveSprint(sprints) {
+    for (let i=0; i<sprints.length; i++) {
+        if (sprints[i].state === "active")
+            return true;
+    }
+    return false;
 }
 
 exports.updateUserStory = (req, res) => {

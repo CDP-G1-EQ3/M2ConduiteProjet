@@ -41,13 +41,24 @@ INSERT INTO `cdp_us`(`project`, `label`, `difficulty`, `sprint`)
 INSERT INTO `cdp_us`(`project`, `label`, `difficulty`, `sprint`) 
         VALUES (1,"En tant que b, je souhaite y afin de z",6, 2);
 
-INSERT INTO `cdp_us`(`project`, `label`, `difficulty`) 
-        VALUES (1,"En tant que c, je souhaite y afin de z",17);
+INSERT INTO `cdp_us`(`project`, `label`, `difficulty`, `sprint`) 
+        VALUES (1,"En tant que c, je souhaite y afin de z",17, 3);
         
+INSERT INTO `cdp_us`(`project`, `label`, `difficulty`, `sprint`) 
+        VALUES (1,"En tant que c, je souhaite y afin de z",27, 3);
+
+
 INSERT INTO `cdp_us`(`project`, `label`, `difficulty`) 
-        VALUES (1,"En tant que c, je souhaite y afin de z",27);
+        VALUES (1,"En tant que c, je souhaite y afin de z",7);
 
+INSERT INTO `cdp_us`(`project`, `label`, `difficulty`) 
+        VALUES (1,"En tant que c, je souhaite y afin de z",72);
 
+INSERT INTO `cdp_us`(`project`, `label`, `difficulty`) 
+        VALUES (1,"En tant que c, je souhaite y afin de z",2);
+
+INSERT INTO `cdp_us`(`project`, `label`, `difficulty`) 
+        VALUES (1,"En tant que c, je souhaite y afin de z",7);
 
 
 
@@ -78,7 +89,7 @@ INSERT INTO `cdp_task_dep`(`project`, `task`, `dep`) VALUES (1, 1, 3);
 INSERT INTO `cdp_task_dep`(`project`, `task`, `dep`) VALUES (1, 2, 4);
 INSERT INTO `cdp_task_dep`(`project`, `task`, `dep`) VALUES (1, 2, 5);
 
-/* création de deux deux sprints pour le prémier projet */
-INSERT INTO `cdp_sprint` (`project`, `name`, `state`) VALUES (1, "sprint 1", "active");
+/* création de sprints pour le prémier projet */
+INSERT INTO `cdp_sprint` (`project`, `name`) VALUES (1, "sprint 1");
 INSERT INTO `cdp_sprint` (`project`, `name`) VALUES (1, "sprint 2");
 INSERT INTO `cdp_sprint` (`project`, `name`) VALUES (1, "sprint 3");
