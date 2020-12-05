@@ -38,3 +38,7 @@ exports.insertTask = (projectId, description, duration=null, us=null) => {
 exports.insertTaskDependacy = (projectId, taskId, dependancy) => {
     return database.fast("INSERT INTO cdp_task_dep (`project`, `task`, `dep`) VALUES (?, ?, ?)", [projectId, taskId, dependancy]);
 }
+
+exports.updateState = (taskId, state) => {
+    return database.fast("UPDATE cdp_task SET state=? WHERE id=?", [state, taskId]);
+}

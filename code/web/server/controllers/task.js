@@ -51,3 +51,11 @@ exports.createTask = (req, res) => {
        })
         .catch(error => res.send(error));
 }
+
+exports.updateTaskState = (req, res) => {
+    taskModel.updateState(req.params.taskId, req.params.state)
+        .then(sqlResult => {
+            res.redirect("/task/active");
+        })
+        .catch(error => res.send(error));
+}

@@ -24,19 +24,14 @@ sourceAndDestinationElements.forEach(element => {
         console.log("target", dropzone);
         console.log("droped");
 
-        /*
-        const dragged = document.getElementById(data);
-        const usId = dragged.children[0].children[0].innerText;
-        const usSprint = dropzone.getAttribute("data-sprintId");
-        console.log(usSprint);
-        let url = "http://localhost/sprint/" + usId + "/" + usSprint;
+        const dropzoneType = dropzone.getAttribute("data-dropzoneType");
+        let url = "http://localhost/task/" + data + "/" + dropzoneType;
         fetch(url, {
             method: "post",
         }).then(() => {
             location.reload();
         })
         .catch(error => console.log("error: " + error));
-        */
     })
 
     element.addEventListener("dragover", (ev) => {
