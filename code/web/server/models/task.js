@@ -1,7 +1,17 @@
 const database = require("../Database");
 
 exports.selectProjectTasks = (projectId) => {
-    return database.fast("SELECT * FROM cdp_task WHERE project=?", [projectId]);
+    let sql = "SELECT task.id, task.project, task.title, task.duration, task.state, task.us, us.sprint " + 
+                "FROM cdp_task as task, cdp_us as us " + 
+                "WHERE task.project=? AND task.us=us.id";
+    return database.fast(sql, [projectId]);
+}
+
+exports.selectStartedSprintTasks = (projectId) => {
+    const sql = "SELECT task.id, task.project, task.title, task.duration, task.state, task.us " +
+                    "FROM cdp_task as task, cdp_us as us, cdp_sprint as sprint " + 
+                    "WHERE task.project=? AND task.us=us.id AND us.sprint=sprint.id AND sprint.state=?"
+    return database.fast(sql, [projectId, "active"]);
 }
 
 exports.insertTask = (projectId, description, duration=null, us=null) => {

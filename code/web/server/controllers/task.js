@@ -1,16 +1,31 @@
 const userStryModel = require("../models/userStory");
 const taskModel = require("../models/task");
+const sprintModel = require("../models/sprint");
 
-exports.renderTasks = async (req, res) => {
+exports.renderActiveSprintTasks = async (req, res) => {
     let userStories = await userStryModel.getUserStoriesByIdProject(global.currentProjectId);
-    let currentProjectTasks = await taskModel.selectProjectTasks(global.currentProjectId);
+    let currentProjectTasks = await taskModel.selectStartedSprintTasks(global.currentProjectId);
     let response = {
         userStories: userStories,
         tasks: currentProjectTasks,
         projectId: global.currentProjectId
     };
+    res.render("actifTasks", {response});
+}
+
+exports.renderTasks = async (req, res) => {
+    let userStories = await userStryModel.getUserStoriesByIdProject(global.currentProjectId);
+    let currentProjectTasks = await taskModel.selectProjectTasks(global.currentProjectId);
+    let currentProjectSprints = await sprintModel.selectNotActiveSprint(global.currentProjectId);
+    let response = {
+        userStories: userStories,
+        tasks: currentProjectTasks,
+        sprints: currentProjectSprints,
+        projectId: global.currentProjectId
+    };
     res.render("task", {response});
 }
+
 
 exports.createTask = (req, res) => {
     if (req.body.duration === "")

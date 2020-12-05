@@ -6,6 +6,7 @@ const express = require("express")
 let router = express.Router();
 
 router.get('/', taskController.renderTasks);
+router.get('/active', taskController.renderActiveSprintTasks);
 router.post('/', taskController.createTask);
 
 module.exports = router;

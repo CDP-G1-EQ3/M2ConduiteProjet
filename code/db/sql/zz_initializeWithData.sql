@@ -73,15 +73,15 @@ INSERT INTO `cdp_us`(`project`, `label`, `difficulty`)
 
 
 /* ajout de tâche pour le premier projet */
-INSERT INTO `cdp_task`(`project`, `title`) VALUES (1, "description la tâche 1");
-INSERT INTO `cdp_task`(`project`, `title`) VALUES (1, "description la tâche 2");
-INSERT INTO `cdp_task`(`project`, `title`) VALUES (1, "description la tâche 3");
-INSERT INTO `cdp_task`(`project`, `title`) VALUES (1, "description la tâche 4");
-INSERT INTO `cdp_task`(`project`, `title`) VALUES (1, "description la tâche 5");
+INSERT INTO `cdp_task`(`project`, `title`, `state`) VALUES (1, "description la tâche 1", "todo");
+INSERT INTO `cdp_task`(`project`, `title`, `state`) VALUES (1, "description la tâche 2", "todo");
+INSERT INTO `cdp_task`(`project`, `title`, `state`, `us`) VALUES (1, "description la tâche 3", "todo", 4);
+INSERT INTO `cdp_task`(`project`, `title`, `state`, `us`) VALUES (1, "description la tâche 4", "todo", 3);
+INSERT INTO `cdp_task`(`project`, `title`, `state`, `us`) VALUES (1, "description la tâche 5", "todo", 3);
 /* taches faisant réference à d'autres US */
-INSERT INTO `cdp_task`(`project`, `title`, `us`) VALUES (1, "une description 6", 1);
-INSERT INTO `cdp_task`(`project`, `title`, `us`) VALUES (1, "une description 7", 1);
-INSERT INTO `cdp_task`(`project`, `title`, `us`) VALUES (1, "une description 8", 2);
+INSERT INTO `cdp_task`(`project`, `title`, `us`, `state`) VALUES (1, "une description 6", 1, "todo");
+INSERT INTO `cdp_task`(`project`, `title`, `us`, `state`) VALUES (1, "une description 7", 1, "todo");
+INSERT INTO `cdp_task`(`project`, `title`, `us`, `state`) VALUES (1, "une description 8", 2, "todo");
 
 /* ajout de dependances pour quelques tâches */
 INSERT INTO `cdp_task_dep`(`project`, `task`, `dep`) VALUES (1, 1, 2);

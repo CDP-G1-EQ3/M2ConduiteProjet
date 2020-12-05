@@ -2,8 +2,31 @@
 <html lang="fr">
     <head>
         <%- include('head'); %>
+        <script src="/js/task.js" defer></script>
     </head>
-<body>
+<body class="container">
     <%- include('createTask'); %>
+    <div class="row">
+        <div class="col">
+            <select id="sprintsSelect">
+                <option value="">Toutes</option>
+                <% response.sprints.forEach((sprint, index) => { %>
+                    <option value="<%= sprint.id %>">
+                        <%= sprint.name %> 
+                        <% if (sprint.state==="active") { %>
+                            (sprint encours)
+                        <% } %>
+                    </option>
+                <% }); %>
+            </select>
+            <ul class="list-group " id="taskList">
+                 <% response.tasks.forEach((task, index) => { %>
+                    <li class="list-group-item" data-sprint="<%= task.sprint %>">
+                        <%= task.id %> &ensp; <%= task.us %> &ensp; <%= task.title %> &ensp; <%= task.duration %>
+                    </li>
+                <% }); %>
+            </ul>
+        </div>
+    </div>
 </body>
 </html>

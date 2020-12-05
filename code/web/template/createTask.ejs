@@ -36,7 +36,7 @@
             </div>
             <div class="form-group">
                 <label for="userStroy">User Stroy</label><br>
-                <input type="text" list="userStories" name="userStory" id="userStroy">
+                <input type="text" list="userStories" name="userStory" id="userStroy" required>
                 <datalist id="userStories">
                     <% response.userStories.forEach(us => { %>
                         <option value="<%= us.id %>"><%= us.id %> &ensp; <%= us.label.substring(0, 40) %></option>
