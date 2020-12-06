@@ -77,3 +77,11 @@ exports.updateTask = (req, res) => {
         res.send(req.body.method);
     }
 }
+
+exports.deleteTask = (req, res) => {
+    taskModel.deleteTask(req.params.taskId)
+            .then(sqlResult => {
+                res.redirect("/task");
+            })
+            .catch(error => res.send(error));
+}
