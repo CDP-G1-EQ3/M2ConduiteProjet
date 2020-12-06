@@ -43,6 +43,11 @@ exports.updateState = (taskId, state) => {
     return database.fast("UPDATE cdp_task SET state=? WHERE id=?", [state, taskId]);
 }
 
-exports.editTask = (taskId, description, duration, userStory) => {
+exports.updateTask = (taskId, description, duration, userStory) => {
     return database.fast("UPDATE cdp_task SET title=?, duration=?, us=? WHERE id=?", [description, duration, userStory, taskId]);
+}
+
+exports.deleteTask = (taskId) => {
+    const sql = "DELETE FROM cdp_task WHERE id=?";
+    return database.fast(sql, [taskId]);
 }

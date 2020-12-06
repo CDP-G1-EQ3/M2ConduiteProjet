@@ -40,3 +40,8 @@ for (let i=0; i<taskLines.length; i++) {
 function onEditTaskSubmit(form) {
     form.action = "/task/" + taskId;
 }
+
+function setMethod(method) {
+    let methodElement = document.querySelector("#method");
+    methodElement.value = method;
+}

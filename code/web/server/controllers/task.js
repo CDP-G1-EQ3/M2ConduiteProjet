@@ -60,10 +60,20 @@ exports.updateTaskState = (req, res) => {
         .catch(error => res.send(error));
 }
 
-exports.editTask = (req, res) => {
-    taskModel.editTask(req.params.taskId, req.body.description, req.body.duration, req.body.userStory)
-        .then(sqlResult => {
-            res.redirect("/task");
-        })
-        .catch(error => res.send(error));
+exports.updateTask = (req, res) => {
+    if (req.body.method === "delete") {
+        taskModel.deleteTask(req.params.taskId)
+            .then(sqlResult => {
+                res.redirect("/task");
+            })
+            .catch(error => res.send(error));
+    } else if (req.body.method === "put") {
+        taskModel.updateTask(req.params.taskId, req.body.description, req.body.duration, req.body.userStory)
+            .then(sqlResult => {
+                res.redirect("/task");
+            })
+            .catch(error => res.send(error));
+    } else {
+        res.send(req.body.method);
+    }
 }
