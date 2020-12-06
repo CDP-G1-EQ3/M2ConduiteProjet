@@ -7,6 +7,7 @@
 <body class="container-fluid">
     <%- include('header'); %>
     <%- include('createTask'); %>
+    <%- include('editTask'); %>
     <div class="row">
         <div class="col">
             <select id="sprintsSelect">
@@ -21,9 +22,14 @@
                 <% }); %>
             </select>
             <ul class="list-group " id="taskList">
-                 <% response.tasks.forEach((task, index) => { %>
-                    <li class="list-group-item" data-sprint="<%= task.sprint %>">
-                        <%= task.id %> &ensp; <%= task.us %> &ensp; <%= task.title %> &ensp; <%= task.duration %>
+                <% response.tasks.forEach((task, index) => { %>
+                    <li class="taskLine list-group-item" data-toggle="modal" data-target="#editTaskModal" data-sprint="<%= task.sprint %>">
+                        <span scope="row">
+                            <span><%= task.id %> </span> &ensp;
+                            <span><%= task.us %></span> &ensp;
+                            <span><%= task.title %></span> &ensp;
+                            <span><%= task.duration %></span>
+                        </span>
                     </li>
                 <% }); %>
             </ul>

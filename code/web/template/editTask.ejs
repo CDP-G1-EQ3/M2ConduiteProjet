@@ -1,9 +1,87 @@
+<!-- Modal -->
+<div
+    class="modal fade"
+    id="editTaskModal"
+    tabindex="-1"
+    role="dialog"
+    aria-labelledby="edittask-modallabel"
+    aria-hidden="true"
+>
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="edittask-modallabel">
+                    Modification d'une tâche
+                </h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <div class="modal-body">
+                <form id="editTaskForm" method="post" onsubmit="onEditTaskSubmit(this)">
+                    <input type="hidden" id="method" name="method" value="put">
+                    <div class="form-group">
+                        <input
+                            type="text"
+                            name="projectId"
+                            value="<%= response.projectId %>"
+                            id="edittask-projectid"
+                            hidden
+                        />
+                    </div>
+                    <div class="form-group">
+                        <label for="edittask-description">Description</label><br />
+                        <textarea
+                            name="description"
+                            id="edittask-description"
+                            cols="40"
+                            rows="5"
+                            required
+                        ></textarea>
+                    </div>
+                    <div class="form-group">
+                        <label for="edittask-duration">Duration en heures</label>
+                        <input
+                            type="number"
+                            name="duration"
+                            id="edittask-duration"
+                            min="1"
+                            max="8"
+                        />
+                    </div>
+                    <div class="form-group">
+                        <label for="edittask-userstory">User Story</label><br />
+                        <input
+                            type="text"
+                            list="userStories"
+                            name="userStory"
+                            id="edittask-userstory"
+                            required
+                            autocomplete="off"
+                        />
+                        <datalist id="edittask-userstories">
+                            <% response.userStories.forEach(us => { %>
+                            <option value="<%= us.id %>">
+                                <%= us.id %> &ensp; <%= us.label.substring(0,
+                                40) %>
+                            </option>
+                            <% }); %>
+                        </datalist>
+                    </div>
 
-<form class="form-signup">
-    <h1 class="h3 mb-3">Edition de tâche</h1>
-    <input type="text" id="inputTitle" class="form-control form-top" placeholder="Titre de la tâche" required value="<%= task.title %>">
-    <input type="text" id="inputDuration" class="form-control form-top" placeholder="Durée de la tâche" required value="<%= task.duration %>">
-    <input type="text" id="inputUS" class="form-control form-top" required value="<%= task.us %>">
-    <input type="hidden" id="inputSprintTable" class="form-control form-top" required value="<%= task.sprint_table %>">
-    <button class="btn btn-primary" type="submit">Valider</button>
-</form>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-secondary" data-dismiss="modal">
+                            Annuler
+                        </button>
+                        <button type="submit" class="btn btn-primary" onclick="setMethod('put')">
+                            Modifier
+                        </button>
+                        <button type="submit" class="btn btn-danger" onclick="setMethod('delete')">
+                            Supprimer
+                        </button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>

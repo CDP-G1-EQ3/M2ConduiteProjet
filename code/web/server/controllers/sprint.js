@@ -24,7 +24,6 @@ async function getLastId() {
 }
 
 exports.addUsToSprint = (req, res) => {
-    console.log("popo")
     if (req.params.sprintId === "NULL")
         req.params.sprintId = null;
     sprintModel.updateUsSprint(req.params.sprintId, req.params.usId)
