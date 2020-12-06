@@ -59,3 +59,11 @@ exports.updateTaskState = (req, res) => {
         })
         .catch(error => res.send(error));
 }
+
+exports.editTask = (req, res) => {
+    taskModel.editTask(req.params.taskId, req.body.description, req.body.duration, req.body.userStory)
+        .then(sqlResult => {
+            res.redirect("/task");
+        })
+        .catch(error => res.send(error));
+}

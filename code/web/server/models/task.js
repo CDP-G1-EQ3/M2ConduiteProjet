@@ -42,3 +42,7 @@ exports.insertTaskDependacy = (projectId, taskId, dependancy) => {
 exports.updateState = (taskId, state) => {
     return database.fast("UPDATE cdp_task SET state=? WHERE id=?", [state, taskId]);
 }
+
+exports.editTask = (taskId, description, duration, userStory) => {
+    return database.fast("UPDATE cdp_task SET title=?, duration=?, us=? WHERE id=?", [description, duration, userStory, taskId]);
+}
