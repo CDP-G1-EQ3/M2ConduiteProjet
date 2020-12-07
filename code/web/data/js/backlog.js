@@ -3,6 +3,8 @@ let infosUs = document.querySelector("#infosUs");
 let btnFermer = document.querySelector("#fermer");
 let diffRangeUpdateUs = document.querySelector("#difficulty");
 let diffDisplayUpdateUs = document.querySelector("#diffDisplay");
+let diffRangeCreateUs = document.querySelector("#createUsDifficulty");
+let diffDisplayCreateUs = document.querySelector("#createUsDiffDisplay");
 
 infosUs.style.display = "none";
 
@@ -114,6 +116,10 @@ sourceAndDestinationElements.forEach(element => {
 
 diffRangeUpdateUs.addEventListener('input', () => {
     displayDifficulty(diffDisplayUpdateUs, diffRangeUpdateUs.value);
+});
+
+diffRangeCreateUs.addEventListener('input', () => {
+    displayDifficulty(diffDisplayCreateUs, diffRangeCreateUs.value);
 });
 
 function displayDifficulty(display, value) {

@@ -85,6 +85,13 @@
                             </tr>
                         </thead>
                         <tbody class="sourceAndDestination" data-sprintId="NULL">
+                            <% if (response.userStories.length === 0) { %>
+                                <tr class="text-center">
+                                    <td colspan="4">
+                                        Cliquez sur "Créer US" ou faites glisser des U.S dans cette zone pour les ajouter.
+                                    </td>
+                                </tr>
+                            <% } %>
                             <% let identifiant = 1; %>
                             <% response.userStories.forEach((us) => { %> 
                                 <% identifiant += 2 %>
@@ -116,7 +123,7 @@
                     <label for="difficulty">Difficulté</label>
                     <div class="row">
                         <div class="col-10">
-                            <input type="range" id="difficulty" name="difficulty" class="custom-range" min="1" max="100" onchange="updateDiffValue(this.value);">
+                            <input type="range" id="difficulty" name="difficulty" class="custom-range" min="1" max="100">
                         </div>
                         <div class="col-2">
                             <span id="diffDisplay"></span>
@@ -135,7 +142,7 @@
     <div class="modal-dialog">
         <div class="modal-content">
         <div class="modal-header">
-            <h5 class="modal-title" id="exampleModalLabel">Créer une user story</h5>
+            <h5 class="modal-title" id="exampleModalLabel">Créer une User Story</h5>
             <button type="button" class="close" data-dismiss="modal" aria-label="Close">
             <span aria-hidden="true">&times;</span>
             </button>
@@ -152,6 +159,7 @@
                                 <label for="description">Description</label><br>
                                 <textarea name="description" id="description" cols="30" rows="5" required></textarea>
                             </div>
+                            <p>Importance</p>
                             <div class="form-group">
                                 <select class="custom-select" name="importance">
                                     <option value="1">maximale</option>
@@ -159,9 +167,15 @@
                                     <option value="3">minimale</option>
                                     </select>
                             </div>
-                            <label for="customRange2">Priorité</label>
-                            <input type="range" name="difficulty" class="custom-range" min="0" max="100" id="customRange2">
-
+                            <label for="createUsDifficulty">Difficulté</label>
+                            <div class="row">
+                                <div class="col-10">
+                                    <input type="range" id="createUsDifficulty" name="difficulty" class="custom-range" min="1" max="100">
+                                </div>
+                                <div class="col-2">
+                                    <span id="createUsDiffDisplay">50</span>
+                                </div>
+                            </div>
                             <button type="button" class="btn btn-secondary" data-dismiss="modal">Annuler</button>
                             <button type="submit" class="btn btn-primary">Créer</button>
                         </form>
