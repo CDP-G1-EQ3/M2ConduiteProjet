@@ -18,75 +18,94 @@
                 <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModal">
                     Créer US
                 </button>
-           </div>
-       </div>
-       <% for (let i=0; i<response.sprints.length; i++) { %>
+            </div>
+        </div>
+
+        <% for (let i=0; i<response.sprints.length; i++) { %>
             <div class="row">
                 <div class="col">
-                    <div class="d-flex justify-content-between">
-                        <p><%= response.sprints[i].name %></p> 
+                    <div class="d-flex justify-content-between mb-1">
+                        <h3><%= response.sprints[i].name %></h3> 
                         <% if (response.sprints[i].state != "active" && response.sprintsUs[i].length > 0) { %>
                         <button type="button" class="btn btn-primary btnShowStartSprintModal" data-sprintId="<%= response.sprints[i].id %>" data-toggle="modal" data-target="#modalStartSprint" <% if (response.activeSprint) {%> disabled <% } %>>
-                            Demarrer sprint
+                            Démarrer sprint
                         </button>
                         <% } %>
                     </div>
-                   <ul class="list-group sourceAndDestination mb-5" data-sprintId="<%= response.sprints[i].id %>">
-                        <% if (response.sprintsUs[i].length === 0) { %>
-                            <li class="list-group-item d-flex justify-content-center">
-                                Faites glisser des U.S dans cette zone pour les ajouter
-                            </li>
-                        <% } %>
-                        <% let identifiant = 0; %>
-                        <% response.sprintsUs[i].forEach((us , index) => { %>
-                            <% identifiant += 2; %>
-                            <li id="<%= identifiant %>" class="backlogLine draggable list-group-item d-flex justify-content-between" draggable="true">
-                                <span scope="row">
-                                    <span><%= us.id %> </span> &ensp;
-                                    <span><%= us.label %></span>
-                                </span>
-                                <span>
-                                    <span><%= us.importance %></span> &ensp;
-                                    <span><%= us.difficulty %></span>
-                                </span>
-                            </li>
-                        <% }); %>
-                    </ul>
+                    
+                    <table class="table table-hover table-bordered mb-2">
+                        <thead class="thead-dark">
+                            <tr>
+                                <th scope="col">#</th>
+                                <th scope="col">Nom</th>
+                                <th scope="col">Importance</th>
+                                <th scope="col">Difficulté</th>
+                            </tr>
+                        </thead>
+                        <tbody class="sourceAndDestination" data-sprintId="<%= response.sprints[i].id %>">
+                            <% if (response.sprintsUs[i].length === 0) { %>
+                                <tr class="text-center">
+                                    <td colspan="4">
+                                        Faites glisser des U.S dans cette zone pour les ajouter
+                                    </td>
+                                </tr>
+                            <% } %>
+
+                            <% let identifiant = 0; %>
+                            <% response.sprintsUs[i].forEach((us , index) => { %> 
+                                <% identifiant += 2 %>
+                                <tr id="<%= identifiant %>" class="backlogLine draggable" draggable="true">
+                                    <th scope="row"><%= us.id %></th>
+                                    <td><%= us.label %></td>
+                                    <td><%= us.importance %></td>
+                                    <td><%= us.difficulty %></td>
+                                </tr>
+                            <% }) %>
+                        </tbody>
+                    </table>
                 </div>
             </div>
         <% } %>
+
         <div class="row">
             <div class="col-8">
                     <div class="d-flex justify-content-between">
-                        <p>backlog</p>
+                        <h3>Backlog</h3>
                         <form action="/sprint" method="post">
                             <button type="submit" class="btn btn-primary"> Créer sprint </button>
                         </form>
                     </div>
-                  <ul class="list-group sourceAndDestination" data-sprintId="NULL">
-                        <% let identifiant = 1; %>
-                        <% for(let i=0; i<response.userStories.length; i++) { %> 
-                            <% identifiant += 2 %>
-                        <li id="<%= identifiant %>" class="backlogLine draggable list-group-item d-flex justify-content-between" draggable="true">
-                            <span scope="row">
-                                <span><%= response.userStories[i].id %> </span> &ensp;
-                                <span><%= response.userStories[i].label %></span>
-                            </span>
-                            <span>
-                                <span><%= response.userStories[i].importance %></span> &ensp;
-                                <span><%= response.userStories[i].difficulty %></span>
-                            </span>
-                        </li>
-                        <% } %>
-                    </ul>
+                    <table class="table table-hover table-bordered">
+                        <thead class="thead-dark">
+                            <tr>
+                                <th scope="col">#</th>
+                                <th scope="col">Nom</th>
+                                <th scope="col">Importance</th>
+                                <th scope="col">Difficulté</th>
+                            </tr>
+                        </thead>
+                        <tbody class="sourceAndDestination" data-sprintId="NULL">
+                            <% let identifiant = 1; %>
+                            <% response.userStories.forEach((us) => { %> 
+                                <% identifiant += 2 %>
+                                <tr id="<%= identifiant %>" class="backlogLine draggable" draggable="true">
+                                    <th scope="row"><%= us.id %></th>
+                                    <td><%= us.label %></td>
+                                    <td><%= us.importance %></td>
+                                    <td><%= us.difficulty %></td>
+                                </tr>
+                            <% }) %>
+                        </tbody>
+                    </table>
             </div>
-            <div class="col-4" id="infosUs">
-                 <form method="POST" onsubmit="onFormSubmit(this);">
+            <div class="col-4 mb-3" id="infosUs">
+                <form method="POST" onsubmit="onFormSubmit(this);">
                     <input type="hidden" id="method" name="method" value="put">
                     <div class="form-group">
                         <label for="description">Description</label><br>
                         <textarea name="description" id="description" cols="30" rows="5" required></textarea>
                     </div>
+                    <p>Importance</p>
                     <div class="form-group">
                         <select class="custom-select" name="importance" id="importance">
                             <option value="1">maximale</option>
@@ -94,9 +113,15 @@
                             <option value="3">minimale</option>
                         </select>
                     </div>
-                    <label for="customRange2">Priorité</label>
-                    <input type="range" id="priority" name="difficulty" class="custom-range" min="1" max="100" id="customRange2">
-
+                    <label for="difficulty">Difficulté</label>
+                    <div class="row">
+                        <div class="col-10">
+                            <input type="range" id="difficulty" name="difficulty" class="custom-range" min="1" max="100" onchange="updateDiffValue(this.value);">
+                        </div>
+                        <div class="col-2">
+                            <span id="diffDisplay"></span>
+                        </div>
+                    </div>
                     <button type="submit" class="btn btn-primary" onclick="setMethod('put');">Enregistrer</button>
                     <button type="submit" class="btn btn-primary" onclick="setMethod('delete');">Supprimer</button>
                     <button type="button" id="fermer" class="btn btn-secondary">Fermer</button>
