@@ -1,6 +1,8 @@
 let backlogLines = document.querySelectorAll(".backlogLine");
 let infosUs = document.querySelector("#infosUs");
 let btnFermer = document.querySelector("#fermer");
+let diffRangeUpdateUs = document.querySelector("#difficulty");
+let diffDisplayUpdateUs = document.querySelector("#diffDisplay");
 
 infosUs.style.display = "none";
 
@@ -22,18 +24,22 @@ for (let i=0; i<backlogLines.length; i++) {
 
         let description = document.querySelector("#description");
         let importance = document.querySelector("#importance");
-        let priority = document.querySelector("#priority");
+        let difficultyRange = document.querySelector("#difficulty");
+        let difficultyDisplay = document.querySelector("#diffDisplay");
+        
 
-        description.value = children[0].children[1].innerText;
-        priority.value = children[1].children[1].innerText;
+        description.value = children[1].innerText;
+        difficultyRange.value = children[3].innerText;
+        displayDifficulty(difficultyDisplay, difficultyRange.value);
+
 
         for(let j=0; j<importance.options.length; j++) {
-            if (importance.options[j].innerText === children[1].children[0].innerText) {
+            if (importance.options[j].innerText === children[2].innerText) {
                 importance.selectedIndex = j;
                 break;
             }
         }
-        usId = children[0].children[0].innerText;
+        usId = children[0].innerText;
         infosUs.style.display = "block";
     });
 }
@@ -88,7 +94,7 @@ sourceAndDestinationElements.forEach(element => {
         console.log("droped");
 
         const dragged = document.getElementById(data);
-        const usId = dragged.children[0].children[0].innerText;
+        const usId = dragged.children[0].innerText;
         const usSprint = dropzone.getAttribute("data-sprintId");
         console.log(usSprint);
         let url = "http://localhost/sprint/" + usId + "/" + usSprint;
@@ -106,5 +112,11 @@ sourceAndDestinationElements.forEach(element => {
 })
 });
 
+diffRangeUpdateUs.addEventListener('input', () => {
+    displayDifficulty(diffDisplayUpdateUs, diffRangeUpdateUs.value);
+});
 
+function displayDifficulty(display, value) {
+    display.innerHTML = value;
+}
 
