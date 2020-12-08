@@ -3,25 +3,25 @@ const taskModel = require("../models/task");
 const sprintModel = require("../models/sprint");
 
 exports.renderActiveSprintTasks = async (req, res) => {
-    let userStories = await userStryModel.getUserStoriesByIdProject(global.currentProjectId);
-    let currentProjectTasks = await taskModel.selectStartedSprintTasks(global.currentProjectId);
+    let userStories = await userStryModel.getUserStoriesByIdProject(req.session.currentProjectId);
+    let currentProjectTasks = await taskModel.selectStartedSprintTasks(req.session.currentProjectId);
     let response = {
         userStories: userStories,
         tasks: currentProjectTasks,
-        projectId: global.currentProjectId
+        projectId: req.session.currentProjectId
     };
     res.render("actifTasks", {response});
 }
 
 exports.renderTasks = async (req, res) => {
-    let userStories = await userStryModel.getUserStoriesByIdProject(global.currentProjectId);
-    let currentProjectTasks = await taskModel.selectProjectTasks(global.currentProjectId);
-    let currentProjectSprints = await sprintModel.selectNotActiveSprint(global.currentProjectId);
+    let userStories = await userStryModel.getUserStoriesByIdProject(req.session.currentProjectId);
+    let currentProjectTasks = await taskModel.selectProjectTasks(req.session.currentProjectId);
+    let currentProjectSprints = await sprintModel.selectNotActiveSprint(req.session.currentProjectId);
     let response = {
         userStories: userStories,
         tasks: currentProjectTasks,
         sprints: currentProjectSprints,
-        projectId: global.currentProjectId
+        projectId: req.session.currentProjectId
     };
     res.render("task", {response});
 }
@@ -37,14 +37,14 @@ exports.createTask = (req, res) => {
         .then(async sqlResult => {
             const dependancy = req.body.dependancy;
             if ((typeof dependancy) === "string") {
-                taskModel.insertTaskDependacy(global.currentProjectId, sqlResult.insertId, dependancy)
+                taskModel.insertTaskDependacy(req.session.currentProjectId, sqlResult.insertId, dependancy)
                     .then(result => {
                         res.redirect("/task");
                     })
                     .catch(error => res.send(error));
             }else if (dependancy) {
                 for (let i=0; i<dependancy.length; i++) {
-                    await taskModel.insertTaskDependacy(global.currentProjectId, sqlResult.insertId, dependancy[i]);
+                    await taskModel.insertTaskDependacy(req.session.currentProjectId, sqlResult.insertId, dependancy[i]);
                 }
             }
             res.redirect("/task");

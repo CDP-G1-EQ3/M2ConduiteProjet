@@ -15,7 +15,7 @@ exports.addUserStory = (req, res) => {
 }
 
 exports.renderBacklog = async (req, res) => {
-    global.currentProjectId = (req.params.projectId) ? req.params.projectId : global.currentProjectId;
+    req.session.currentProjectId = (req.params.projectId) ? req.params.projectId : req.session.currentProjectId;
     let allUs = await userStoryModel.getBacklogUserStories(req.params.projectId)
     const notActiveSprints = await sprintModel.selectNotActiveSprint(req.params.projectId);
     let sprintsUs = [];
