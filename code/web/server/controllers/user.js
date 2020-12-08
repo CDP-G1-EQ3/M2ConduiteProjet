@@ -11,14 +11,14 @@ exports.signup= (req, res) => {
             userModel.createUser(req.body.username, req.body.mail, req.body.password)
                 .then(sqlResult => {
                     if (sqlResult) {
-                        res.render("login");
+                        res.redirect("/user/login");
                     }else {
                         error = "unknown error"
                         res.render("register", error);
                     }
                 })
                 .catch(sqlError => { 
-                    error = "a user with this email/username already exists"
+                    error = "a user with this email already exists"
                     res.render("register", {error: error});
                  });
         }

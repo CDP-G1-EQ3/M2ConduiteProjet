@@ -11,8 +11,6 @@ const database = require("./server/Database");
 const sprintRoutes = require('./server/routes/sprint');
 const taskRoutes = require('./server/routes/task');
 
-const e2eTest = require("./test/e2e/registerTest");
-
 database.init();
 
 if(!config.has("server")) {
