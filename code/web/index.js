@@ -2,6 +2,7 @@ const express = require('express');
 const app = express();
 const ejs = require('ejs');
 const path = require("path");
+const session = require("express-session");
 
 const config = require('config');
 const userRoutes = require('./server/routes/user');
@@ -24,6 +25,7 @@ app.use(bodyParser.urlencoded({ extended: false }))
 app.set('view engine', 'ejs');
 app.set('views', path.join(__dirname, '/template'));
 app.use(express.static(path.join(__dirname , '/data')));
+app.use(session({ secret: 'M2 conduite de projet', cooki: {maxAge: 60000 }}));
 
 app.use('/', userRoutes);
 

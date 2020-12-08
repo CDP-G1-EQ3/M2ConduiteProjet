@@ -1,12 +1,13 @@
 const sprintController = require("../controllers/sprint");
+const auth = require("../middlewares/auth");
 
 
 const express = require("express")
 
 let router = express.Router();
 
-router.post('/', sprintController.addSprint);
-router.post('/start', sprintController.startSprint);
-router.post('/:usId/:sprintId', sprintController.addUsToSprint);
+router.post('/', auth, sprintController.addSprint);
+router.post('/start', auth, sprintController.startSprint);
+router.post('/:usId/:sprintId', auth, sprintController.addUsToSprint);
 
 module.exports = router;

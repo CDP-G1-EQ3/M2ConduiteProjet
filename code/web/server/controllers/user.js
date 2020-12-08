@@ -39,6 +39,8 @@ exports.login= (req, res) => {
                             res.render("login", {errorLogin: "mot de passe incorrect"});
                          else {
                              global.userId = sqlResult[0].id;
+                             req.session.userId = sqlResult[0].id;
+                             console.log("req.session.id: " + req.session.userId);
                              res.redirect('/project');
                          }
                      })
