@@ -20,12 +20,11 @@ describe("Register tests: ", () => {
         try {
             const url = "http://localhost/user/signup";
             await driver.get(url);
-            driver.findElement(By.id("mail")).sendKeys("userRegister@gmail.com");
-            driver.findElement(By.id("username")).sendKeys("userRegister");
-            driver.findElement(By.id("password")).sendKeys("aaaaaaaa");
-            driver.findElement(By.id("passwordConfirmation")).sendKeys("aaaaaaaa");
-            let btnRegister = await driver.findElement(By.id("btnRegister"));
-            btnRegister.click();
+            await driver.findElement(By.id("mail")).sendKeys("userRegister@gmail.com");
+            await driver.findElement(By.id("username")).sendKeys("userRegister");
+            await driver.findElement(By.id("password")).sendKeys("aaaaaaaa");
+            await driver.findElement(By.id("passwordConfirmation")).sendKeys("aaaaaaaa");
+            await driver.findElement(By.id("btnRegister")).click();
             await driver.manage().setTimeouts({ implicit: timing });
             const currentUrl = await driver.getCurrentUrl();
             expect(currentUrl).toBe("http://localhost/user/login");
@@ -38,12 +37,11 @@ describe("Register tests: ", () => {
         try {
             const url = "http://localhost/user/signup";
             await driver.get(url);
-            driver.findElement(By.id("mail")).sendKeys("userRegister@gmail.com");
-            driver.findElement(By.id("username")).sendKeys("userRegister");
-            driver.findElement(By.id("password")).sendKeys("aaaaaaaa");
-            driver.findElement(By.id("passwordConfirmation")).sendKeys("aaaaaaaa");
-            let btnRegister = await driver.findElement(By.id("btnRegister"));
-            btnRegister.click();
+            await driver.findElement(By.id("mail")).sendKeys("userRegister@gmail.com");
+            await driver.findElement(By.id("username")).sendKeys("userRegister");
+            await driver.findElement(By.id("password")).sendKeys("aaaaaaaa");
+            await driver.findElement(By.id("passwordConfirmation")).sendKeys("aaaaaaaa");
+            await driver.findElement(By.id("btnRegister")).click();
             await driver.manage().setTimeouts({ implicit: timing });
             const textError = await driver.findElement(By.id("registerError")).getText();
             expect(textError).toBe("a user with this email already exists");
