@@ -25,8 +25,16 @@
             <div class="row">
                 <div class="col">
                     <div class="d-flex justify-content-between mb-1">
-                        <h3><%= response.sprints[i].name %></h3> 
-                        <% if (response.sprints[i].state != "active" && response.sprintsUs[i].length > 0) { %>
+                        <div class="d-flex flex-column">
+                            <h3><%= response.sprints[i].name %></h3> 
+                            <% if (response.sprints[i].state === "active") { %>
+                                <div class="d-flex">
+                                    Du &nbsp; <span><%= response.sprints[i].startDate %></span> &nbsp;
+                                    au &nbsp; <span><%= response.sprints[i].endDate %></span>
+                                </div>
+                            <% } %>
+                        </div>
+                       <% if (response.sprints[i].state != "active" && response.sprintsUs[i].length > 0) { %>
                         <button type="button" class="btn btn-primary btnShowStartSprintModal" data-sprintId="<%= response.sprints[i].id %>" data-toggle="modal" data-target="#modalStartSprint" <% if (response.activeSprint) {%> disabled <% } %>>
                             Démarrer sprint
                         </button>
