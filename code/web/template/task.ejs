@@ -21,19 +21,43 @@
                     </option>
                 <% }); %>
             </select>
-            <ul class="list-group " id="taskList">
-                <% response.tasks.forEach((task, index) => { %>
-                    <li class="taskLine list-group-item" data-toggle="modal" data-target="#editTaskModal" data-sprint="<%= task.sprint %>">
-                        <span scope="row">
-                            <span><%= task.id %> </span> &ensp;
-                            <span><%= task.us %></span> &ensp;
-                            <span><%= task.title %></span> &ensp;
-                            <span><%= task.duration %></span>
-                        </span>
-                    </li>
-                <% }); %>
-            </ul>
-        </div>
+
+            <table class="table table-hover table-bordered">
+                <thead>
+                    <tr>
+                        <th scope="col">Id</th>
+                        <th scope="col">US</th>
+                        <th scope="col">Description</th>
+                        <th scope="col">Dépendances</th>
+                        <th scope="col">Durée</th>
+                        <th scope="col">Etat</th>
+                    </tr>
+                </thead>
+                <tbody id="taskList">
+                    <% if (response.tasks.length === 0) { %>
+                        <tr class="text-center">
+                            <td colspan="6">
+                                Aucune tâche pour ce projet
+                            </td>
+                        </tr>
+                    <% } %>
+                    <% response.tasks.forEach((task, index) => { %>
+                    <tr class="taskLine" data-toggle="modal" data-target="#editTaskModal" data-sprint="<%= task.sprint %>">
+                        <td class="text-center"><%= task.id %></td>
+                        <td class="text-center"><%= task.us %></td>
+                        <td><%= task.title %></td>
+                        <td>
+                            <% response.taskDependancies[index].forEach(dependancy => { %>
+                                <%= dependancy.dep %>, &nbsp;
+                            <% }) %>
+                        </td>
+                        <td class="text-center"><%= task.duration %></td>
+                        <td class="text-center"><%= task.state %></td>
+                    </tr>
+                    <% }); %>
+               </tbody>
+            </table>
+       </div>
     </div>
 </body>
 </html>

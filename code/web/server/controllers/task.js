@@ -17,9 +17,15 @@ exports.renderTasks = async (req, res) => {
     let userStories = await userStryModel.getUserStoriesByIdProject(req.session.currentProjectId);
     let currentProjectTasks = await taskModel.selectProjectTasks(req.session.currentProjectId);
     let currentProjectSprints = await sprintModel.selectNotActiveSprint(req.session.currentProjectId);
+    let taskDependancies = [];
+    for (let i=0; i<currentProjectTasks.length; i++) {
+        let dependancies = await taskModel.selectTaskDepencies(currentProjectTasks[i].id)
+        taskDependancies.push(dependancies);
+    }
     let response = {
         userStories: userStories,
         tasks: currentProjectTasks,
+        taskDependancies: taskDependancies,
         sprints: currentProjectSprints,
         projectId: req.session.currentProjectId
     };

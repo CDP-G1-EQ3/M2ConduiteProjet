@@ -35,6 +35,11 @@ exports.insertTask = (projectId, description, duration=null, us=null) => {
     return database.fast(sql, opt);
 }
 
+exports.selectTaskDepencies = (taskId) => {
+    const sql = "SELECT * FROM cdp_task_dep WHERE task=?";
+    return database.fast(sql, [taskId]);
+}
+
 exports.insertTaskDependacy = (projectId, taskId, dependancy) => {
     return database.fast("INSERT INTO cdp_task_dep (`project`, `task`, `dep`) VALUES (?, ?, ?)", [projectId, taskId, dependancy]);
 }
