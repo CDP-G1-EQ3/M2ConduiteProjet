@@ -9,5 +9,6 @@ let router = express.Router();
 router.post('/', auth, sprintController.addSprint);
 router.post('/start', auth, sprintController.startSprint);
 router.post('/:usId/:sprintId', auth, sprintController.addUsToSprint);
+router.post('/us/:usId/:state', auth, sprintController.updateSprintUs);
 
 module.exports = router;

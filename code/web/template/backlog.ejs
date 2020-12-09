@@ -48,6 +48,7 @@
                                 <th scope="col">Nom</th>
                                 <th scope="col">Importance</th>
                                 <th scope="col">Difficulté</th>
+                                <th scope="col">Etat</th>
                             </tr>
                         </thead>
                         <tbody class="sourceAndDestination" data-sprintId="<%= response.sprints[i].id %>">
@@ -67,6 +68,12 @@
                                     <td><%= us.label %></td>
                                     <td><%= us.importance %></td>
                                     <td><%= us.difficulty %></td>
+                                    <td>
+                                        <select name="usState" class="usState" data-usId="<%= us.id %>">
+                                            <option value="1" <% if (us.state!=="close") { %> selected<% } %>>Ouverte</option>
+                                            <option value="2" <% if (us.state==="close") { %> selected<% } %>>Fermée</option>
+                                        </select>
+                                    </td>
                                 </tr>
                             <% }) %>
                         </tbody>

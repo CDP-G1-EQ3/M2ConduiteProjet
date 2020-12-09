@@ -1,5 +1,6 @@
 const { SqlError } = require("mariadb");
 const sprintModel = require("../models/sprint");
+const usModel = require("../models/userStory");
 
 exports.addSprint = (req, res) => {
     getLastId()
@@ -37,6 +38,14 @@ exports.addUsToSprint = (req, res) => {
 
 exports.startSprint = (req, res) => {
     sprintModel.startSprint(req.body.sprintId, req.body.startDate, req.body.endDate)
+        .then(sqlResult => {
+            res.redirect("/backlog/" + req.session.currentProjectId);
+        })
+        .catch(error => res.send(error));
+}
+
+exports.updateSprintUs = (req, res) => {
+    usModel.closeUserStories(req.params.usId, req.params.state)
         .then(sqlResult => {
             res.redirect("/backlog/" + req.session.currentProjectId);
         })
