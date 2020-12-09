@@ -51,3 +51,20 @@ exports.updateSprintUs = (req, res) => {
         })
         .catch(error => res.send(error));
 }
+
+exports.closeSprint = (req, res) => {
+    sprintModel.updateSprintState(req.params.sprintId, "finished")
+        .then(sqlResult => {
+            usModel.getNotClosedUserStrories(req.params.sprintId)
+                .then(async notClosedUserStories => {
+                    for (let i=0; i<notClosedUserStories.length; i++) {
+                        console.log("id: " + notClosedUserStories[i]);
+                        await sprintModel.updateUsSprint(null, notClosedUserStories[i].id);
+                    }
+                    res.redirect(303, "/backlog/" + req.session.currentProjectId);
+                })
+                .catch(error => res.send(error));
+
+        })
+        .catch(error => res.send(error));
+}

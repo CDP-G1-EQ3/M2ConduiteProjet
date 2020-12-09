@@ -27,3 +27,7 @@ exports.startSprint = (sprintId, startDate, endDate) => {
     const sql = "UPDATE cdp_sprint SET startDate=?, endDate=?, state=? WHERE id=?";
     return database.fast(sql, [startDate, endDate, "active", sprintId]);
 }
+
+exports.updateSprintState = (sprintId, state) => {
+    return database.fast("UPDATE cdp_sprint SET state=? WHERE id=?", [state, sprintId]);
+}

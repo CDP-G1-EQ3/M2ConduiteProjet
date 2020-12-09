@@ -138,3 +138,12 @@ function displayDifficulty(display, value) {
         })
     }
 }) ();
+
+async function closeSprint(button) {
+    await fetch("/sprint/" + button.getAttribute("data-sprintId"), {
+        method: "PUT"
+    });
+
+    infosUs.style.display = "none";
+    location.reload();
+}
