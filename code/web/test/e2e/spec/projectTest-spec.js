@@ -60,6 +60,7 @@ describe("projects tests: ", () => {
     it("The created project should be displayed", async () => {
         try {
             await createProject("title1", "description1");
+            await driver.get("http://localhost/project");
             let tbody = driver.findElement(By.css("tbody"));
             let projects = await tbody.findElements(By.css("tr"));
             let found = false;
@@ -77,6 +78,31 @@ describe("projects tests: ", () => {
             fail(error);
         }
     });
+
+    it("a click on a project name should redirect to the backlog page", async () => {
+        try {
+            await createProject("test click", "uzumaki");
+            await driver.get("http://localhost/project");
+            let tbody = driver.findElement(By.css("tbody"));
+            let projects = await tbody.findElements(By.css("tr"));
+            for(let project of projects) {
+                let help = await project.findElements(By.css("td"));
+                const name = await help[0].getText();
+                const description = await help[1].getText();
+                if (name === "test click" && description === "uzumaki") {
+                    let link = await help[0].findElement(By.css("a"));
+                    await link.click();
+                    await driver.manage().setTimeouts({ implicit: timing });
+                    const currentUrl = await driver.getCurrentUrl();
+                    expect(true).toBe(currentUrl.includes("http://localhost/backlog"));
+                }
+            }
+ 
+        } catch (error) {
+            fail(error);
+        }
+    });
+
 });
 
 
