@@ -14,4 +14,4 @@
 |26 | En tant que membre d'un projet, je souhaite pouvoir me déplacer entre les differentes fonctionnalités (projets, backlog, sprints, tâches) en utilisant un menu afin de faciliter l'utilisation de l'application. | normale | 3 | Fermée |
 
 - Prevision de charge: 25
-- Vélocité: 19
+- Vélocité: 18
