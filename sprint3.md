@@ -3,7 +3,7 @@
 | ID | US Description | Importance | Difficulté  | statut
 |:--:|----------------|:----------:|:-----------:|:----------:
 |08 | En tant qu'administrateur d'un projet, je souhaite pouvoir déplacer une ou plusieurs tâches d'un état à un autre afin d'organiser mes tâches. Les états pour une tâche sont todo, doing et done | maximale | 2 | Fermée |
-|12 | En tant qu'administrateur d'un projet ou créateur d'une US, je souhaite pouvoir la fermer afin de préciser que sa réalisation est terminée. | normale | 1 | Ouverte |
+|12 | En tant qu'administrateur d'un projet ou créateur d'une US, je souhaite pouvoir la fermer afin de préciser que sa réalisation est terminée. | normale | 1 | Fermée |
 |16 | En tant que membre d'un projet, je souhaite pouvoir créer un sprint et y ajouter des User Stories afin de pouvoir le démarrer. Le nom du sprint sera généré automatiquement sous la forme "sprint X" (où X est un nombre qui représente le nombre courant de sprints) | maximale | 2 | Fermée |
 |17 | En tant que membre d'un projet, je souhaite pouvoir démarrer un sprint en indiquant la durée et la date de début du sprint. | maximale | 3 | Fermée |
 |18 | En tant que membre d'un projet, je souhaite pouvoir créer des tâches faisant référence à des US et pouvant être dépendantes d'autres tâches afin de concevoir des sprints pour mon projet. | maximale | 2 | Fermée |
@@ -14,4 +14,4 @@
 |26 | En tant que membre d'un projet, je souhaite pouvoir me déplacer entre les differentes fonctionnalités (projets, backlog, sprints, tâches) en utilisant un menu afin de faciliter l'utilisation de l'application. | normale | 3 | Fermée |
 
 - Prevision de charge: 25
-- Vélocité: 18
+- Vélocité: 19
