@@ -10,7 +10,7 @@
             if (taskSprint !== selectedSprintId && selectedSprintId!=="") {
                 task.style.display = "none";
             } else {
-                task.style.display = "block";
+                task.style.display = "table-row";
             }
         }
     })
@@ -30,10 +30,10 @@ for (let i=0; i<taskLines.length; i++) {
         let duration = document.getElementById('edittask-duration');
         let userStory = document.getElementById('edittask-userstory');
 
-        userStory.value = children[0].children[1].innerText;
-        description.value = children[0].children[2].innerText;
-        duration.value = children[0].children[3].innerText;
-        taskId = children[0].children[0].innerText;
+        userStory.value = children[1].innerText
+        description.value = children[2].innerText;
+        duration.value = children[3].innerText;
+        taskId = children[0].innerText;
     });
 }
 

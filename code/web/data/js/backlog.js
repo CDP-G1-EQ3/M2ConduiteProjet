@@ -126,3 +126,24 @@ function displayDifficulty(display, value) {
     display.innerHTML = value;
 }
 
+(function() {
+    let usStateSelect = document.querySelectorAll(".usState");
+    for (let i=0; i<usStateSelect.length; i++ ) {
+        usStateSelect[i].addEventListener("change", async () => {
+            let usId = usStateSelect[i].getAttribute("data-usId");
+            console.log(usId);
+            await fetch("/sprint/us/" + usId + "/" + usStateSelect[i].value, {
+                method: "POST"
+            });
+        })
+    }
+}) ();
+
+async function closeSprint(button) {
+    await fetch("/sprint/" + button.getAttribute("data-sprintId"), {
+        method: "PUT"
+    });
+
+    infosUs.style.display = "none";
+    location.reload();
+}

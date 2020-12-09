@@ -45,3 +45,12 @@ exports.getUserStoriesBySprint = (projectId, sprintId) => {
     const sql = "SELECT * FROM cdp_us WHERE project=? AND sprint=?";
     return database.fast(sql, [projectId, sprintId]);
 }
+
+exports.closeUserStories = (usId, state) => {
+    return database.fast("UPDATE cdp_us SET state=? WHERE id=?", [state, usId])
+}
+
+exports.getNotClosedUserStrories = (sprintId) => {
+    const sql = "SELECT * FROM cdp_us WHERE sprint=? AND (state<>? OR state is null)";
+    return database.fast(sql, [sprintId, "closed"]);
+}

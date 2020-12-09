@@ -22,13 +22,27 @@
         </div>
 
         <% for (let i=0; i<response.sprints.length; i++) { %>
+            <% if(response.sprints[i].state === "finished") continue %>
             <div class="row">
                 <div class="col">
                     <div class="d-flex justify-content-between mb-1">
-                        <h3><%= response.sprints[i].name %></h3> 
-                        <% if (response.sprints[i].state != "active" && response.sprintsUs[i].length > 0) { %>
+                        <div class="d-flex flex-column">
+                            <h3><%= response.sprints[i].name %></h3> 
+                            <% if (response.sprints[i].state === "active") { %>
+                                <div class="d-flex">
+                                    Du &nbsp; <span><%= response.sprints[i].startDate %></span> &nbsp;
+                                    au &nbsp; <span><%= response.sprints[i].endDate %></span>
+                                </div>
+                            <% } %>
+                        </div>
+                       <% if (response.sprints[i].state != "active" && response.sprintsUs[i].length > 0) { %>
                         <button type="button" class="btn btn-primary btnShowStartSprintModal" data-sprintId="<%= response.sprints[i].id %>" data-toggle="modal" data-target="#modalStartSprint" <% if (response.activeSprint) {%> disabled <% } %>>
-                            Démarrer sprint
+                            Démarrer
+                        </button>
+                        <% } %>
+                       <% if (response.sprints[i].state === "active" && response.sprintsUs[i].length > 0) { %>
+                        <button type="button" onclick="closeSprint(this)" class="btn btn-danger" data-sprintId="<%= response.sprints[i].id %>">
+                            Terminer
                         </button>
                         <% } %>
                     </div>
@@ -40,12 +54,15 @@
                                 <th scope="col">Nom</th>
                                 <th scope="col">Importance</th>
                                 <th scope="col">Difficulté</th>
+                                <% if (response.sprints[i].state === "active") { %>
+                                    <th scope="col">Etat</th>
+                                <% } %>
                             </tr>
                         </thead>
                         <tbody class="sourceAndDestination" data-sprintId="<%= response.sprints[i].id %>">
                             <% if (response.sprintsUs[i].length === 0) { %>
                                 <tr class="text-center">
-                                    <td colspan="4">
+                                    <td colspan="5">
                                         Faites glisser des U.S dans cette zone pour les ajouter
                                     </td>
                                 </tr>
@@ -59,7 +76,16 @@
                                     <td><%= us.label %></td>
                                     <td><%= us.importance %></td>
                                     <td><%= us.difficulty %></td>
-                                </tr>
+                                    <% if (response.sprints[i].state === "active") { %>
+                                        <td>
+                                            <select name="usState" class="usState" data-usId="<%= us.id %>">
+                                                <option value="1" <% if (us.state!=="closed") { %> selected<% } %>>Ouverte</option>
+                                                <option value="2" <% if (us.state==="closed") { %> selected<% } %>>Fermée</option>
+                                            </select>
+                                        </td>
+                                    <% } %>
+        
+                               </tr>
                             <% }) %>
                         </tbody>
                     </table>

@@ -73,8 +73,8 @@ INSERT INTO `cdp_us`(`project`, `label`, `difficulty`)
 
 
 /* ajout de tâche pour le premier projet */
-INSERT INTO `cdp_task`(`project`, `title`, `state`) VALUES (1, "description la tâche 1", "todo");
-INSERT INTO `cdp_task`(`project`, `title`, `state`) VALUES (1, "description la tâche 2", "todo");
+INSERT INTO `cdp_task`(`project`, `title`, `state`, `us`) VALUES (1, "description la tâche 1", "todo", 2);
+INSERT INTO `cdp_task`(`project`, `title`, `state`, `us`) VALUES (1, "description la tâche 2", "todo", 2);
 INSERT INTO `cdp_task`(`project`, `title`, `state`, `us`) VALUES (1, "description la tâche 3", "todo", 4);
 INSERT INTO `cdp_task`(`project`, `title`, `state`, `us`) VALUES (1, "description la tâche 4", "todo", 3);
 INSERT INTO `cdp_task`(`project`, `title`, `state`, `us`) VALUES (1, "description la tâche 5", "todo", 3);

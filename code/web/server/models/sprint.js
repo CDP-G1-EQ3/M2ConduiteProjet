@@ -15,10 +15,19 @@ exports.updateUsSprint = (sprintId, usId) => {
 }
 
 exports.selectNotActiveSprint = (projectId) => {
-    return database.fast("SELECT * FROM cdp_sprint WHERE project=?", [projectId]);
+    const sql = "SELECT id, project, name, state, " + 
+		                "DATE_FORMAT(startDate, '%d/%m/%y') as startDate, " + 
+                        "DATE_FORMAT(endDate, '%d/%m/%y') as endDate " + 
+                        " FROM cdp_sprint " +
+                        " WHERE project=?";
+    return database.fast(sql, [projectId]);
 }
 
 exports.startSprint = (sprintId, startDate, endDate) => {
     const sql = "UPDATE cdp_sprint SET startDate=?, endDate=?, state=? WHERE id=?";
     return database.fast(sql, [startDate, endDate, "active", sprintId]);
+}
+
+exports.updateSprintState = (sprintId, state) => {
+    return database.fast("UPDATE cdp_sprint SET state=? WHERE id=?", [state, sprintId]);
 }
