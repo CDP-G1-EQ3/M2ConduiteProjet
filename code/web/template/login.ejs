@@ -8,18 +8,20 @@
             <div class="col-4 bg-light py-3 rounded">
                 <h6 class="text-center">J'ai déjà un compte</h6>
                 <form method="POST" action="/user/login">
-                    <input type="email" id="inputLogin" name="mail" class="form-control form-top" placeholder="address email" required> <br>
-                    <input type="password" id="inputPassword"i name="password" class="form-control form-bottom" placeholder="Mot de passe" minlength="8" required> <br>
+                    <input type="email" id="inputLogin" name="mail" class="form-control mb-2" placeholder="Adresse email" required>
+                    <input type="password" id="inputPassword"i name="password" class="form-control mb-2" placeholder="Mot de passe" minlength="8" required>
                     <% if (typeof errorLogin != 'undefined') { %>
-                    <div id="errorDiv" class="text-danger text-center"><%= errorLogin %></div><br>
+                    <div id="errorDiv" class="text-danger text-center mb-2"><%= errorLogin %></div>
                     <% } %>
-                    <button id="btnLogin" class="btn btn-primary text-center" type="submit">SE CONNECTER</button>
+                    <div class="text-center">
+                        <button id="btnLogin" class="btn btn-primary" type="submit">SE CONNECTER</button>
+                    </div>
                 </form>
             </div>
         </div>
         <div class="row justify-content-center ">
             <div class="col-4 d-flex justify-content-center flex-column bg-light py-3 rounded">
-                <h6 class="text-center">Nouveau sur notre Site</h6>
+                <h6 class="text-center">Nouveau sur notre site ?</h6>
                 <a class="btn btn-primary btn-sm" href="/user/signup">S'INSCRIRE</a>
             </div>
         </div>
