@@ -1,6 +1,6 @@
 <!-- Button trigger modal -->
-<button type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModal">
-    créer une tâche
+<button type="button" class="btn btn-primary mb-2" data-toggle="modal" data-target="#exampleModal">
+    Créer une tâche
 </button>
 
 <!-- Modal -->
@@ -23,19 +23,19 @@
                 <textarea name="description" id="description" cols="40" rows="5" required></textarea>
             </div>
             <div class="form-group">
-                <label for="duration">Duration en heures</label>
+                <label for="duration">Durée en heures</label><br>
                 <input type="number" name="duration" id="duration" min="1" max="8">
             </div>
             <div class="form-group">
                 <label for="duration">Dépendance</label> <br>
                 <select name="dependancy" id="dependancy" multiple>
-                   <% response.tasks.forEach(task => { %>
-                      <option value="<%= task.id %>"><%= task.id %> &ensp; <%= task.title.substring(0, 40) %></option>
-                   <% }); %>
+                  <% response.tasks.forEach(task => { %>
+                    <option value="<%= task.id %>"><%= task.id %> &ensp; <%= task.title.substring(0, 40) %></option>
+                  <% }); %>
                 </select>
             </div>
             <div class="form-group">
-                <label for="userStroy">User Stroy</label><br>
+                <label for="userStroy">User Story associée</label><br>
                 <input type="text" list="userStories" name="userStory" id="userStroy" required autocomplete="off">
                 <datalist id="userStories">
                     <% response.userStories.forEach(us => { %>

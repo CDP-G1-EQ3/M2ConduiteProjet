@@ -32,7 +32,7 @@ for (let i=0; i<taskLines.length; i++) {
 
         userStory.value = children[1].innerText
         description.value = children[2].innerText;
-        duration.value = children[3].innerText;
+        duration.value = children[4].innerText;
         taskId = children[0].innerText;
     });
 }

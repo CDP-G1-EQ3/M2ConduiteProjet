@@ -7,7 +7,7 @@ btnSubmit.disabled = true;
 passwordConfirmationElement.addEventListener('keyup', () => {
     div = document.querySelector('#errorJs');
     if (passwordConfirmationElement.value != passwordElement.value || passwordConfirmationElement.value === "") {
-        div.textContent = "mots de passes differents"
+        div.textContent = "Mots de passe différents"
         btnSubmit.disabled = true;
     }else {
         div.textContent = ""
