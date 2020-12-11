@@ -33,20 +33,20 @@ async function reconnect() {
 
    await db.getConnection()
         .then(conn => {
-            console.log("Database reached");
-            
+            console.log("Database reached ! connection id is " + conn.threadId);
             online = true;
+            conn.release();
         })
         .catch(err => {
-            console.log("Error "+err);
+            console.log("Error getConnection: "+err);
             online = false;
         });
 
     if (!online)
         await setTimeout(()=> {
-        console.log("online was false: " + online);
     }, 10000);
 
+    console.log("online : " + online);
     return online;
     
 }
@@ -59,8 +59,7 @@ async function reconnect() {
 async function query(sql, opt = null){
     if(!online) {
         console.log("DB not online");
-        reconnect();
-        return false;
+        await reconnect();
     }
     try {
         await db.query(sql, opt).then(
@@ -71,7 +70,7 @@ async function query(sql, opt = null){
 
         return true;
     } catch(e){
-        console.log("Failed "+e);
+        console.log("query failed: "+e);
         reconnect();
         return false;
     }

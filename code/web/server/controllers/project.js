@@ -1,7 +1,7 @@
 const projectModel = require("../models/project");
 
 exports.getAllProjects = (req, res) => {
-    projectModel.getUserProjects(global.userId)
+    projectModel.getUserProjects(req.session.userId)
     .then(sqlResult => {
         res.render("project", {projects: sqlResult});
     })
@@ -11,12 +11,12 @@ exports.getAllProjects = (req, res) => {
 }
 
 exports.addProject = (req, res) => {
-    projectModel.createNewProject(global.userId, req.body.title, req.body.description)
+    projectModel.createNewProject(req.session.userId, req.body.title, req.body.description)
         .then(sqlResult => {
             res.redirect("/project");
         })
         .catch(sqlError => {
-            res.render("createProject", {error: "Erreur lors de la création du projet"});
+            res.render("createProject", {error: "Un projet avec ce titre éxiste déjà"});
         });
 }
 

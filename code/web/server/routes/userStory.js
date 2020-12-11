@@ -1,14 +1,15 @@
 const userStoryController = require("../controllers/userStory");
+const auth = require("../middlewares/auth");
 
 
 const express = require("express")
 
 let router = express.Router();
 
-router.post('/us', userStoryController.addUserStory);
+router.post('/us', auth,  userStoryController.addUserStory);
 //router.get('/us/:projectId', userStoryController.getUserStoriesByProjectId);
-router.get('/:projectId', userStoryController.renderBacklog);
-router.post('/us/:usId', userStoryController.updateUserStory);
-router.delete('/us/:usId', userStoryController.deleteUserStory);
+router.get('/:projectId', auth, userStoryController.renderBacklog);
+router.post('/us/:usId', auth, userStoryController.updateUserStory);
+router.delete('/us/:usId', auth, userStoryController.deleteUserStory);
 
 module.exports = router;

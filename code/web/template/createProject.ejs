@@ -12,7 +12,7 @@
                     <form class="form-signup mb-3" method="post" action="/project/new" autocomplete="off">
                         <input type="text" id="inputTitle" name="title" class="form-control form-top" placeholder="Titre du projet (Obligatoire)" required>
                         <textarea id="inputDescription" name="description" class="form-control form-bottom" placeholder="Description du projet (Optionnel)"></textarea>
-                        <button class="btn btn-primary" type="submit">Créer</button>
+                        <button id="btnCreate" class="btn btn-primary" type="submit">Créer</button>
                         <a class="btn btn-secondary" href="/project">Annuler</a>
                     </form>
                     <% if (typeof error != 'undefined') { %>

@@ -5,6 +5,7 @@ CREATE TABLE cdp_us (
   difficulty int UNSIGNED NOT NULL,
   importance ENUM('maximale', 'normale', 'minimale'),
   sprint int UNSIGNED,
+  state ENUM('open', 'closed'),
 
   INDEX I_PROJECT (project),
   INDEX I_ID (id),

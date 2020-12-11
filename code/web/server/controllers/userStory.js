@@ -1,4 +1,5 @@
 let userStoryModel = require("../models/userStory");
+let sprintModel = require("../models/sprint");
 
 exports.addUserStory = (req, res) => {
     userStoryModel.createUS(req.body.idProject, req.body.description, req.body.difficulty, req.body.importance)
@@ -13,23 +14,33 @@ exports.addUserStory = (req, res) => {
         .catch(error => res.send(error));
 }
 
-// not used yet
-const getUserStoriesByProjectId = (req, res) => {
-    userStoryModel.getUserStoriesByIdProject(req.params.projectId)
-        .then(sqlResult => {
-            res.send(sqlResult);
-        })
-        .catch(error => res.send(error));
+exports.renderBacklog = async (req, res) => {
+    req.session.currentProjectId = (req.params.projectId) ? req.params.projectId : req.session.currentProjectId;
+    let allUs = await userStoryModel.getBacklogUserStories(req.params.projectId)
+    const notActiveSprints = await sprintModel.selectNotActiveSprint(req.params.projectId);
+    let sprintsUs = [];
+    let sprints = notActiveSprints;
+    for (let i=0; i<notActiveSprints.length; i++) {
+        sprint = notActiveSprints[i];
+        const userStories = await userStoryModel.getUserStoriesBySprint(req.params.projectId, sprint.id);
+        sprintsUs.push(userStories);
+    };
+    let response = {
+        userStories: allUs,
+        sprintsUs: sprintsUs,
+        sprints: sprints,
+        projectId: req.params.projectId,
+        activeSprint: containActiveSprint(sprints)
+    }
+    res.render("backlog", {response});
 }
 
-exports.renderBacklog = (req, res) => {
-    userStoryModel.getUserStoriesByIdProject(req.params.projectId)
-        .then(sqlResult => {
-            let userStories = {userStories: sqlResult, projectId: req.params.projectId};
-            res.render("backlog", {userStories});
-        })
-        .catch(error => res.send(error));
-
+function containActiveSprint(sprints) {
+    for (let i=0; i<sprints.length; i++) {
+        if (sprints[i].state === "active")
+            return true;
+    }
+    return false;
 }
 
 exports.updateUserStory = (req, res) => {

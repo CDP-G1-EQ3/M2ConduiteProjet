@@ -14,9 +14,15 @@ exports.createUS = (project, label, difficulty, importance, sprint = null) => {
     return database.fast(sql, opt);
 }
 
-
+//TODO rename
 exports.getUserStoriesByIdProject = (projectId) => {
     const sql = "SELECT * FROM cdp_us WHERE project = ?";
+    const opt = [projectId];
+    return database.fast(sql, opt);
+}
+
+exports.getBacklogUserStories = (projectId) => {
+    const sql = "SELECT * FROM cdp_us WHERE project = ? AND sprint IS NULL";
     const opt = [projectId];
     return database.fast(sql, opt);
 }
@@ -33,4 +39,18 @@ exports.getUserStoryById = (usId) => {
 exports.updateUserStoryById = (usId, label, difficulty, importance) => {
     const opt = [label, difficulty, importance, usId];
     return database.fast("UPDATE cdp_us SET label=?, difficulty=?, importance=? WHERE id=?", opt);
+}
+
+exports.getUserStoriesBySprint = (projectId, sprintId) => {
+    const sql = "SELECT * FROM cdp_us WHERE project=? AND sprint=?";
+    return database.fast(sql, [projectId, sprintId]);
+}
+
+exports.closeUserStories = (usId, state) => {
+    return database.fast("UPDATE cdp_us SET state=? WHERE id=?", [state, usId])
+}
+
+exports.getNotClosedUserStrories = (sprintId) => {
+    const sql = "SELECT * FROM cdp_us WHERE sprint=? AND (state<>? OR state is null)";
+    return database.fast(sql, [sprintId, "closed"]);
 }

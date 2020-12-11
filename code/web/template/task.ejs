@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="fr">
+    <head>
+        <%- include('head'); %>
+        <script src="/js/task.js" defer></script>
+    </head>
+<body>
+    <%- include('header'); %>
+    <div class="container-fluid mt-3">
+        <%- include('createTask'); %>
+        <%- include('editTask'); %>
+        <div class="row">
+            <div class="col">
+                <select id="sprintsSelect" class="mb-2">
+                    <option value="">Toutes les tâches</option>
+                    <% response.sprints.forEach((sprint, index) => { %>
+                        <option value="<%= sprint.id %>">
+                            <%= sprint.name %> 
+                            <% if (sprint.state==="active") { %>
+                                (Sprint en cours)
+                            <% } %>
+                        </option>
+                    <% }); %>
+                </select>
+    
+                <table class="table table-hover table-bordered">
+                    <thead>
+                        <tr>
+                            <th scope="col">Id</th>
+                            <th scope="col">US</th>
+                            <th scope="col">Description</th>
+                            <th scope="col">Dépendances</th>
+                            <th scope="col">Durée</th>
+                            <th scope="col">Etat</th>
+                        </tr>
+                    </thead>
+                    <tbody id="taskList">
+                        <% if (response.tasks.length === 0) { %>
+                            <tr class="text-center">
+                                <td colspan="6">
+                                    Aucune tâche pour ce projet
+                                </td>
+                            </tr>
+                        <% } %>
+                        <% response.tasks.forEach((task, index) => { %>
+                        <tr class="taskLine" data-toggle="modal" data-target="#editTaskModal" data-sprint="<%= task.sprint %>">
+                            <td class="text-center"><%= task.id %></td>
+                            <td class="text-center"><%= task.us %></td>
+                            <td><%= task.title %></td>
+                            <td>
+                                <% response.taskDependancies[index].forEach(dependancy => { %>
+                                    <%= dependancy.dep %>, &nbsp;
+                                <% }) %>
+                            </td>
+                            <td class="text-center"><%= task.duration %></td>
+                            <td class="text-center"><%= task.state %></td>
+                        </tr>
+                        <% }); %>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+</body>
+</html>

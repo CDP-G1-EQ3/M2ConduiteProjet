@@ -2,48 +2,143 @@
 <html lang="fr">
     <head>
         <%- include('head'); %>
+        <style>
+            .souceAndDestination {
+                min-height: 400px;
+                border: 1px solid red;
+            }
+        </style>
     </head>
 
 <body>
-    <div class="container">
+    <%- include('header'); %>
+    <div class="container-fluid">
         <div class="row my-3">
             <div class="col-6">
-                <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModal">
+                <button type="button" id="btnCreateUs" class="btn btn-primary" data-toggle="modal" data-target="#exampleModal">
                     Créer US
                 </button>
             </div>
-       </div>
+        </div>
+
+        <% for (let i=0; i<response.sprints.length; i++) { %>
+            <% if(response.sprints[i].state === "finished") continue %>
+            <div class="row">
+                <div class="col">
+                    <div class="d-flex justify-content-between mb-1">
+                        <div class="d-flex flex-column">
+                            <h3><%= response.sprints[i].name %></h3> 
+                            <% if (response.sprints[i].state === "active") { %>
+                                <div class="d-flex">
+                                    Du &nbsp; <span><%= response.sprints[i].startDate %></span> &nbsp;
+                                    au &nbsp; <span><%= response.sprints[i].endDate %></span>
+                                </div>
+                            <% } %>
+                        </div>
+                       <% if (response.sprints[i].state != "active" && response.sprintsUs[i].length > 0) { %>
+                        <button type="button" class="btn btn-primary btnShowStartSprintModal" data-sprintId="<%= response.sprints[i].id %>" data-toggle="modal" data-target="#modalStartSprint" <% if (response.activeSprint) {%> disabled <% } %>>
+                            Démarrer
+                        </button>
+                        <% } %>
+                       <% if (response.sprints[i].state === "active" && response.sprintsUs[i].length > 0) { %>
+                        <button type="button" onclick="closeSprint(this)" class="btn btn-danger" data-sprintId="<%= response.sprints[i].id %>">
+                            Terminer
+                        </button>
+                        <% } %>
+                    </div>
+                    
+                    <table class="table table-hover table-bordered mb-2">
+                        <thead class="thead-dark">
+                            <tr>
+                                <th scope="col">#</th>
+                                <th scope="col">Nom</th>
+                                <th scope="col">Importance</th>
+                                <th scope="col">Difficulté</th>
+                                <% if (response.sprints[i].state === "active") { %>
+                                    <th scope="col">Etat</th>
+                                <% } %>
+                            </tr>
+                        </thead>
+                        <tbody class="sourceAndDestination" data-sprintId="<%= response.sprints[i].id %>">
+                            <% if (response.sprintsUs[i].length === 0) { %>
+                                <tr class="text-center">
+                                    <td colspan="5">
+                                        Faites glisser des U.S dans cette zone pour les ajouter
+                                    </td>
+                                </tr>
+                            <% } %>
+
+                            <% let identifiant = 0; %>
+                            <% response.sprintsUs[i].forEach((us , index) => { %> 
+                                <% identifiant += 2 %>
+                                <tr id="<%= identifiant %>" class="backlogLine draggable" draggable="true">
+                                    <th scope="row"><%= us.id %></th>
+                                    <td><%= us.label %></td>
+                                    <td><%= us.importance %></td>
+                                    <td><%= us.difficulty %></td>
+                                    <% if (response.sprints[i].state === "active") { %>
+                                        <td>
+                                            <select name="usState" class="usState" data-usId="<%= us.id %>">
+                                                <option value="1" <% if (us.state!=="closed") { %> selected<% } %>>Ouverte</option>
+                                                <option value="2" <% if (us.state==="closed") { %> selected<% } %>>Fermée</option>
+                                            </select>
+                                        </td>
+                                    <% } %>
+        
+                               </tr>
+                            <% }) %>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        <% } %>
+
         <div class="row">
             <div class="col-8">
-                <table class="table">
-                    <thead>
-                        <tr>
-                        <th scope="col">identifiant</th>
-                        <th scope="col">Description</th>
-                        <th scope="col">importance</th>
-                        <th scope="col">difficulté</th>
-                        </tr>
-                    </thead>
-                    <tbody>
-                        <% for(let i=0; i<userStories.userStories.length; i++) { %> 
-                        <tr class="backlogLine">
-                            <th scope="row"><%= userStories.userStories[i].id %></th>
-                            <td><%= userStories.userStories[i].label %></td>
-                            <td><%= userStories.userStories[i].importance %></td>
-                            <td><%= userStories.userStories[i].difficulty %></td>
+                    <div class="d-flex justify-content-between">
+                        <h3>Backlog</h3>
+                        <form action="/sprint" method="post">
+                            <button type="submit" class="btn btn-primary"> Créer sprint </button>
+                        </form>
+                    </div>
+                    <table class="table table-hover table-bordered">
+                        <thead class="thead-dark">
+                            <tr>
+                                <th scope="col">#</th>
+                                <th scope="col">Nom</th>
+                                <th scope="col">Importance</th>
+                                <th scope="col">Difficulté</th>
                             </tr>
-                        <tr>
-                        <% } %>
-                    </tbody>
-                </table>
+                        </thead>
+                        <tbody id="backlogTbody" class="sourceAndDestination" data-sprintId="NULL">
+                            <% if (response.userStories.length === 0) { %>
+                                <tr class="text-center">
+                                    <td colspan="4">
+                                        Cliquez sur "Créer US" ou faites glisser des U.S dans cette zone pour les ajouter.
+                                    </td>
+                                </tr>
+                            <% } %>
+                            <% let identifiant = 1; %>
+                            <% response.userStories.forEach((us) => { %> 
+                                <% identifiant += 2 %>
+                                <tr id="<%= identifiant %>" class="backlogLine draggable" draggable="true">
+                                    <th scope="row"><%= us.id %></th>
+                                    <td><%= us.label %></td>
+                                    <td><%= us.importance %></td>
+                                    <td><%= us.difficulty %></td>
+                                </tr>
+                            <% }) %>
+                        </tbody>
+                    </table>
             </div>
-            <div class="col-4" id="infosUs">
-                 <form method="POST" onsubmit="onFormSubmit(this);">
+            <div class="col-4 mb-3" id="infosUs">
+                <form method="POST" onsubmit="onFormSubmit(this);">
                     <input type="hidden" id="method" name="method" value="put">
                     <div class="form-group">
                         <label for="description">Description</label><br>
                         <textarea name="description" id="description" cols="30" rows="5" required></textarea>
                     </div>
+                    <p>Importance</p>
                     <div class="form-group">
                         <select class="custom-select" name="importance" id="importance">
                             <option value="1">maximale</option>
@@ -51,9 +146,15 @@
                             <option value="3">minimale</option>
                         </select>
                     </div>
-                    <label for="customRange2">Priorité</label>
-                    <input type="range" id="priority" name="difficulty" class="custom-range" min="1" max="100" id="customRange2">
-
+                    <label for="difficulty">Difficulté</label>
+                    <div class="row">
+                        <div class="col-10">
+                            <input type="range" id="difficulty" name="difficulty" class="custom-range" min="1" max="100">
+                        </div>
+                        <div class="col-2">
+                            <span id="diffDisplay"></span>
+                        </div>
+                    </div>
                     <button type="submit" class="btn btn-primary" onclick="setMethod('put');">Enregistrer</button>
                     <button type="submit" class="btn btn-primary" onclick="setMethod('delete');">Supprimer</button>
                     <button type="button" id="fermer" class="btn btn-secondary">Fermer</button>
@@ -67,7 +168,7 @@
     <div class="modal-dialog">
         <div class="modal-content">
         <div class="modal-header">
-            <h5 class="modal-title" id="exampleModalLabel">Créer une user story</h5>
+            <h5 class="modal-title" id="exampleModalLabel">Créer une User Story</h5>
             <button type="button" class="close" data-dismiss="modal" aria-label="Close">
             <span aria-hidden="true">&times;</span>
             </button>
@@ -78,12 +179,13 @@
                     <div class="col">
                         <form method="POST" action="/backlog/us">
                             <div class="form-group">
-                                <input type="hidden" name="idProject" value="<%= userStories.projectId %>">
+                                <input type="hidden" name="idProject" value="<%= response.projectId %>">
                             </div>
                             <div class="form-group">
                                 <label for="description">Description</label><br>
-                                <textarea name="description" id="description" cols="30" rows="5" required></textarea>
+                                <textarea name="description" id="description2" cols="30" rows="5" required></textarea>
                             </div>
+                            <p>Importance</p>
                             <div class="form-group">
                                 <select class="custom-select" name="importance">
                                     <option value="1">maximale</option>
@@ -91,11 +193,17 @@
                                     <option value="3">minimale</option>
                                     </select>
                             </div>
-                            <label for="customRange2">Priorité</label>
-                            <input type="range" name="difficulty" class="custom-range" min="0" max="100" id="customRange2">
-
+                            <label for="createUsDifficulty">Difficulté</label>
+                            <div class="row">
+                                <div class="col-10">
+                                    <input type="range" id="createUsDifficulty" name="difficulty" class="custom-range" min="1" max="100">
+                                </div>
+                                <div class="col-2">
+                                    <span id="createUsDiffDisplay">50</span>
+                                </div>
+                            </div>
                             <button type="button" class="btn btn-secondary" data-dismiss="modal">Annuler</button>
-                            <button type="submit" class="btn btn-primary">Créer</button>
+                            <button type="submit" id="submitUsForm"  class="btn btn-primary">Créer</button>
                         </form>
                     </div>
                 </div>
@@ -110,6 +218,9 @@
         </div>
     </div>
     </div>
+
+
+    <%- include('startSprint'); %>
 
     <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
     <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js" integrity="sha384-9/reFTGAW83EW2RDu2S0VKaIzap3H66lZH81PoYlFhbGU+6BZp6G7niu735Sk7lN" crossorigin="anonymous"></script>
