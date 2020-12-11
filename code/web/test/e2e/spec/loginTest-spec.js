@@ -75,7 +75,7 @@ describe("Login tests: ", () => {
             btnLogin.click();
             await driver.manage().setTimeouts({ implicit: timing });
             let errorText = await driver.findElement(By.id("errorDiv")).getText();
-            expect(errorText).toBe("aucun utilisateur ne correspond à cette addresse mail");
+            expect(errorText).toBe("Aucun utilisateur ne correspond à cette adresse email");
         } catch (error) {
             fail(error);
         }       
@@ -91,7 +91,7 @@ describe("Login tests: ", () => {
             btnLogin.click();
             await driver.manage().setTimeouts({ implicit: timing });
             let errorText = await driver.findElement(By.id("errorDiv")).getText();
-            expect(errorText).toBe("mot de passe incorrect");
+            expect(errorText).toBe("Mot de passe incorrect");
         } catch (error) {
             fail(error);
         }       

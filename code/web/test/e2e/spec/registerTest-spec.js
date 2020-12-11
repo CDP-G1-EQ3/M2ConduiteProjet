@@ -44,7 +44,7 @@ describe("Register tests: ", () => {
             await driver.findElement(By.id("btnRegister")).click();
             await driver.manage().setTimeouts({ implicit: timing });
             const textError = await driver.findElement(By.id("registerError")).getText();
-            expect(textError).toBe("a user with this email already exists");
+            expect(textError).toBe("Un utilisateur ayant cet e-mail est déjà enregistré");
         } catch (error) {
             fail(error);
         }

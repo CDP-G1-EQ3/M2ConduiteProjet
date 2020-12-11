@@ -13,5 +13,13 @@
 |25 | En tant que membre d'un projet, je souhaite pouvoir télécharger ou supprimer tout fichier uploadé afin de corriger d'éventuelles erreurs. | normale | 3 | Ouverte |
 |26 | En tant que membre d'un projet, je souhaite pouvoir me déplacer entre les differentes fonctionnalités (projets, backlog, sprints, tâches) en utilisant un menu afin de faciliter l'utilisation de l'application. | normale | 3 | Fermée |
 
+### Conclusion du Sprint 3
+
 - Prevision de charge: 25
 - Vélocité: 19
+
+### Burndown
+
+fin du sprint 3
+
+![Burndown](imgs/burndown3.png "Burndown à la fin du sprint 2")

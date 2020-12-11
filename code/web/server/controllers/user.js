@@ -18,7 +18,7 @@ exports.signup= (req, res) => {
                     }
                 })
                 .catch(sqlError => { 
-                    error = "a user with this email already exists"
+                    error = "Un utilisateur ayant cet e-mail est déjà enregistré"
                     res.render("register", {error: error});
                  });
         }
@@ -36,7 +36,7 @@ exports.login= (req, res) => {
                  bcrypt.compare(req.body.password, sqlResult[0].sha)
                      .then(valid => {
                          if (!valid)
-                            res.render("login", {errorLogin: "mot de passe incorrect"});
+                            res.render("login", {errorLogin: "Mot de passe incorrect"});
                          else {
                              req.session.userId = sqlResult[0].id;
                              res.redirect('/project');
@@ -44,7 +44,7 @@ exports.login= (req, res) => {
                      })
              }
              else
-                res.render("login", {errorLogin: "aucun utilisateur ne correspond à cette addresse mail"});
+                res.render("login", {errorLogin: "Aucun utilisateur ne correspond à cette adresse email"});
          })
          .catch(err => {
              res.json({error: err});
