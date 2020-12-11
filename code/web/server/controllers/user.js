@@ -18,7 +18,7 @@ exports.signup= (req, res) => {
                     }
                 })
                 .catch(sqlError => { 
-                    error = "a user with this email already exists"
+                    error = "Un utilisateur ayant cet e-mail est déjà enregistré"
                     res.render("register", {error: error});
                  });
         }

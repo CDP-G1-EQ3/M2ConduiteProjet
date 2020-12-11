@@ -18,22 +18,24 @@
                 <p class="text-center">Saisissez vos informations pour continuer</p>
                 <form method="POST" action="/user/signup">
                     <div class="form-group">
-                        <input type="email" class="form-control" id="mail" name="mail" aria-describedby="emailHelp" placeholder="Entrer votre email" required>
+                        <input type="email" class="form-control" id="mail" name="mail" aria-describedby="emailHelp" placeholder="E-mail" required>
                     </div>
                     <div class="form-group">
-                        <input type="text" class="form-control" id="username" name="username" aria-describedby="emailHelp" placeholder="Entrer votre Pseudonyme" required>
+                        <input type="text" class="form-control" id="username" name="username" aria-describedby="emailHelp" placeholder="Pseudonyme" required>
                     </div>
                     <div class="form-group">
-                        <input type="password" class="form-control" name="password" id="password" placeholder="entrer votre mot de passe" minlength="8" required>
+                        <input type="password" class="form-control" name="password" id="password" placeholder="Mot de passe" minlength="8" required>
                     </div>
                     <div class="form-group">
-                        <input type="password" class="form-control" name="passwordConfirmation" id="passwordConfirmation" placeholder="entrer à nouveau votre mot de passe" minlength="8" required>
+                        <input type="password" class="form-control" name="passwordConfirmation" id="passwordConfirmation" placeholder="Confirmation du mot de passe" minlength="8" required>
                     </div>
                     <div id="errorJs" class="text-danger text-center"></div><br>
                     <% if (typeof error != 'undefined') { %>
                     <div id="registerError" class="text-danger text-center"><%= error %></div><br>
                     <% } %>
-                    <button type="submit" id="btnRegister" class="btn btn-primary">S'inscrire</button>
+                    <div class="text-center">
+                        <button type="submit" id="btnRegister" class="btn btn-primary">S'inscrire</button>
+                    </div>
                 </form>
             </div>
         </div>
