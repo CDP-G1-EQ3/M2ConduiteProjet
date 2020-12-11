@@ -15,7 +15,7 @@
     <div class="container-fluid">
         <div class="row my-3">
             <div class="col-6">
-                <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModal">
+                <button type="button" id="btnCreateUs" class="btn btn-primary" data-toggle="modal" data-target="#exampleModal">
                     Créer US
                 </button>
             </div>
@@ -110,7 +110,7 @@
                                 <th scope="col">Difficulté</th>
                             </tr>
                         </thead>
-                        <tbody class="sourceAndDestination" data-sprintId="NULL">
+                        <tbody id="backlogTbody" class="sourceAndDestination" data-sprintId="NULL">
                             <% if (response.userStories.length === 0) { %>
                                 <tr class="text-center">
                                     <td colspan="4">
@@ -183,7 +183,7 @@
                             </div>
                             <div class="form-group">
                                 <label for="description">Description</label><br>
-                                <textarea name="description" id="description" cols="30" rows="5" required></textarea>
+                                <textarea name="description" id="description2" cols="30" rows="5" required></textarea>
                             </div>
                             <p>Importance</p>
                             <div class="form-group">
@@ -203,7 +203,7 @@
                                 </div>
                             </div>
                             <button type="button" class="btn btn-secondary" data-dismiss="modal">Annuler</button>
-                            <button type="submit" class="btn btn-primary">Créer</button>
+                            <button type="submit" id="submitUsForm"  class="btn btn-primary">Créer</button>
                         </form>
                     </div>
                 </div>
