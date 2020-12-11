@@ -19,4 +19,11 @@ phpmyadmin (gestion de la base de données) :
 
 [http://localhost:8080/](http://localhost:8080/) 
 
-Identifiants par défaut : cdp/cdp, modifiables dans docker-compose.yml
+Identifiants par défaut pour phpmyadmin : cdp/cdp, modifiables dans docker-compose.yml
+
+## exécution des tests
+
+Se positionner dans le répertoire code :
+`cd code`
+lancer les tests :
+`npx jasmine web/test/e2e/spec/*.js`
