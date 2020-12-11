@@ -4,86 +4,86 @@
         <%- include('head'); %>
         <script src="/js/actifTasks.js" defer></script>
     </head>
-<body class="container-fluid">
+<body>
     <%- include('header'); %>
-    <div class="row">
-        <div class="col-4">
-            <div class="card">
-                <div class="card-header">
-                    A FAIRE
-                </div>
-                <div class="card-body">
-                    <ul class="list-group sourceAndDestination" data-dropzoneType="todo">
-                        <% if (true) { %>
-                            <li class="list-group-item text-center">Faites un glissez déposer pour ajouter une tâche</li>
-                        <% } %>
-                        <% response.tasks.forEach((task, index) => { %>
-                            <% if (task.state === "todo") { %>
-                                <li id="<%= task.id %>" class="list-group-item d-flex flex-column justify-content-between mb-2 draggable" draggable="true">
-                                    <div>
-                                        <span>ID: <%= task.id %> </span> &ensp;
-                                        <span>US: <%= task.us %> </span>
-                                    </div>
-                                    <span><%= task.title %></span>
-                                </li>
+    <div class="container-fluid">
+        <div class="row">
+            <div class="col-4">
+                <div class="card">
+                    <div class="card-header">
+                        A FAIRE
+                    </div>
+                    <div class="card-body">
+                        <ul class="list-group sourceAndDestination" data-dropzoneType="todo">
+                            <% if (true) { %>
+                                <li class="list-group-item text-center">Faites un glisser-déposer pour ajouter une tâche</li>
                             <% } %>
-                        <% }) %>
+                            <% response.tasks.forEach((task, index) => { %>
+                                <% if (task.state === "todo") { %>
+                                    <li id="<%= task.id %>" class="list-group-item d-flex flex-column justify-content-between mb-2 draggable" draggable="true">
+                                        <div>
+                                            <span>ID: <%= task.id %> </span> &ensp;
+                                            <span>US: <%= task.us %> </span>
+                                        </div>
+                                        <span><%= task.title %></span>
+                                    </li>
+                                <% } %>
+                            <% }) %>
                         </ul>
-               </div>
-           </div>
-        </div>
-        <div class="col-4">
-            <div class="card">
-                <div class="card-header">
-                    EN COURS
+                    </div>
                 </div>
-                <div class="card-body">
-                    <ul class="list-group sourceAndDestination" data-dropzoneType="doing">
-                       <% response.tasks.forEach((task, index) => { %>
-                            <% if (task.state === "doing") { %>
-                                <li id="<%= task.id %>" class="list-group-item d-flex flex-column justify-content-between mb-2 draggable" draggable="true">
-                                    <div>
-                                        <span>ID: <%= task.id %> </span> &ensp;
-                                        <span>US: <%= task.us %> </span>
-                                    </div>
-                                    <span><%= task.title %></span>
-                                </li>
+            </div>
+            <div class="col-4">
+                <div class="card">
+                    <div class="card-header">
+                        EN COURS
+                    </div>
+                    <div class="card-body">
+                        <ul class="list-group sourceAndDestination" data-dropzoneType="doing">
+                            <% response.tasks.forEach((task, index) => { %>
+                                <% if (task.state === "doing") { %>
+                                    <li id="<%= task.id %>" class="list-group-item d-flex flex-column justify-content-between mb-2 draggable" draggable="true">
+                                        <div>
+                                            <span>ID: <%= task.id %> </span> &ensp;
+                                            <span>US: <%= task.us %> </span>
+                                        </div>
+                                        <span><%= task.title %></span>
+                                    </li>
+                                <% } %>
+                            <% }) %>
+                            <% if (true) { %>
+                                <li class="list-group-item text-center">Faites un glisser-déposer pour ajouter une tâche</li>
                             <% } %>
-                        <% }) %>
-                        <% if (true) { %>
-                            <li class="list-group-item text-center">Faites un glissez déposer pour ajouter une tâche</li>
-                        <% } %>
- 
                         </ul>
-               </div>
-           </div>
-        </div>
-        <div class="col-4">
-            <div class="card">
-                <div class="card-header">
-                    TERMINEE
+                    </div>
                 </div>
-                <div class="card-body">
-                    <ul class="list-group sourceAndDestination" data-dropzoneType="done">
-                        <% if (true) { %>
-                            <li class="list-group-item text-center">Faites un glissez déposer pour ajouter une tâche</li>
-                        <% } %>
-                        <% response.tasks.forEach((task, index) => { %>
-                            <% if (task.state === "done") { %>
-                                <li id="<%= task.id %>" class="list-group-item d-flex flex-column justify-content-between mb-2 draggable" draggable="true">
-                                    <div>
-                                        <span>ID: <%= task.id %> </span> &ensp;
-                                        <span>US: <%= task.us %> </span>
-                                    </div>
-                                    <span><%= task.title %></span>
-                                </li>
+            </div>
+            <div class="col-4">
+                <div class="card">
+                    <div class="card-header">
+                        TERMINEE
+                    </div>
+                    <div class="card-body">
+                        <ul class="list-group sourceAndDestination" data-dropzoneType="done">
+                            <% if (true) { %>
+                                <li class="list-group-item text-center">Faites un glisser-déposer pour ajouter une tâche</li>
                             <% } %>
-                        <% }) %>
+                            <% response.tasks.forEach((task, index) => { %>
+                                <% if (task.state === "done") { %>
+                                    <li id="<%= task.id %>" class="list-group-item d-flex flex-column justify-content-between mb-2 draggable" draggable="true">
+                                        <div>
+                                            <span>ID: <%= task.id %> </span> &ensp;
+                                            <span>US: <%= task.us %> </span>
+                                        </div>
+                                        <span><%= task.title %></span>
+                                    </li>
+                                <% } %>
+                            <% }) %>
                         </ul>
-               </div>
-           </div>
+                    </div>
+                </div>
+            </div>
         </div>
-
     </div>
+    
 </body>
-<
